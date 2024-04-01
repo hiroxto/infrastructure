@@ -3,7 +3,9 @@
   "extends": [
     "github>hiroxto/renovate-config"
   ],
-  "lockFileMaintenance": {
-    "enabled": false
+  "terraform": {
+    "lockFileMaintenance": {
+      "enabled": false
+    }
   }
 }
