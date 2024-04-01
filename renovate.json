@@ -2,5 +2,10 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "github>hiroxto/renovate-config"
-  ]
+  ],
+  "terraform": {
+    "lockFileMaintenance": {
+      "enabled": false
+    }
+  }
 }
