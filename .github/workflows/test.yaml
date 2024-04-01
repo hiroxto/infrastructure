@@ -24,7 +24,7 @@ jobs:
         run: terraform fmt -recursive -check -no-color
 
       - name: Run terraform init
-        run: terraform init -no-color
+        run: terraform init -upgrade -no-color
 
       - name: Check terraform validate
         run: terraform validate -no-color
