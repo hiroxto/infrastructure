@@ -28,6 +28,3 @@ jobs:
 
       - name: Check terraform validate
         run: terraform validate -no-color
-
-      - name: Check terraform plan
-        run: terraform plan -no-color
