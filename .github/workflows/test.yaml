@@ -15,11 +15,6 @@ jobs:
           terraform_version: 1.7.x
           cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
-      - name: Setup secrets.auto.tfvars
-        run: |
-          touch secrets.auto.tfvars
-          echo 'cloudflare_api_token = "${{ secrets.CLOUDFLARE_API_TOKEN }}"' >> secrets.auto.tfvars
-
       - name: Check terraform format
         run: terraform fmt -recursive -check -no-color
 
