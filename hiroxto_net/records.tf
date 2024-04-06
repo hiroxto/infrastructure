@@ -1,4 +1,4 @@
-resource "cloudflare_record" "cname_hiroxto-net" {
+resource "cloudflare_record" "cname_root" {
   name    = "hiroxto.net"
   proxied = true
   ttl     = 1
@@ -7,7 +7,7 @@ resource "cloudflare_record" "cname_hiroxto-net" {
   zone_id = var.cloudflare_zone_id
 }
 
-resource "cloudflare_record" "cname_swarm-checkin-regulation-checker" {
+resource "cloudflare_record" "cname_swarm_checkin_regulation_checker" {
   name    = "swarm-checkin-regulation-checker"
   proxied = true
   ttl     = 1
@@ -16,7 +16,7 @@ resource "cloudflare_record" "cname_swarm-checkin-regulation-checker" {
   zone_id = var.cloudflare_zone_id
 }
 
-resource "cloudflare_record" "cname_train-photo-blog" {
+resource "cloudflare_record" "cname_train_photo_blog" {
   name    = "train-photo-blog"
   proxied = true
   ttl     = 1
