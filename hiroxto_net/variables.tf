@@ -1,3 +1,4 @@
 variable "cloudflare_zone_id" {
-  type = string
+  type        = string
+  description = "Cloudflare の Zone ID"
 }
