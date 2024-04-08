@@ -67,6 +67,20 @@ resource "cloudflare_record" "mx_3" {
   priority = 29
 }
 
+resource "cloudflare_record" "txt_spf" {
+  name    = "hiroxto.net"
+  type    = "TXT"
+  value   = "v=spf1 include:_spf.mx.cloudflare.net include:_spf.google.com ~all"
+  zone_id = var.cloudflare_zone_id
+}
+
+resource "cloudflare_record" "txt_dmarc" {
+  name    = "_dmarc"
+  type    = "TXT"
+  value   = "v=DMARC1;  p=none; rua=mailto:97f14f78b6474427b3c6f73b9464f836@dmarc-reports.cloudflare.net"
+  zone_id = var.cloudflare_zone_id
+}
+
 resource "cloudflare_record" "txt_atproto" {
   name    = "_atproto"
   type    = "TXT"
