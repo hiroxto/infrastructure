@@ -43,44 +43,28 @@ resource "cloudflare_record" "cname_utils" {
   ttl     = 1
 }
 
-resource "cloudflare_record" "mx_5" {
+resource "cloudflare_record" "mx_1" {
   name     = "hiroxto.net"
   type     = "MX"
-  value    = "alt4.gmr-smtp-in.l.google.com"
+  value    = "route1.mx.cloudflare.net"
   zone_id  = var.cloudflare_zone_id
-  priority = 40
-}
-
-resource "cloudflare_record" "mx_4" {
-  name     = "hiroxto.net"
-  type     = "MX"
-  value    = "alt3.gmr-smtp-in.l.google.com"
-  zone_id  = var.cloudflare_zone_id
-  priority = 30
-}
-
-resource "cloudflare_record" "mx_3" {
-  name     = "hiroxto.net"
-  type     = "MX"
-  value    = "alt2.gmr-smtp-in.l.google.com"
-  zone_id  = var.cloudflare_zone_id
-  priority = 20
+  priority = 57
 }
 
 resource "cloudflare_record" "mx_2" {
   name     = "hiroxto.net"
   type     = "MX"
-  value    = "alt1.gmr-smtp-in.l.google.com"
+  value    = "route2.mx.cloudflare.net"
   zone_id  = var.cloudflare_zone_id
-  priority = 10
+  priority = 73
 }
 
-resource "cloudflare_record" "mx_1" {
+resource "cloudflare_record" "mx_3" {
   name     = "hiroxto.net"
   type     = "MX"
-  value    = "gmr-smtp-in.l.google.com"
+  value    = "route3.mx.cloudflare.net"
   zone_id  = var.cloudflare_zone_id
-  priority = 5
+  priority = 29
 }
 
 resource "cloudflare_record" "txt_atproto" {
