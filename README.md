@@ -2,6 +2,12 @@
 
 Cloudflare で管理しているドメインを Terraform を使って IaC にするためのプロジェクト。
 
+## 管理しているドメイン
+
+このプロジェクトでは以下のドメインを管理している。
+
+- hiroxto.net
+
 ## セットアップ
 
 ### Terraform Cloud にログイン
