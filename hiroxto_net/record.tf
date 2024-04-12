@@ -1,5 +1,5 @@
 resource "cloudflare_record" "cname_root" {
-  name    = "hiroxto.net"
+  name    = var.domain_name
   type    = "CNAME"
   value   = "hiroxto-net.netlify.app"
   zone_id = var.cloudflare_zone_id
@@ -44,7 +44,7 @@ resource "cloudflare_record" "cname_utils" {
 }
 
 resource "cloudflare_record" "mx_1" {
-  name     = "hiroxto.net"
+  name     = var.domain_name
   type     = "MX"
   value    = "route1.mx.cloudflare.net"
   zone_id  = var.cloudflare_zone_id
@@ -52,7 +52,7 @@ resource "cloudflare_record" "mx_1" {
 }
 
 resource "cloudflare_record" "mx_2" {
-  name     = "hiroxto.net"
+  name     = var.domain_name
   type     = "MX"
   value    = "route2.mx.cloudflare.net"
   zone_id  = var.cloudflare_zone_id
@@ -60,7 +60,7 @@ resource "cloudflare_record" "mx_2" {
 }
 
 resource "cloudflare_record" "mx_3" {
-  name     = "hiroxto.net"
+  name     = var.domain_name
   type     = "MX"
   value    = "route3.mx.cloudflare.net"
   zone_id  = var.cloudflare_zone_id
@@ -68,7 +68,7 @@ resource "cloudflare_record" "mx_3" {
 }
 
 resource "cloudflare_record" "txt_spf" {
-  name    = "hiroxto.net"
+  name    = var.domain_name
   type    = "TXT"
   value   = "v=spf1 include:_spf.mx.cloudflare.net include:_spf.google.com ~all"
   zone_id = var.cloudflare_zone_id
