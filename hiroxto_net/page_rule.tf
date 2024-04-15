@@ -1,5 +1,5 @@
 resource "cloudflare_page_rule" "dot_to_install_script" {
-  zone_id = var.cloudflare_zone_id
+  zone_id = cloudflare_zone.main.id
   target  = "dot.${var.domain_name}/*"
   actions {
     forwarding_url {
