@@ -1,6 +1,6 @@
 resource "cloudflare_email_routing_rule" "forward_me_to_gmail" {
-  name    = "Forward me@${cloudflare_zone.main.zone} to Gmail"
   zone_id = cloudflare_zone.main.id
+  name    = "Forward me@${cloudflare_zone.main.zone} to Gmail"
   enabled = true
 
   matcher {
