@@ -1,3 +1,6 @@
+#
+# CNAME
+#
 resource "cloudflare_record" "cname_root" {
   zone_id = cloudflare_zone.main.id
   name    = cloudflare_zone.main.zone
@@ -38,6 +41,9 @@ resource "cloudflare_record" "cname_utils" {
   proxied = true
 }
 
+#
+# MX
+#
 resource "cloudflare_record" "mx_1" {
   zone_id  = cloudflare_zone.main.id
   name     = cloudflare_zone.main.zone
@@ -62,6 +68,9 @@ resource "cloudflare_record" "mx_3" {
   priority = 29
 }
 
+#
+# TXT
+#
 resource "cloudflare_record" "txt_spf" {
   zone_id = cloudflare_zone.main.id
   name    = cloudflare_zone.main.zone
