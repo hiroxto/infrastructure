@@ -4,7 +4,6 @@ resource "cloudflare_record" "cname_root" {
   type    = "CNAME"
   value   = "hiroxto-net.netlify.app"
   proxied = true
-  ttl     = 1
 }
 
 resource "cloudflare_record" "cname_www" {
@@ -13,7 +12,6 @@ resource "cloudflare_record" "cname_www" {
   type    = "CNAME"
   value   = "hiroxto-net.netlify.app"
   proxied = true
-  ttl     = 1
 }
 
 resource "cloudflare_record" "cname_swarm_checkin_regulation_checker" {
@@ -22,7 +20,6 @@ resource "cloudflare_record" "cname_swarm_checkin_regulation_checker" {
   type    = "CNAME"
   value   = "swarm-checkin-regulation-checker.pages.dev"
   proxied = true
-  ttl     = 1
 }
 
 resource "cloudflare_record" "cname_train_photo_blog" {
@@ -31,7 +28,6 @@ resource "cloudflare_record" "cname_train_photo_blog" {
   name    = "train-photo-blog"
   value   = "hiroxto-train-photo-blog.netlify.app"
   proxied = true
-  ttl     = 1
 }
 
 resource "cloudflare_record" "cname_utils" {
@@ -40,7 +36,6 @@ resource "cloudflare_record" "cname_utils" {
   type    = "CNAME"
   value   = "hiroxto-utils-hiroxto-net.pages.dev"
   proxied = true
-  ttl     = 1
 }
 
 resource "cloudflare_record" "mx_1" {
@@ -87,6 +82,4 @@ resource "cloudflare_record" "txt_atproto" {
   type    = "TXT"
   value   = "did=did:plc:ky336ximtcas2d34kfg3sosh"
   comment = "For Bluesky handle"
-  proxied = false
-  ttl     = 1
 }
