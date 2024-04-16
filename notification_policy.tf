@@ -1,3 +1,6 @@
+#
+# Default
+#
 resource "cloudflare_notification_policy" "real_origin_monitoring_to_email" {
   account_id = cloudflare_account.main.id
 
@@ -11,6 +14,9 @@ resource "cloudflare_notification_policy" "real_origin_monitoring_to_email" {
   }
 }
 
+#
+# Web Analytics
+#
 resource "cloudflare_notification_policy" "web_analytics_metrics_update" {
   account_id = cloudflare_account.main.id
 
