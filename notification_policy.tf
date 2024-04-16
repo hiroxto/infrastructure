@@ -16,7 +16,7 @@ resource "cloudflare_notification_policy" "web_analytics_metrics_update" {
 
   enabled    = true
   alert_type = "web_analytics_metrics_update"
-  name       = "Update Web Analytics Metrix"
+  name       = "Web analytics metrics update"
 
   webhooks_integration {
     id   = cloudflare_notification_policy_webhooks.slack.id
