@@ -92,3 +92,11 @@ resource "cloudflare_record" "txt_atproto" {
   value   = "did=did:plc:ky336ximtcas2d34kfg3sosh"
   comment = "For Bluesky handle"
 }
+
+resource "cloudflare_record" "txt_discord_verify" {
+  zone_id = cloudflare_zone.main.id
+  name    = "_discord"
+  type    = "TXT"
+  value   = "dh=9b1c2f16cbf35075da4701eeb1d5559925845383"
+  comment = "For Discord verify"
+}
