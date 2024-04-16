@@ -1,3 +1,7 @@
+# WARNING: プランによっては使えない通知もあるため，追加する前に要確認
+# 利用可能な通知は公式ドキュメントを確認
+# https://developers.cloudflare.com/notifications/notification-available/
+
 #
 # Default
 #
@@ -11,6 +15,35 @@ resource "cloudflare_notification_policy" "real_origin_monitoring_to_email" {
 
   email_integration {
     id = "hiroto.ktzw@gmail.com"
+  }
+}
+
+#
+# Cloudflare Status
+#
+resource "cloudflare_notification_policy" "maintenance_event_notification" {
+  account_id = cloudflare_account.main.id
+
+  enabled    = true
+  alert_type = "maintenance_event_notification"
+  name       = "Maintenance event notification"
+
+  webhooks_integration {
+    id   = cloudflare_notification_policy_webhooks.slack.id
+    name = cloudflare_notification_policy_webhooks.slack.name
+  }
+}
+
+resource "cloudflare_notification_policy" "incident_alert" {
+  account_id = cloudflare_account.main.id
+
+  enabled    = true
+  alert_type = "incident_alert"
+  name       = "Incident alert"
+
+  webhooks_integration {
+    id   = cloudflare_notification_policy_webhooks.slack.id
+    name = cloudflare_notification_policy_webhooks.slack.name
   }
 }
 
