@@ -19,6 +19,6 @@ resource "cloudflare_notification_policy" "web_analytics_metrics_update" {
 
   webhooks_integration {
     id   = cloudflare_notification_policy_webhooks.slack.id
-    name = "Slack(hiroxto) Cloudflare Notification"
+    name = cloudflare_notification_policy_webhooks.slack.name
   }
 }
