@@ -48,6 +48,22 @@ resource "cloudflare_notification_policy" "incident_alert" {
 }
 
 #
+# SSL/TLS
+#
+resource "cloudflare_notification_policy" "universal_ssl_event_type" {
+  account_id = cloudflare_account.main.id
+
+  enabled    = true
+  alert_type = "universal_ssl_event_type"
+  name       = "Universal ssl event type"
+
+  webhooks_integration {
+    id   = cloudflare_notification_policy_webhooks.slack.id
+    name = cloudflare_notification_policy_webhooks.slack.name
+  }
+}
+
+#
 # Web Analytics
 #
 resource "cloudflare_notification_policy" "web_analytics_metrics_update" {
