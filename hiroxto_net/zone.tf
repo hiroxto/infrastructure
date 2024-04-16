@@ -1,4 +1,4 @@
 resource "cloudflare_zone" "main" {
-  account_id = cloudflare_account.main.id
+  account_id = var.cloudflare_account_id
   zone       = "hiroxto.net"
 }
