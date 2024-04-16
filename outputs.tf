@@ -1,6 +1,9 @@
+output "account_id" {
+  value = cloudflare_account.main.id
+}
+
 output "hiroxto_net" {
   value = {
-    account_id = module.hiroxto_net.account_id
-    zone_id    = module.hiroxto_net.zone_id
+    zone_id = module.hiroxto_net.zone_id
   }
 }
