@@ -5,6 +5,7 @@ variable "cloudflare_account_id" {
 
 variable "email_routing_addresses" {
   type = object({
+    catch_all           = string
     forward_me_to_gmail = string
   })
   description = "メール転送先アドレス"
