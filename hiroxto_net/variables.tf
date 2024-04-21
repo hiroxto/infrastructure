@@ -11,3 +11,10 @@ variable "email_routing_addresses" {
   })
   description = "メール転送先アドレス"
 }
+
+variable "records" {
+  type = object({
+    cname_epgstation = string
+  })
+  description = "DNSレコードの設定"
+}

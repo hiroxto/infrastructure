@@ -41,6 +41,14 @@ resource "cloudflare_record" "cname_utils" {
   proxied = true
 }
 
+resource "cloudflare_record" "cname_epgstation" {
+  zone_id = cloudflare_zone.main.id
+  name    = "epgstation"
+  type    = "CNAME"
+  value   = var.records.cname_epgstation
+  proxied = true
+}
+
 #
 # MX
 #
