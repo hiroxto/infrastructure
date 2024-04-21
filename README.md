@@ -1,6 +1,15 @@
-# cloudflare-domains-iac
+# infrastructure
 
-Cloudflare で管理しているドメインを Terraform を使って IaC にするためのプロジェクト。
+インフラ周りを Terraform で IaC にするプロジェクト。
+
+現状は Cloudflare 関連のみを管理しているが将来的には管理対象を増やす。
+
+管理対象
+- Cloudflare Registrar で管理しているドメイン
+  - Record (DNSレコード)
+  - Email Routing
+  - その他， Terraform で扱えるリソース
+- Cloudflare Notifications
 
 プルリクエスト作成後の plan や，マージ後の apply は自動的に Terraform Cloud で実行される。
 

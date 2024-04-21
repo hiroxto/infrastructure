@@ -4,7 +4,7 @@ terraform {
   cloud {
     organization = "hiroxto"
     workspaces {
-      name = "cloudflare-domains"
+      name = "infrastructure"
     }
   }
 
