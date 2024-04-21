@@ -8,7 +8,6 @@
 - Cloudflare Registrar で管理しているドメイン
   - Record (DNSレコード)
   - Email Routing
-  - Page Rules
   - その他， Terraform で扱えるリソース
 - Cloudflare Notifications
 
