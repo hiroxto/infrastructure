@@ -1,4 +1,4 @@
-# cloudflare-domains-iac
+# infrastructure
 
 Cloudflare で管理しているドメインを Terraform を使って IaC にするためのプロジェクト。
 
