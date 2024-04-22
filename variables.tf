@@ -24,3 +24,8 @@ variable "tunnel_epgstation_secret" {
   description = "EPGStation の Tunnel の Secret"
   sensitive   = true
 }
+
+variable "admin_gmail_address" {
+  type        = string
+  description = "管理者の Gmail アドレス"
+}
