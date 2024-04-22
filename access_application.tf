@@ -8,6 +8,6 @@ resource "cloudflare_access_application" "epgstation" {
     cloudflare_access_identity_provider.onetimepin.id,
     cloudflare_access_identity_provider.google.id,
   ]
-  auto_redirect_to_identity = true
+  auto_redirect_to_identity = false
   session_duration          = "168h" # 1 weeks
 }
