@@ -64,6 +64,35 @@ resource "cloudflare_notification_policy" "universal_ssl_event_type" {
 }
 
 #
+# Tunnel
+#
+resource "cloudflare_notification_policy" "tunnel_health_event" {
+  account_id = cloudflare_account.main.id
+
+  enabled    = true
+  alert_type = "tunnel_health_event"
+  name       = "Tunnel health event"
+
+  webhooks_integration {
+    id   = cloudflare_notification_policy_webhooks.slack_tunnel.id
+    name = cloudflare_notification_policy_webhooks.slack_tunnel.name
+  }
+}
+
+resource "cloudflare_notification_policy" "tunnel_update_event" {
+  account_id = cloudflare_account.main.id
+
+  enabled    = true
+  alert_type = "tunnel_update_event"
+  name       = "Tunnel update event"
+
+  webhooks_integration {
+    id   = cloudflare_notification_policy_webhooks.slack_tunnel.id
+    name = cloudflare_notification_policy_webhooks.slack_tunnel.name
+  }
+}
+
+#
 # Web Analytics
 #
 resource "cloudflare_notification_policy" "web_analytics_metrics_update" {
