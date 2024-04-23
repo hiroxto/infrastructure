@@ -29,8 +29,8 @@ resource "cloudflare_notification_policy" "maintenance_event_notification" {
   name       = "Maintenance event notification"
 
   webhooks_integration {
-    id   = cloudflare_notification_policy_webhooks.slack.id
-    name = cloudflare_notification_policy_webhooks.slack.name
+    id   = cloudflare_notification_policy_webhooks.slack_status.id
+    name = cloudflare_notification_policy_webhooks.slack_status.name
   }
 }
 
@@ -42,8 +42,8 @@ resource "cloudflare_notification_policy" "incident_alert" {
   name       = "Incident alert"
 
   webhooks_integration {
-    id   = cloudflare_notification_policy_webhooks.slack.id
-    name = cloudflare_notification_policy_webhooks.slack.name
+    id   = cloudflare_notification_policy_webhooks.slack_status.id
+    name = cloudflare_notification_policy_webhooks.slack_status.name
   }
 }
 
