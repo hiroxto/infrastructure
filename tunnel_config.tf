@@ -5,7 +5,7 @@ resource "cloudflare_tunnel_config" "epgstation" {
   config {
     ingress_rule {
       hostname = "epgstation.hiroxto.net"
-      service  = "http://localhost:8888"
+      service  = "http://localhost:8080"
       origin_request {}
     }
     ingress_rule {
