@@ -30,7 +30,7 @@ resource "cloudflare_pages_project" "hiroxto_net" {
     }
   }
 
-    deployment_configs {
+  deployment_configs {
     preview {
       environment_variables = {
         YARN_VERSION = "1"
