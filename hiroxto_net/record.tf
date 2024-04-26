@@ -5,7 +5,7 @@ resource "cloudflare_record" "cname_root" {
   zone_id = cloudflare_zone.main.id
   name    = cloudflare_zone.main.zone
   type    = "CNAME"
-  value   = "hiroxto-net.netlify.app"
+  value   = "hiroxto-net.pages.dev"
   proxied = true
 }
 
@@ -13,7 +13,7 @@ resource "cloudflare_record" "cname_www" {
   zone_id = cloudflare_zone.main.id
   name    = "www"
   type    = "CNAME"
-  value   = "hiroxto-net.netlify.app"
+  value   = "hiroxto-net.pages.dev"
   proxied = true
 }
 
