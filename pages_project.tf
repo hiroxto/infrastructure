@@ -35,11 +35,15 @@ resource "cloudflare_pages_project" "hiroxto_net" {
       environment_variables = {
         YARN_VERSION = "1"
       }
+      fail_open   = true
+      usage_model = "standard"
     }
     production {
       environment_variables = {
         YARN_VERSION = "1"
       }
+      fail_open   = true
+      usage_model = "standard"
     }
   }
 }
