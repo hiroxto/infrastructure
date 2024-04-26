@@ -103,8 +103,8 @@ resource "cloudflare_record" "txt_atproto" {
 
 resource "cloudflare_record" "txt_discord_verify" {
   zone_id = cloudflare_zone.main.id
-  name    = "_discord"
+  name    = "_discord.www.hiroxto.net"
   type    = "TXT"
-  value   = "dh=9b1c2f16cbf35075da4701eeb1d5559925845383"
+  value   = "dh=f2f8abd2008da9da8d2532f632b4af7f2843f428"
   comment = "For Discord verify"
 }
