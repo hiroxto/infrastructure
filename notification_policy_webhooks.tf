@@ -19,5 +19,5 @@ resource "cloudflare_notification_policy_webhooks" "slack_status" {
 resource "cloudflare_notification_policy_webhooks" "slack_pages" {
   account_id = cloudflare_account.main.id
   name       = "Cloudflare Pages Notification"
-  url        = "https://hooks.slack.com/services/T016EEV6MU3/B0708PFRT6E"
+  url        = "https://hooks.slack.com/services/T016EEV6MU3/B070HL74NBH"
 }
