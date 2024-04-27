@@ -66,6 +66,12 @@ resource "cloudflare_notification_policy" "pages_event_alert" {
     # 本番環境へのデプロイ失敗のみ受け取る
     environment = ["ENVIRONMENT_PRODUCTION"]
     event       = ["EVENT_DEPLOYMENT_FAILED"]
+    # NOTE: cloudflare_pages_project のリソースに ID 属性はあるが name 属性と同じ値が取得できるだけなのでハードコーディング
+    project_id = [
+      "33a852bd-16a6-4d03-9251-2e90223ef8dc", # swarm-checkin-regulation-checker
+      "55e413ae-b964-4671-bb0f-6a88fe146619", # hiroxto-utils-hiroxto-net
+      "c4aafd7f-f4ce-442d-a597-ddea67b8fa46", # hiroxto-net
+    ]
   }
 }
 
