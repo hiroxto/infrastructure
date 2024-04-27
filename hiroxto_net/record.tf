@@ -29,7 +29,7 @@ resource "cloudflare_record" "cname_train_photo_blog" {
   zone_id = cloudflare_zone.main.id
   type    = "CNAME"
   name    = "train-photo-blog"
-  value   = "hiroxto-train-photo-blog.netlify.app"
+  value   = "hiroxto-train-photo-blog.pages.dev"
   proxied = true
 }
 
