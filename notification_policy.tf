@@ -48,6 +48,36 @@ resource "cloudflare_notification_policy" "incident_alert" {
 }
 
 #
+# Pages
+#
+resource "cloudflare_notification_policy" "pages_event_alert" {
+  account_id = cloudflare_account.main.id
+
+  enabled    = true
+  alert_type = "pages_event_alert"
+  name       = "Pages event alert"
+
+  webhooks_integration {
+    id   = cloudflare_notification_policy_webhooks.slack_status.id
+    name = cloudflare_notification_policy_webhooks.slack_status.name
+  }
+
+  filters {
+    # 本番環境へのデプロイ失敗のみ受け取る
+    environment = ["ENVIRONMENT_PRODUCTION"]
+    event       = ["EVENT_DEPLOYMENT_FAILED"]
+    project_id = [
+      cloudflare_pages_project.hiroxto_net.id,
+
+      # このリポジトリで管理していないプロジェクトはIDをハードコーディング
+      # TODO 他のPagesもこのリポジトリに取り込みたい
+      "33a852bd-16a6-4d03-9251-2e90223ef8dc", # swarm-checkin-regulation-checker
+      "55e413ae-b964-4671-bb0f-6a88fe146619", # hiroxto-utils-hiroxto-net
+    ]
+  }
+}
+
+#
 # SSL/TLS
 #
 resource "cloudflare_notification_policy" "universal_ssl_event_type" {
