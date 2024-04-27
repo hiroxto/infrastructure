@@ -71,6 +71,7 @@ resource "cloudflare_notification_policy" "pages_event_alert" {
       "33a852bd-16a6-4d03-9251-2e90223ef8dc", # swarm-checkin-regulation-checker
       "55e413ae-b964-4671-bb0f-6a88fe146619", # hiroxto-utils-hiroxto-net
       "c4aafd7f-f4ce-442d-a597-ddea67b8fa46", # hiroxto-net
+      "800314de-8cc8-4092-98c4-96f6928e2547", # hiroxto-train-photo-blog
     ]
   }
 }
