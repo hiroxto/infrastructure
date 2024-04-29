@@ -5,7 +5,6 @@ resource "cloudflare_access_application" "epgstation" {
   type                 = "self_hosted"
   app_launcher_visible = true
   allowed_idps = [
-    cloudflare_access_identity_provider.onetimepin.id,
     cloudflare_access_identity_provider.google.id,
   ]
   auto_redirect_to_identity  = false
