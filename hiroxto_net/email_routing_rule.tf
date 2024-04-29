@@ -1,6 +1,6 @@
 locals {
   mail_username = {
-    me = "me"
+    me  = "me"
     bot = "bot"
   }
 }
