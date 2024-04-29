@@ -1,3 +1,6 @@
+# NOTE secret の管理を避けるため， Web で作成後に import している。将来的には url と secret を Secrets Store で管理したい。
+# FIXME url をハードコーディングを解消したい
+
 resource "cloudflare_notification_policy_webhooks" "slack" {
   account_id = cloudflare_account.main.id
   name       = "Cloudflare Notification"

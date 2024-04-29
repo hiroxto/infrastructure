@@ -14,7 +14,7 @@ resource "cloudflare_notification_policy" "real_origin_monitoring_to_email" {
   description = "Recieve an email when your origin becomes unreachable"
 
   email_integration {
-    id = "hiroto.ktzw@gmail.com"
+    id = var.admin_gmail_address
   }
 }
 
