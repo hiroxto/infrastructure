@@ -6,6 +6,6 @@ resource "cloudflare_access_policy" "epgstation" {
   precedence     = 1
 
   include {
-    group = [cloudflare_access_group.epgstation.id]
+    group = [cloudflare_access_group.dtv_admin.id]
   }
 }
