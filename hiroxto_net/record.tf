@@ -108,3 +108,11 @@ resource "cloudflare_record" "txt_discord_verify" {
   value   = "dh=f2f8abd2008da9da8d2532f632b4af7f2843f428"
   comment = "For Discord verify"
 }
+
+resource "cloudflare_record" "txt_google_site_verify" {
+  zone_id = cloudflare_zone.main.id
+  name    = cloudflare_zone.main.zone
+  type    = "TXT"
+  value   = "google-site-verification=OWvIVzu3yp2cgeSe6ubYDCEyBk0BchElGwtbEXLzcdw"
+  comment = "For Google Site verify"
+}
