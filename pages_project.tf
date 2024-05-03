@@ -80,14 +80,14 @@ resource "cloudflare_pages_project" "train_photo_blog" {
   deployment_configs {
     preview {
       environment_variables = {
-        HUGO_VERSION = "0.78.2"
+        HUGO_VERSION = "0.125.5"
       }
       fail_open   = true
       usage_model = "standard"
     }
     production {
       environment_variables = {
-        HUGO_VERSION = "0.78.2"
+        HUGO_VERSION = "0.125.5"
       }
       fail_open   = true
       usage_model = "standard"
