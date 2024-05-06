@@ -5,8 +5,12 @@ resource "cloudflare_tunnel_config" "epgstation" {
   config {
     ingress_rule {
       hostname = "epgstation.hiroxto.net"
-      service  = "http://localhost:8080"
-      origin_request {}
+      service  = "http://127.0.0.1:8080"
+      origin_request {
+        connect_timeout = "1m0s"
+        tls_timeout     = "1m0s"
+        tcp_keep_alive  = "1m0s"
+      }
     }
     ingress_rule {
       service = "http_status:404"
