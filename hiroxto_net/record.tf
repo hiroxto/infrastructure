@@ -116,3 +116,11 @@ resource "cloudflare_record" "txt_google_site_verify" {
   value   = "google-site-verification=OWvIVzu3yp2cgeSe6ubYDCEyBk0BchElGwtbEXLzcdw"
   comment = "For Google Site verify"
 }
+
+resource "cloudflare_record" "txt_keybase_verify" {
+  zone_id = cloudflare_zone.main.id
+  name    = cloudflare_zone.main.zone
+  type    = "TXT"
+  value   = "keybase-site-verification=awgxLY0PHHrVJQKhhDri44iFtoaXYmAk5MPD9L3PNqs"
+  comment = "For Keybase verify"
+}
