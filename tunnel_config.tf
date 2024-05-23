@@ -1,6 +1,6 @@
-resource "cloudflare_tunnel_config" "epgstation" {
+resource "cloudflare_tunnel_config" "raspi_4b_01" {
   account_id = cloudflare_account.main.id
-  tunnel_id  = cloudflare_tunnel.epgstation.id
+  tunnel_id  = cloudflare_tunnel.raspi_4b_01.id
 
   config {
     ingress_rule {

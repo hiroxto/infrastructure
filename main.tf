@@ -7,6 +7,6 @@ module "hiroxto_net" {
     forward_bot_to_gmail = cloudflare_email_routing_address.main_gmail.email
   }
   records = {
-    cname_epgstation = cloudflare_tunnel.epgstation.cname
+    cname_epgstation = cloudflare_tunnel.raspi_4b_01.cname
   }
 }
