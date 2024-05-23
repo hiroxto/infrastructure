@@ -9,3 +9,15 @@ resource "cloudflare_access_policy" "epgstation" {
     group = [cloudflare_access_group.dtv_admin.id]
   }
 }
+
+resource "cloudflare_access_policy" "admin" {
+  account_id = cloudflare_account.main.id
+  name       = "Allow infra admin"
+  decision   = "allow"
+
+  include {
+    group = [
+      cloudflare_access_group.admin.id
+    ]
+  }
+}

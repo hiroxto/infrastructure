@@ -13,6 +13,10 @@ resource "cloudflare_tunnel_config" "raspi_4b_01" {
       }
     }
     ingress_rule {
+      hostname = cloudflare_access_application.raspi_4b_01_ssh.domain
+      service  = "ssh://127.0.0.1:9973"
+    }
+    ingress_rule {
       service = "http_status:404"
       origin_request {}
     }

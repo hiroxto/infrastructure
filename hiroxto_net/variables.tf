@@ -14,7 +14,8 @@ variable "email_routing_addresses" {
 
 variable "records" {
   type = object({
-    cname_epgstation = string
+    cname_epgstation      = string
+    cname_raspi_4b_01_ssh = string
   })
   description = "DNSレコードの設定"
 }
