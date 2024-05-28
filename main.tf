@@ -1,3 +1,6 @@
+#
+# Domain modules
+#
 module "hiroxto_net" {
   source                = "./hiroxto_net"
   cloudflare_account_id = cloudflare_account.main.id
@@ -10,4 +13,13 @@ module "hiroxto_net" {
     cname_epgstation      = cloudflare_tunnel.raspi_4b_01.cname
     cname_raspi_4b_01_ssh = cloudflare_tunnel.raspi_4b_01.cname
   }
+}
+
+#
+# Submodules
+#
+module "notification" {
+  source                = "./notification"
+  cloudflare_account_id = cloudflare_account.main.id
+  target_email          = var.admin_gmail_address
 }
