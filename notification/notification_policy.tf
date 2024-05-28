@@ -6,7 +6,7 @@
 # Default
 #
 resource "cloudflare_notification_policy" "real_origin_monitoring_to_email" {
-  account_id = cloudflare_account.main.id
+  account_id = var.cloudflare_account_id
 
   enabled     = true
   alert_type  = "real_origin_monitoring"
@@ -14,7 +14,7 @@ resource "cloudflare_notification_policy" "real_origin_monitoring_to_email" {
   description = "Recieve an email when your origin becomes unreachable"
 
   email_integration {
-    id = var.admin_gmail_address
+    id = var.target_email
   }
 }
 
@@ -22,7 +22,7 @@ resource "cloudflare_notification_policy" "real_origin_monitoring_to_email" {
 # Cloudflare Status
 #
 resource "cloudflare_notification_policy" "maintenance_event_notification" {
-  account_id = cloudflare_account.main.id
+  account_id = var.cloudflare_account_id
 
   enabled    = true
   alert_type = "maintenance_event_notification"
@@ -35,7 +35,7 @@ resource "cloudflare_notification_policy" "maintenance_event_notification" {
 }
 
 resource "cloudflare_notification_policy" "incident_alert" {
-  account_id = cloudflare_account.main.id
+  account_id = var.cloudflare_account_id
 
   enabled    = true
   alert_type = "incident_alert"
@@ -51,7 +51,7 @@ resource "cloudflare_notification_policy" "incident_alert" {
 # Pages
 #
 resource "cloudflare_notification_policy" "pages_event_alert" {
-  account_id = cloudflare_account.main.id
+  account_id = var.cloudflare_account_id
 
   enabled    = true
   alert_type = "pages_event_alert"
@@ -80,7 +80,7 @@ resource "cloudflare_notification_policy" "pages_event_alert" {
 # SSL/TLS
 #
 resource "cloudflare_notification_policy" "universal_ssl_event_type" {
-  account_id = cloudflare_account.main.id
+  account_id = var.cloudflare_account_id
 
   enabled    = true
   alert_type = "universal_ssl_event_type"
@@ -96,7 +96,7 @@ resource "cloudflare_notification_policy" "universal_ssl_event_type" {
 # Tunnel
 #
 resource "cloudflare_notification_policy" "tunnel_health_event" {
-  account_id = cloudflare_account.main.id
+  account_id = var.cloudflare_account_id
 
   enabled    = true
   alert_type = "tunnel_health_event"
@@ -109,7 +109,7 @@ resource "cloudflare_notification_policy" "tunnel_health_event" {
 }
 
 resource "cloudflare_notification_policy" "tunnel_update_event" {
-  account_id = cloudflare_account.main.id
+  account_id = var.cloudflare_account_id
 
   enabled    = true
   alert_type = "tunnel_update_event"
@@ -125,7 +125,7 @@ resource "cloudflare_notification_policy" "tunnel_update_event" {
 # Web Analytics
 #
 resource "cloudflare_notification_policy" "web_analytics_metrics_update" {
-  account_id = cloudflare_account.main.id
+  account_id = var.cloudflare_account_id
 
   enabled    = true
   alert_type = "web_analytics_metrics_update"

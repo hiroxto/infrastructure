@@ -1,5 +1,5 @@
 resource "cloudflare_access_group" "admin" {
-  account_id = cloudflare_account.main.id
+  account_id = var.cloudflare_account_id
   name       = "Infra Admin"
 
   include {

@@ -1,7 +1,7 @@
 resource "cloudflare_access_application" "epgstation" {
-  account_id           = cloudflare_account.main.id
+  account_id           = var.cloudflare_account_id
   name                 = "EPGStation"
-  domain               = module.hiroxto_net.records.cname_epgstation_hostname
+  domain               = var.app_epgstation_domain
   type                 = "self_hosted"
   app_launcher_visible = true
   allowed_idps = [
@@ -19,9 +19,9 @@ resource "cloudflare_access_application" "epgstation" {
 }
 
 resource "cloudflare_access_application" "raspi_4b_01_ssh" {
-  account_id           = cloudflare_account.main.id
+  account_id           = var.cloudflare_account_id
   name                 = "raspi-4b-01-ssh"
-  domain               = module.hiroxto_net.records.cname_raspi_4b_01_ssh_hostname
+  domain               = var.app_raspi_4b_01_ssh_domain
   type                 = "ssh"
   app_launcher_visible = false
   allowed_idps = [

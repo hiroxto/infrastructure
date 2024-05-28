@@ -1,11 +1,11 @@
 resource "cloudflare_access_identity_provider" "onetimepin" {
-  account_id = cloudflare_account.main.id
+  account_id = var.cloudflare_account_id
   name       = "One-time PIN"
   type       = "onetimepin"
 }
 
 resource "cloudflare_access_identity_provider" "google" {
-  account_id = cloudflare_account.main.id
+  account_id = var.cloudflare_account_id
   name       = "Google"
   type       = "google"
 
