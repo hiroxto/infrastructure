@@ -1,5 +1,5 @@
 resource "cloudflare_tunnel_config" "raspi_4b_01" {
-  account_id = cloudflare_account.main.id
+  account_id = var.cloudflare_account_id
   tunnel_id  = cloudflare_tunnel.raspi_4b_01.id
 
   config {
