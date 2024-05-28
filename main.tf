@@ -10,8 +10,11 @@ module "hiroxto_net" {
     forward_bot_to_gmail = cloudflare_email_routing_address.main_gmail.email
   }
   records = {
-    cname_epgstation      = module.zero_trust.tunnel_epgstation_cname
-    cname_raspi_4b_01_ssh = module.zero_trust.tunnel_raspi_4b_01_cname
+    cname_root             = module.pages.hiroxto_net_subdomain
+    cname_www              = module.pages.hiroxto_net_subdomain
+    cname_train_photo_blog = module.pages.train_photo_blog_subdomain
+    cname_epgstation       = module.zero_trust.tunnel_epgstation_cname
+    cname_raspi_4b_01_ssh  = module.zero_trust.tunnel_raspi_4b_01_cname
   }
 }
 

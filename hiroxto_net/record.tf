@@ -5,7 +5,7 @@ resource "cloudflare_record" "cname_root" {
   zone_id = cloudflare_zone.main.id
   name    = cloudflare_zone.main.zone
   type    = "CNAME"
-  value   = "hiroxto-net.pages.dev"
+  value   = var.records.cname_root
   proxied = true
 }
 
@@ -13,7 +13,7 @@ resource "cloudflare_record" "cname_www" {
   zone_id = cloudflare_zone.main.id
   name    = "www"
   type    = "CNAME"
-  value   = "hiroxto-net.pages.dev"
+  value   = var.records.cname_www
   proxied = true
 }
 
@@ -29,7 +29,7 @@ resource "cloudflare_record" "cname_train_photo_blog" {
   zone_id = cloudflare_zone.main.id
   type    = "CNAME"
   name    = "train-photo-blog"
-  value   = "hiroxto-train-photo-blog.pages.dev"
+  value   = var.records.cname_train_photo_blog
   proxied = true
 }
 
