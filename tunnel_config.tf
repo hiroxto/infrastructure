@@ -4,7 +4,7 @@ resource "cloudflare_tunnel_config" "raspi_4b_01" {
 
   config {
     ingress_rule {
-      hostname = "epgstation.hiroxto.net"
+      hostname = cloudflare_access_application.epgstation.domain
       service  = "http://127.0.0.1:8080"
       origin_request {
         connect_timeout = "1m0s"
