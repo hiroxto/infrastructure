@@ -24,6 +24,11 @@ module "notification" {
   target_email          = var.admin_gmail_address
 }
 
+module "pages" {
+  source                = "./pages"
+  cloudflare_account_id = cloudflare_account.main.id
+}
+
 module "zero_trust" {
   source                     = "./zero_trust"
   cloudflare_account_id      = cloudflare_account.main.id

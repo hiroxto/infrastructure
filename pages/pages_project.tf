@@ -1,5 +1,5 @@
 resource "cloudflare_pages_project" "hiroxto_net" {
-  account_id        = cloudflare_account.main.id
+  account_id        = var.cloudflare_account_id
   name              = "hiroxto-net"
   production_branch = "master"
 
@@ -49,7 +49,7 @@ resource "cloudflare_pages_project" "hiroxto_net" {
 }
 
 resource "cloudflare_pages_project" "train_photo_blog" {
-  account_id        = cloudflare_account.main.id
+  account_id        = var.cloudflare_account_id
   name              = "hiroxto-train-photo-blog"
   production_branch = "master"
 
