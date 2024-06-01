@@ -14,7 +14,7 @@ resource "cloudflare_tunnel_config" "raspi_4b_01" {
     }
     ingress_rule {
       hostname = cloudflare_access_application.mirakurun.domain
-      service  = "http://127.0.0.1:40772"
+      service  = "http://127.0.0.1:8080"
       origin_request {
         connect_timeout = "1m0s"
         tls_timeout     = "1m0s"
