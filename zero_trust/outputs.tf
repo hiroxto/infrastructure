@@ -6,6 +6,10 @@ output "tunnel_epgstation_cname" {
   value = cloudflare_tunnel.raspi_4b_01.cname
 }
 
+output "tunnel_mirakurun_cname" {
+  value = cloudflare_tunnel.raspi_4b_01.cname
+}
+
 output "tunnel_raspi_4b_01_cname" {
   value = cloudflare_tunnel.raspi_4b_01.cname
 }

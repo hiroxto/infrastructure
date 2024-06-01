@@ -18,6 +18,7 @@ variable "records" {
     cname_www              = string
     cname_train_photo_blog = string
     cname_epgstation       = string
+    cname_mirakurun        = string
     cname_raspi_4b_01_ssh  = string
   })
   description = "DNSレコードの設定"
