@@ -44,3 +44,12 @@ module "zero_trust" {
   app_mirakurun_domain       = module.hiroxto_net.records.cname_mirakurun_hostname
   app_raspi_4b_01_ssh_domain = module.hiroxto_net.records.cname_raspi_4b_01_ssh_hostname
 }
+
+#
+# HCP Terraform (Terraform Cloud)
+#
+module "tf_cloud" {
+  source            = "./tf_cloud"
+  tfe_workspace_id  = data.tfe_workspace.main.id
+  slack_webhook_url = var.tf_cloud_slack_webhook_url
+}
