@@ -20,6 +20,7 @@ variable "records" {
     cname_epgstation       = string
     cname_mirakurun        = string
     cname_raspi_4b_01_ssh  = string
+    cname_eq12_01_ssh      = string
   })
   description = "DNSレコードの設定"
 }

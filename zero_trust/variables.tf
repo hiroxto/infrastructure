@@ -40,3 +40,8 @@ variable "app_raspi_4b_01_ssh_domain" {
   type        = string
   description = "Access Application の raspi-4b-01 の SSH 接続のドメイン"
 }
+
+variable "app_eq12_01_ssh_domain" {
+  type        = string
+  description = "Access Application の EQ12 の SSH 接続のドメイン"
+}
