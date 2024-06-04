@@ -15,6 +15,10 @@ output "tunnel_raspi_4b_01_token" {
   sensitive = true
 }
 
+output "tunnel_raspi_4b_01_cname" {
+  value = cloudflare_tunnel.raspi_4b_01.cname
+}
+
 #
 # eq12_01
 #
@@ -45,9 +49,5 @@ output "tunnel_epgstation_cname" {
 }
 
 output "tunnel_mirakurun_cname" {
-  value = cloudflare_tunnel.raspi_4b_01.cname
-}
-
-output "tunnel_raspi_4b_01_cname" {
   value = cloudflare_tunnel.raspi_4b_01.cname
 }
