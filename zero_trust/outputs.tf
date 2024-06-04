@@ -45,6 +45,7 @@ output "tunnel_eq12_01_cname" {
 # CNAME
 #
 output "tunnel_epgstation_cname" {
+  # TODO EQ12へ移行完了後に差し替え
   value = cloudflare_tunnel.raspi_4b_01.cname
 }
 
