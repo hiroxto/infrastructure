@@ -51,3 +51,17 @@ resource "cloudflare_access_application" "raspi_4b_01_ssh" {
     cloudflare_access_policy.admin.id
   ]
 }
+
+resource "cloudflare_access_application" "eq12_01_ssh" {
+  account_id           = var.cloudflare_account_id
+  name                 = "eq12-01-ssh"
+  domain               = var.app_eq12_01_ssh_domain
+  type                 = "ssh"
+  app_launcher_visible = false
+  allowed_idps = [
+    cloudflare_access_identity_provider.google.id,
+  ]
+  policies = [
+    cloudflare_access_policy.admin.id
+  ]
+}

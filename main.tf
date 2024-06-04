@@ -16,6 +16,7 @@ module "hiroxto_net" {
     cname_epgstation       = module.zero_trust.tunnel_epgstation_cname
     cname_mirakurun        = module.zero_trust.tunnel_mirakurun_cname
     cname_raspi_4b_01_ssh  = module.zero_trust.tunnel_raspi_4b_01_cname
+    cname_eq12_01_ssh      = module.zero_trust.tunnel_eq12_01_cname
   }
 }
 
@@ -43,6 +44,7 @@ module "zero_trust" {
   app_epgstation_domain      = module.hiroxto_net.records.cname_epgstation_hostname
   app_mirakurun_domain       = module.hiroxto_net.records.cname_mirakurun_hostname
   app_raspi_4b_01_ssh_domain = module.hiroxto_net.records.cname_raspi_4b_01_ssh_hostname
+  app_eq12_01_ssh_domain     = module.hiroxto_net.records.cname_eq12_01_ssh_hostname
 }
 
 #

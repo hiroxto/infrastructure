@@ -32,6 +32,11 @@ output "tunnel_eq12_01_token" {
   sensitive = true
 }
 
+output "tunnel_eq12_01_cname" {
+  value = cloudflare_tunnel.eq12_01.cname
+}
+
+
 #
 # CNAME
 #
