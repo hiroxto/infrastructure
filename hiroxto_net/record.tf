@@ -49,14 +49,6 @@ resource "cloudflare_record" "cname_epgstation" {
   proxied = true
 }
 
-resource "cloudflare_record" "cname_mirakurun" {
-  zone_id = cloudflare_zone.main.id
-  name    = "mirakurun"
-  type    = "CNAME"
-  value   = var.records.cname_mirakurun
-  proxied = true
-}
-
 resource "cloudflare_record" "cname_raspi_4b_01_ssh" {
   zone_id = cloudflare_zone.main.id
   name    = "raspi-4b-01-ssh"
