@@ -14,7 +14,6 @@ module "hiroxto_net" {
     cname_www              = module.pages.hiroxto_net_subdomain
     cname_train_photo_blog = module.pages.train_photo_blog_subdomain
     cname_epgstation       = module.zero_trust.tunnel_epgstation_cname
-    cname_raspi_4b_01_ssh  = module.zero_trust.tunnel_raspi_4b_01_cname
     cname_eq12_01_ssh      = module.zero_trust.tunnel_eq12_01_cname
   }
 }
@@ -34,15 +33,13 @@ module "pages" {
 }
 
 module "zero_trust" {
-  source                     = "./zero_trust"
-  cloudflare_account_id      = cloudflare_account.main.id
-  admin_gmail_address        = var.admin_gmail_address
-  idp_google_client_id       = var.idp_google_client_id
-  idp_google_client_secret   = var.idp_google_client_secret
-  tunnel_epgstation_secret   = var.tunnel_epgstation_secret
-  app_epgstation_domain      = module.hiroxto_net.records.cname_epgstation_hostname
-  app_raspi_4b_01_ssh_domain = module.hiroxto_net.records.cname_raspi_4b_01_ssh_hostname
-  app_eq12_01_ssh_domain     = module.hiroxto_net.records.cname_eq12_01_ssh_hostname
+  source                   = "./zero_trust"
+  cloudflare_account_id    = cloudflare_account.main.id
+  admin_gmail_address      = var.admin_gmail_address
+  idp_google_client_id     = var.idp_google_client_id
+  idp_google_client_secret = var.idp_google_client_secret
+  app_epgstation_domain    = module.hiroxto_net.records.cname_epgstation_hostname
+  app_eq12_01_ssh_domain   = module.hiroxto_net.records.cname_eq12_01_ssh_hostname
 }
 
 #

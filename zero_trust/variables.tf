@@ -20,20 +20,9 @@ variable "idp_google_client_secret" {
   sensitive   = true
 }
 
-variable "tunnel_epgstation_secret" {
-  type        = string
-  description = "EPGStation の Tunnel の Secret"
-  sensitive   = true
-}
-
 variable "app_epgstation_domain" {
   type        = string
   description = "Access Application の EPGStation のドメイン"
-}
-
-variable "app_raspi_4b_01_ssh_domain" {
-  type        = string
-  description = "Access Application の raspi-4b-01 の SSH 接続のドメイン"
 }
 
 variable "app_eq12_01_ssh_domain" {

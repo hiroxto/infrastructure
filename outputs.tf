@@ -8,20 +8,6 @@ output "hiroxto_net" {
   }
 }
 
-output "tunnel_raspi_4b_01_id" {
-  value = module.zero_trust.tunnel_raspi_4b_01_id
-}
-
-output "tunnel_raspi_4b_01_secret" {
-  value     = module.zero_trust.tunnel_raspi_4b_01_secret
-  sensitive = true
-}
-
-output "tunnel_raspi_4b_01_token" {
-  value     = module.zero_trust.tunnel_raspi_4b_01_token
-  sensitive = true
-}
-
 output "tunnel_eq12_01_id" {
   value = module.zero_trust.tunnel_eq12_01_id
 }

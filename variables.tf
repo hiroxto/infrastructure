@@ -24,13 +24,6 @@ variable "idp_google_client_secret" {
   sensitive   = true
 }
 
-# TODO: Secrets Managerなどのサービスで管理したい
-variable "tunnel_epgstation_secret" {
-  type        = string
-  description = "EPGStation の Tunnel の Secret"
-  sensitive   = true
-}
-
 variable "admin_gmail_address" {
   type        = string
   description = "管理者の Gmail アドレス"
