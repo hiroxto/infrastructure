@@ -47,7 +47,3 @@ output "tunnel_eq12_01_cname" {
 output "tunnel_epgstation_cname" {
   value = cloudflare_tunnel.eq12_01.cname
 }
-
-output "tunnel_mirakurun_cname" {
-  value = cloudflare_tunnel.eq12_01.cname
-}
