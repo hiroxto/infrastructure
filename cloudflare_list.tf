@@ -31,4 +31,18 @@ resource "cloudflare_list" "force_www" {
       }
     }
   }
+
+  item {
+    value {
+      redirect {
+        source_url            = "dot.hiroxto.net"
+        target_url            = "https://github.com/hiroxto/infrastructure/commit/a94545ad12438a23a1be382fe946f7fe1884e932"
+        status_code           = 301
+        preserve_query_string = "disabled"
+        include_subdomains    = "disabled"
+        subpath_matching      = "enabled"
+        preserve_path_suffix  = "enabled"
+      }
+    }
+  }
 }
