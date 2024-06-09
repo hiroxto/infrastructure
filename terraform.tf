@@ -18,5 +18,10 @@ terraform {
       source  = "hashicorp/tfe"
       version = "0.55.0"
     }
+
+    newrelic = {
+      source  = "newrelic/newrelic"
+      version = "3.38.0"
+    }
   }
 }

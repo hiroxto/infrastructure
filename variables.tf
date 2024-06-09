@@ -10,6 +10,22 @@ variable "tfe_token" {
   sensitive   = true
 }
 
+variable "newrelic_account_id" {
+  type        = number
+  description = "New Relic の Account ID"
+}
+
+variable "newrelic_api_key" {
+  type        = string
+  description = "New Relic の API Key"
+  sensitive   = true
+}
+
+variable "newrelic_region" {
+  type        = string
+  description = "New Relic の Region"
+}
+
 # TODO: Secrets Managerなどのサービスで管理したい
 variable "idp_google_client_id" {
   type        = string
