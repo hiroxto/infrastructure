@@ -9,3 +9,15 @@ resource "cloudflare_access_policy" "admin" {
     ]
   }
 }
+
+resource "cloudflare_access_policy" "new_relic" {
+  account_id = var.cloudflare_account_id
+  name       = "Allow New Relic"
+  decision   = "allow"
+
+  include {
+    service_token = [
+      cloudflare_access_service_token.new_relic.id
+    ]
+  }
+}
