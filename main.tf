@@ -55,5 +55,8 @@ module "tf_cloud" {
 # New Relic
 #
 module "observe" {
-  source = "./observe"
+  source                                          = "./observe"
+  synthetics_monitor_epgstation_uri               = "https://${module.hiroxto_net.records.cname_epgstation_hostname}/api/version"
+  synthetics_monitor_epgstation_cfa_client_id     = module.zero_trust.access_service_token_new_relic_client_id
+  synthetics_monitor_epgstation_cfa_client_secret = module.zero_trust.access_service_token_new_relic_client_secret
 }
