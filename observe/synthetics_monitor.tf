@@ -1,6 +1,6 @@
 resource "newrelic_synthetics_monitor" "epgstation" {
   status           = "ENABLED"
-  name             = "monitor"
+  name             = "EPGStation"
   period           = "EVERY_5_MINUTES"
   uri              = var.synthetics_monitor_epgstation_uri
   type             = "SIMPLE"
