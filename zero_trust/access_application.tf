@@ -8,7 +8,8 @@ resource "cloudflare_access_application" "epgstation" {
     cloudflare_access_identity_provider.google.id,
   ]
   policies = [
-    cloudflare_access_policy.admin.id
+    cloudflare_access_policy.admin.id,
+    cloudflare_access_policy.new_relic.id
   ]
   auto_redirect_to_identity  = false
   session_duration           = "168h" # 1 weeks
