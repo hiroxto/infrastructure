@@ -16,6 +16,7 @@ resource "cloudflare_access_application" "epgstation" {
   http_only_cookie_attribute = true
   enable_binding_cookie      = false
   service_auth_401_redirect  = true
+  options_preflight_bypass   = true
 }
 
 resource "cloudflare_access_application" "eq12_01_ssh" {
