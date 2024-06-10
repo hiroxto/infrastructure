@@ -12,8 +12,8 @@ resource "cloudflare_access_policy" "admin" {
 
 resource "cloudflare_access_policy" "new_relic" {
   account_id = var.cloudflare_account_id
-  name       = "Allow New Relic"
-  decision   = "allow"
+  name       = "Bypass New Relic"
+  decision   = "bypass"
 
   include {
     service_token = [
