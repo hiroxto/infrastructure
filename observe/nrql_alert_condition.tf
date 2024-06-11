@@ -91,10 +91,13 @@ resource "newrelic_nrql_alert_condition" "low_application_throughput" {
 # DTV Alerts
 #
 resource "newrelic_nrql_alert_condition" "epgstation_health_check" {
-  name      = "EPGStation health check"
-  policy_id = newrelic_alert_policy.dtv_alerts.id
-  enabled   = true
-  type      = "static"
+  name               = "EPGStation health check"
+  policy_id          = newrelic_alert_policy.dtv_alerts.id
+  enabled            = true
+  type               = "static"
+  aggregation_window = 300
+  aggregation_method = "event_flow"
+  aggregation_delay  = 0
 
   nrql {
     query = "SELECT latest(if(result = 'FAILED', 1, 0)) FROM SyntheticCheck WHERE entityGuid = '${newrelic_synthetics_monitor.epgstation.id}' FACET entityGuid, monitorName"
