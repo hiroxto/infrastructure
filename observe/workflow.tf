@@ -26,3 +26,32 @@ resource "newrelic_workflow" "golden_signals" {
     ]
   }
 }
+
+resource "newrelic_workflow" "dtv_alerts" {
+  name                  = "DTV Alerts"
+  muting_rules_handling = "DONT_NOTIFY_FULLY_MUTED_ISSUES"
+
+  issues_filter {
+    name = ""
+    type = "FILTER"
+
+    predicate {
+      attribute = "labels.policyIds"
+      operator  = "EXACTLY_MATCHES"
+      values = [
+        newrelic_alert_policy.dtv_alerts.id
+      ]
+    }
+  }
+
+  destination {
+    channel_id = newrelic_notification_channel.slack_dtv_alert.id
+    notification_triggers = [
+      "ACKNOWLEDGED",
+      "ACTIVATED",
+      "CLOSED",
+      "OTHER_UPDATES",
+      "PRIORITY_CHANGED",
+    ]
+  }
+}
