@@ -102,7 +102,7 @@ resource "newrelic_nrql_alert_condition" "epgstation_health_check" {
   }
 
   critical {
-    operator              = "above"
+    operator              = "above_or_equals"
     threshold             = 1.0
     threshold_duration    = 120
     threshold_occurrences = "all"
