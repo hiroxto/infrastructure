@@ -86,3 +86,25 @@ resource "newrelic_nrql_alert_condition" "low_application_throughput" {
     threshold_occurrences = "all"
   }
 }
+
+#
+# DTV Alerts
+#
+resource "newrelic_nrql_alert_condition" "epgstation_health_check" {
+  name               = "EPGStation health check"
+  policy_id          = newrelic_alert_policy.dtv_alerts.id
+  enabled            = true
+  type               = "baseline"
+  baseline_direction = "UPPER_ONLY"
+
+  nrql {
+    query = "SELECT latest(if(result = 'FAILED', 1, 0)) FROM SyntheticCheck WHERE entityGuid = '${newrelic_synthetics_monitor.epgstation.id}' FACET entityGuid, monitorName"
+  }
+
+  critical {
+    operator              = "above"
+    threshold             = 0
+    threshold_duration    = 60
+    threshold_occurrences = "all"
+  }
+}
