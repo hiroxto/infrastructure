@@ -16,10 +16,10 @@ resource "newrelic_synthetics_monitor" "epgstation" {
   }
   custom_header {
     name  = "CF-Access-Client-Id"
-    value = var.epgstation_cfa_client_id
+    value = var.cfa_client_id
   }
   custom_header {
     name  = "CF-Access-Client-Secret"
-    value = var.epgstation_cfa_client_secret
+    value = var.cfa_client_secret
   }
 }
