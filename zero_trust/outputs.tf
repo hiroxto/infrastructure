@@ -30,12 +30,12 @@ output "tunnel_epgstation_cname" {
 #
 # Access Service Tokens
 #
-output "access_service_token_new_relic_client_id" {
+output "cfa_token_new_relic_client_id" {
   value     = cloudflare_access_service_token.new_relic.client_id
   sensitive = true
 }
 
-output "access_service_token_new_relic_client_secret" {
+output "cfa_token_new_relic_client_secret" {
   value     = cloudflare_access_service_token.new_relic.client_secret
   sensitive = true
 }

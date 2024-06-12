@@ -2,7 +2,7 @@ resource "newrelic_synthetics_monitor" "epgstation" {
   status           = "ENABLED"
   name             = "EPGStation"
   period           = "EVERY_5_MINUTES"
-  uri              = var.synthetics_monitor_epgstation_uri
+  uri              = var.epgstation_uri
   type             = "SIMPLE"
   locations_public = ["AWS_AP_NORTHEAST_1"]
 
@@ -16,10 +16,10 @@ resource "newrelic_synthetics_monitor" "epgstation" {
   }
   custom_header {
     name  = "CF-Access-Client-Id"
-    value = var.synthetics_monitor_epgstation_cfa_client_id
+    value = var.epgstation_cfa_client_id
   }
   custom_header {
     name  = "CF-Access-Client-Secret"
-    value = var.synthetics_monitor_epgstation_cfa_client_secret
+    value = var.epgstation_cfa_client_secret
   }
 }
