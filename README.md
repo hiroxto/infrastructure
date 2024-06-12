@@ -5,11 +5,18 @@
 現状は Cloudflare 関連のみを管理しているが将来的には管理対象を増やす。
 
 管理対象
-- Cloudflare Registrar で管理しているドメイン
-  - Record (DNSレコード)
-  - Email Routing
-  - その他， Terraform で扱えるリソース
-- Cloudflare Notifications
+- Cloudflare
+  - Cloudflare Registrar
+    - Record
+    - Email Routing
+  - Cloudflare Notifications
+  - Cloudflare Pages (一部プロジェクトのみ)
+  - Zero Trust
+  - その他 Terraform で扱えるリソース
+- New Relic
+  - 自宅サーバーと Cloudflare 関連のみ
+- Terraform Cloud
+  - このリポジトリ関連のみ
 
 プルリクエスト作成後の plan や，マージ後の apply は自動的に Terraform Cloud で実行される。
 
