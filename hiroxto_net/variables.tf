@@ -3,6 +3,11 @@ variable "cloudflare_account_id" {
   description = "Cloudflare の Account ID"
 }
 
+variable "name" {
+  type        = string
+  description = "対象のドメイン名"
+}
+
 variable "email_routing_addresses" {
   type = object({
     catch_all            = string
