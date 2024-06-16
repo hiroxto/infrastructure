@@ -1,5 +1,5 @@
 resource "cloudflare_email_routing_catch_all" "main" {
-  zone_id = cloudflare_zone.main.id
+  zone_id = data.cloudflare_zone.main.id
   name    = "Catch all"
   enabled = true
 

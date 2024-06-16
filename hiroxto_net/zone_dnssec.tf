@@ -1,3 +1,3 @@
 resource "cloudflare_zone_dnssec" "main" {
-  zone_id = cloudflare_zone.main.id
+  zone_id = data.cloudflare_zone.main.id
 }

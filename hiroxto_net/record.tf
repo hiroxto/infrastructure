@@ -2,15 +2,15 @@
 # CNAME
 #
 resource "cloudflare_record" "cname_root" {
-  zone_id = cloudflare_zone.main.id
-  name    = cloudflare_zone.main.zone
+  zone_id = data.cloudflare_zone.main.id
+  name    = data.cloudflare_zone.main.name
   type    = "CNAME"
   value   = var.records.cname_root
   proxied = true
 }
 
 resource "cloudflare_record" "cname_www" {
-  zone_id = cloudflare_zone.main.id
+  zone_id = data.cloudflare_zone.main.id
   name    = "www"
   type    = "CNAME"
   value   = var.records.cname_www
@@ -18,7 +18,7 @@ resource "cloudflare_record" "cname_www" {
 }
 
 resource "cloudflare_record" "cname_swarm_checkin_regulation_checker" {
-  zone_id = cloudflare_zone.main.id
+  zone_id = data.cloudflare_zone.main.id
   name    = "swarm-checkin-regulation-checker"
   type    = "CNAME"
   value   = "swarm-checkin-regulation-checker.pages.dev"
@@ -26,7 +26,7 @@ resource "cloudflare_record" "cname_swarm_checkin_regulation_checker" {
 }
 
 resource "cloudflare_record" "cname_train_photo_blog" {
-  zone_id = cloudflare_zone.main.id
+  zone_id = data.cloudflare_zone.main.id
   type    = "CNAME"
   name    = "train-photo-blog"
   value   = var.records.cname_train_photo_blog
@@ -34,7 +34,7 @@ resource "cloudflare_record" "cname_train_photo_blog" {
 }
 
 resource "cloudflare_record" "cname_utils" {
-  zone_id = cloudflare_zone.main.id
+  zone_id = data.cloudflare_zone.main.id
   name    = "utils"
   type    = "CNAME"
   value   = "hiroxto-utils-hiroxto-net.pages.dev"
@@ -42,7 +42,7 @@ resource "cloudflare_record" "cname_utils" {
 }
 
 resource "cloudflare_record" "cname_epgstation" {
-  zone_id = cloudflare_zone.main.id
+  zone_id = data.cloudflare_zone.main.id
   name    = "epgstation"
   type    = "CNAME"
   value   = var.records.cname_epgstation
@@ -50,7 +50,7 @@ resource "cloudflare_record" "cname_epgstation" {
 }
 
 resource "cloudflare_record" "cname_eq12_01_ssh" {
-  zone_id = cloudflare_zone.main.id
+  zone_id = data.cloudflare_zone.main.id
   name    = "eq12-01-ssh"
   type    = "CNAME"
   value   = var.records.cname_eq12_01_ssh
@@ -61,24 +61,24 @@ resource "cloudflare_record" "cname_eq12_01_ssh" {
 # MX
 #
 resource "cloudflare_record" "mx_1" {
-  zone_id  = cloudflare_zone.main.id
-  name     = cloudflare_zone.main.zone
+  zone_id  = data.cloudflare_zone.main.id
+  name     = data.cloudflare_zone.main.name
   type     = "MX"
   value    = "route1.mx.cloudflare.net"
   priority = 57
 }
 
 resource "cloudflare_record" "mx_2" {
-  zone_id  = cloudflare_zone.main.id
-  name     = cloudflare_zone.main.zone
+  zone_id  = data.cloudflare_zone.main.id
+  name     = data.cloudflare_zone.main.name
   type     = "MX"
   value    = "route2.mx.cloudflare.net"
   priority = 73
 }
 
 resource "cloudflare_record" "mx_3" {
-  zone_id  = cloudflare_zone.main.id
-  name     = cloudflare_zone.main.zone
+  zone_id  = data.cloudflare_zone.main.id
+  name     = data.cloudflare_zone.main.name
   type     = "MX"
   value    = "route3.mx.cloudflare.net"
   priority = 29
@@ -88,21 +88,21 @@ resource "cloudflare_record" "mx_3" {
 # TXT
 #
 resource "cloudflare_record" "txt_spf" {
-  zone_id = cloudflare_zone.main.id
-  name    = cloudflare_zone.main.zone
+  zone_id = data.cloudflare_zone.main.id
+  name    = data.cloudflare_zone.main.name
   type    = "TXT"
   value   = "v=spf1 include:_spf.mx.cloudflare.net include:_spf.google.com ~all"
 }
 
 resource "cloudflare_record" "txt_dmarc" {
-  zone_id = cloudflare_zone.main.id
+  zone_id = data.cloudflare_zone.main.id
   name    = "_dmarc"
   type    = "TXT"
   value   = "v=DMARC1;  p=none; rua=mailto:97f14f78b6474427b3c6f73b9464f836@dmarc-reports.cloudflare.net"
 }
 
 resource "cloudflare_record" "txt_atproto" {
-  zone_id = cloudflare_zone.main.id
+  zone_id = data.cloudflare_zone.main.id
   name    = "_atproto"
   type    = "TXT"
   value   = "did=did:plc:ky336ximtcas2d34kfg3sosh"
@@ -110,7 +110,7 @@ resource "cloudflare_record" "txt_atproto" {
 }
 
 resource "cloudflare_record" "txt_discord_verify" {
-  zone_id = cloudflare_zone.main.id
+  zone_id = data.cloudflare_zone.main.id
   name    = "_discord.www.hiroxto.net"
   type    = "TXT"
   value   = "dh=f2f8abd2008da9da8d2532f632b4af7f2843f428"
@@ -118,16 +118,16 @@ resource "cloudflare_record" "txt_discord_verify" {
 }
 
 resource "cloudflare_record" "txt_google_site_verify" {
-  zone_id = cloudflare_zone.main.id
-  name    = cloudflare_zone.main.zone
+  zone_id = data.cloudflare_zone.main.id
+  name    = data.cloudflare_zone.main.name
   type    = "TXT"
   value   = "google-site-verification=OWvIVzu3yp2cgeSe6ubYDCEyBk0BchElGwtbEXLzcdw"
   comment = "For Google Site verify"
 }
 
 resource "cloudflare_record" "txt_keybase_verify" {
-  zone_id = cloudflare_zone.main.id
-  name    = cloudflare_zone.main.zone
+  zone_id = data.cloudflare_zone.main.id
+  name    = data.cloudflare_zone.main.name
   type    = "TXT"
   value   = "keybase-site-verification=awgxLY0PHHrVJQKhhDri44iFtoaXYmAk5MPD9L3PNqs"
   comment = "For Keybase verify"
