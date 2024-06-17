@@ -5,10 +5,6 @@ resource "newrelic_notification_channel" "slack_general" {
   product        = "IINT"
 
   property {
-    key   = "customDetailsSlack"
-    value = "<!channel>"
-  }
-  property {
     key           = "channelId"
     value         = "C0748SCKVL3"
     display_value = "200_newrelic_notification"
