@@ -23,9 +23,13 @@ module "hiroxto_net" {
 # Submodules
 #
 module "notification" {
-  source                = "./notification"
-  cloudflare_account_id = cloudflare_account.main.id
-  target_email          = var.admin_gmail_address
+  source                    = "./notification"
+  cloudflare_account_id     = cloudflare_account.main.id
+  target_email              = var.admin_gmail_address
+  slack_general_webhook_url = var.cf_slack_general_webhook_url
+  slack_tunnel_webhook_url  = var.cf_slack_tunnel_webhook_url
+  slack_status_webhook_url  = var.cf_slack_status_webhook_url
+  slack_pages_webhook_url   = var.cf_slack_pages_webhook_url
 }
 
 module "pages" {
