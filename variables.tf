@@ -57,9 +57,19 @@ variable "cf_slack_general_webhook_url" {
   description = "Cloudflare の全般的な Slack 通知の Webhook URL"
 }
 
+variable "cf_slack_general_webhook_secret" {
+  type        = string
+  description = "Cloudflare の全般的な Slack 通知の Webhook Secret"
+}
+
 variable "cf_slack_tunnel_webhook_url" {
   type        = string
   description = "Cloudflare Tunnel 関連の Slack 通知の Webhook URL"
+}
+
+variable "cf_slack_tunnel_webhook_secret" {
+  type        = string
+  description = "Cloudflare Tunnel 関連の Slack 通知の Webhook Secret"
 }
 
 variable "cf_slack_status_webhook_url" {
@@ -67,8 +77,17 @@ variable "cf_slack_status_webhook_url" {
   description = "Cloudflare のステータス関連の Slack 通知の Webhook URL"
 }
 
+variable "cf_slack_status_webhook_secret" {
+  type        = string
+  description = "Cloudflare のステータス関連の Slack 通知の Webhook Secret"
+}
+
 variable "cf_slack_pages_webhook_url" {
   type        = string
   description = "Cloudflare Pages 関連の Slack 通知の Webhook URL"
 }
 
+variable "cf_slack_pages_webhook_secret" {
+  type        = string
+  description = "Cloudflare Pages 関連の Slack 通知の Webhook Secret"
+}
