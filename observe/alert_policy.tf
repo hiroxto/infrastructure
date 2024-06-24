@@ -7,3 +7,8 @@ resource "newrelic_alert_policy" "dtv_alerts" {
   name                = "DTV Alerts"
   incident_preference = "PER_CONDITION_AND_TARGET"
 }
+
+resource "newrelic_alert_policy" "system_alerts" {
+  name                = "System Alerts"
+  incident_preference = "PER_CONDITION_AND_TARGET"
+}

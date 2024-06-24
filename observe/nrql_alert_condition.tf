@@ -110,3 +110,28 @@ resource "newrelic_nrql_alert_condition" "epgstation_health_check" {
     threshold_occurrences = "all"
   }
 }
+
+#
+# System Alerts
+#
+resource "newrelic_nrql_alert_condition" "error_logs" {
+  name               = "Error logs"
+  description        = "WARN/ERROR/FATALのログが検出された"
+  policy_id          = newrelic_alert_policy.system_alerts.id
+  enabled            = true
+  type               = "static"
+  aggregation_window = 60
+  aggregation_method = "event_flow"
+  aggregation_delay  = 0
+
+  nrql {
+    query = "SELECT count(*) FROM Log WHERE message RLIKE '.*\\\\[(WARN|ERROR|FATAL)\\\\].*'"
+  }
+
+  critical {
+    operator              = "above"
+    threshold             = 1
+    threshold_duration    = 60
+    threshold_occurrences = "all"
+  }
+}

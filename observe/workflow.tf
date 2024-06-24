@@ -55,3 +55,32 @@ resource "newrelic_workflow" "dtv_alerts" {
     ]
   }
 }
+
+resource "newrelic_workflow" "system_alerts" {
+  name                  = "System Alerts"
+  muting_rules_handling = "DONT_NOTIFY_FULLY_MUTED_ISSUES"
+
+  issues_filter {
+    name = ""
+    type = "FILTER"
+
+    predicate {
+      attribute = "labels.policyIds"
+      operator  = "EXACTLY_MATCHES"
+      values = [
+        newrelic_alert_policy.system_alerts.id
+      ]
+    }
+  }
+
+  destination {
+    channel_id = newrelic_notification_channel.slack_system_alert.id
+    notification_triggers = [
+      "ACKNOWLEDGED",
+      "ACTIVATED",
+      "CLOSED",
+      "OTHER_UPDATES",
+      "PRIORITY_CHANGED",
+    ]
+  }
+}
