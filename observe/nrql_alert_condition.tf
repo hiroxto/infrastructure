@@ -135,3 +135,31 @@ resource "newrelic_nrql_alert_condition" "error_logs" {
     threshold_occurrences = "all"
   }
 }
+
+resource "newrelic_nrql_alert_condition" "storage_usage" {
+  name               = "Disk Usage"
+  policy_id          = newrelic_alert_policy.system_alerts.id
+  enabled            = true
+  type               = "static"
+  aggregation_window = 300 # 5min
+  aggregation_method = "event_flow"
+  aggregation_delay  = 0
+
+  nrql {
+    query = "SELECT latest(`host.disk.usedPercent`) FROM Metric FACET `entity.name`"
+  }
+
+  warning {
+    operator              = "above"
+    threshold             = 60
+    threshold_duration    = 300
+    threshold_occurrences = "all"
+  }
+
+  critical {
+    operator              = "above"
+    threshold             = 75
+    threshold_duration    = 300
+    threshold_occurrences = "all"
+  }
+}
