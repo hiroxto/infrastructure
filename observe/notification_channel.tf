@@ -27,3 +27,20 @@ resource "newrelic_notification_channel" "slack_dtv_alert" {
     display_value = "200_newrelic_dtv_alert_notification"
   }
 }
+
+resource "newrelic_notification_channel" "slack_system_alert" {
+  name           = "200_newrelic_system_alert_notification"
+  type           = "SLACK"
+  destination_id = data.newrelic_notification_destination.slack.id
+  product        = "IINT"
+
+  property {
+    key   = "customDetailsSlack"
+    value = "<!channel>"
+  }
+  property {
+    key           = "channelId"
+    value         = "C079GTXRMPC"
+    display_value = "200_newrelic_system_alert_notification"
+  }
+}
