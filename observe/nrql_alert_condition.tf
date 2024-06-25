@@ -115,14 +115,15 @@ resource "newrelic_nrql_alert_condition" "epgstation_health_check" {
 # System Alerts
 #
 resource "newrelic_nrql_alert_condition" "error_logs" {
-  name               = "Error logs"
-  description        = "WARN/ERROR/FATALのログが検出された"
-  policy_id          = newrelic_alert_policy.system_alerts.id
-  enabled            = true
-  type               = "static"
-  aggregation_window = 60
-  aggregation_method = "event_flow"
-  aggregation_delay  = 0
+  name                         = "Error logs"
+  description                  = "WARN/ERROR/FATALのログが検出された"
+  policy_id                    = newrelic_alert_policy.system_alerts.id
+  enabled                      = true
+  type                         = "static"
+  aggregation_window           = 60
+  aggregation_method           = "event_flow"
+  aggregation_delay            = 0
+  violation_time_limit_seconds = 300
 
   nrql {
     query = "SELECT count(*) FROM Log WHERE message RLIKE '.*\\\\[(WARN|ERROR|FATAL)\\\\].*'"
