@@ -2,8 +2,11 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "github>hiroxto/renovate-config",
-    "github>hiroxto/renovate-config:scheduleWeeklyMonday",
+    "github>hiroxto/renovate-config:scheduleDaily",
     "github>hiroxto/renovate-config:reviewer"
+  ],
+  "ignorePresets": [
+    "github>hiroxto/renovate-config:defaultSchedule"
   ],
   "terraform": {
     "lockFileMaintenance": {
