@@ -24,7 +24,7 @@ resource "cloudflare_notification_policy" "real_origin_monitoring_to_email" {
 resource "cloudflare_notification_policy" "maintenance_event_notification" {
   account_id = var.cloudflare_account_id
 
-  enabled    = true
+  enabled    = false
   alert_type = "maintenance_event_notification"
   name       = "Maintenance event notification"
 
@@ -37,7 +37,7 @@ resource "cloudflare_notification_policy" "maintenance_event_notification" {
 resource "cloudflare_notification_policy" "incident_alert" {
   account_id = var.cloudflare_account_id
 
-  enabled    = true
+  enabled    = false
   alert_type = "incident_alert"
   name       = "Incident alert"
 
