@@ -34,10 +34,10 @@ resource "newrelic_notification_channel" "slack_system_alert" {
   destination_id = data.newrelic_notification_destination.slack.id
   product        = "IINT"
 
-  property {
-    key   = "customDetailsSlack"
-    value = "<!channel>"
-  }
+  #property {
+  #  key   = "customDetailsSlack"
+  #  value = "<!channel>"
+  #}
   property {
     key           = "channelId"
     value         = "C079GTXRMPC"
