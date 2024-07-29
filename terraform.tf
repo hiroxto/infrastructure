@@ -11,17 +11,17 @@ terraform {
   required_providers {
     cloudflare = {
       source  = "cloudflare/cloudflare"
-      version = "4.37.0"
+      version = "4.38.0"
     }
 
     tfe = {
       source  = "hashicorp/tfe"
-      version = "0.56.0"
+      version = "0.57.0"
     }
 
     newrelic = {
       source  = "newrelic/newrelic"
-      version = "3.39.1"
+      version = "3.40.1"
     }
   }
 }
