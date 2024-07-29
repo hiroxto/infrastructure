@@ -126,7 +126,7 @@ resource "newrelic_nrql_alert_condition" "error_logs" {
   violation_time_limit_seconds = 300
 
   nrql {
-    query = "SELECT count(*) FROM Log WHERE message RLIKE '.*\\\\[(WARN|ERROR|FATAL)\\\\].*'"
+    query = "SELECT count(*) FROM Log WHERE message RLIKE '.*\\\\[(WARN|ERROR|FATAL)\\\\].*' AND entity.guids = '${data.newrelic_entity.eq12_01.guid}'"
   }
 
   critical {
