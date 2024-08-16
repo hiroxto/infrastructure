@@ -29,3 +29,8 @@ variable "app_eq12_01_ssh_domain" {
   type        = string
   description = "Access Application の EQ12 の SSH 接続のドメイン"
 }
+
+variable "tunnel_home_assistant_domain" {
+  type        = string
+  description = "Home Assistant のドメイン"
+}
