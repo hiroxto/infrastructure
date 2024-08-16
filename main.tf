@@ -16,6 +16,7 @@ module "hiroxto_net" {
     cname_train_photo_blog = module.pages.train_photo_blog_subdomain
     cname_epgstation       = module.zero_trust.tunnel_epgstation_cname
     cname_eq12_01_ssh      = module.zero_trust.tunnel_eq12_01_cname
+    cname_home_assistant   = module.zero_trust.tunnel_eq12_01_cname
   }
 }
 

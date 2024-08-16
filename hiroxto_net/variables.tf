@@ -24,6 +24,7 @@ variable "records" {
     cname_train_photo_blog = string
     cname_epgstation       = string
     cname_eq12_01_ssh      = string
+    cname_home_assistant   = string
   })
   description = "DNSレコードの設定"
 }
