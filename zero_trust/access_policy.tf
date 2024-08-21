@@ -5,7 +5,7 @@ resource "cloudflare_access_policy" "admin" {
 
   include {
     group = [
-      cloudflare_access_group.admin.id
+      cloudflare_zero_trust_access_group.admin.id
     ]
   }
 }
