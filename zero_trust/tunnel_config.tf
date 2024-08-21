@@ -4,7 +4,7 @@ resource "cloudflare_tunnel_config" "eq12_01" {
 
   config {
     ingress_rule {
-      hostname = cloudflare_access_application.epgstation.domain
+      hostname = cloudflare_zero_trust_access_application.epgstation.domain
       service  = "http://127.0.0.1:8080"
       origin_request {
         connect_timeout = "1m0s"
@@ -13,7 +13,7 @@ resource "cloudflare_tunnel_config" "eq12_01" {
       }
     }
     ingress_rule {
-      hostname = cloudflare_access_application.eq12_01_ssh.domain
+      hostname = cloudflare_zero_trust_access_application.eq12_01_ssh.domain
       service  = "ssh://127.0.0.1:9922"
     }
     ingress_rule {

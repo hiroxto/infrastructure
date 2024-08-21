@@ -1,4 +1,4 @@
-resource "cloudflare_access_group" "admin" {
+resource "cloudflare_zero_trust_access_group" "admin" {
   account_id = var.cloudflare_account_id
   name       = "Infra Admin"
 

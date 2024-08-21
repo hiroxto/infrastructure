@@ -1,4 +1,4 @@
-resource "cloudflare_access_application" "epgstation" {
+resource "cloudflare_zero_trust_access_application" "epgstation" {
   account_id           = var.cloudflare_account_id
   name                 = "EPGStation"
   domain               = var.app_epgstation_domain
@@ -8,8 +8,8 @@ resource "cloudflare_access_application" "epgstation" {
     cloudflare_access_identity_provider.google.id,
   ]
   policies = [
-    cloudflare_access_policy.admin.id,
-    # cloudflare_access_policy.new_relic.id
+    cloudflare_zero_trust_access_policy.admin.id,
+    # cloudflare_zero_trust_access_policy.new_relic.id
   ]
   auto_redirect_to_identity  = false
   session_duration           = "168h" # 1 weeks
@@ -20,7 +20,7 @@ resource "cloudflare_access_application" "epgstation" {
   options_preflight_bypass   = true
 }
 
-resource "cloudflare_access_application" "eq12_01_ssh" {
+resource "cloudflare_zero_trust_access_application" "eq12_01_ssh" {
   account_id           = var.cloudflare_account_id
   name                 = "eq12-01-ssh"
   domain               = var.app_eq12_01_ssh_domain
@@ -30,6 +30,6 @@ resource "cloudflare_access_application" "eq12_01_ssh" {
     cloudflare_access_identity_provider.google.id,
   ]
   policies = [
-    cloudflare_access_policy.admin.id
+    cloudflare_zero_trust_access_policy.admin.id
   ]
 }

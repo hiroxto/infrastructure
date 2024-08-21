@@ -31,11 +31,11 @@ output "tunnel_epgstation_cname" {
 # Access Service Tokens
 #
 output "cfa_token_new_relic_client_id" {
-  value     = cloudflare_access_service_token.new_relic.client_id
+  value     = cloudflare_zero_trust_access_service_token.new_relic.client_id
   sensitive = true
 }
 
 output "cfa_token_new_relic_client_secret" {
-  value     = cloudflare_access_service_token.new_relic.client_secret
+  value     = cloudflare_zero_trust_access_service_token.new_relic.client_secret
   sensitive = true
 }
