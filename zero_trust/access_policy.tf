@@ -17,7 +17,7 @@ resource "cloudflare_access_policy" "new_relic" {
 
   include {
     service_token = [
-      cloudflare_access_service_token.new_relic.id
+      cloudflare_zero_trust_access_service_token.new_relic.id
     ]
   }
 }
