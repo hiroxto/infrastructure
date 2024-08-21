@@ -1,4 +1,4 @@
-resource "cloudflare_access_policy" "admin" {
+resource "cloudflare_zero_trust_access_policy" "admin" {
   account_id = var.cloudflare_account_id
   name       = "Allow infra admin"
   decision   = "allow"
@@ -10,7 +10,7 @@ resource "cloudflare_access_policy" "admin" {
   }
 }
 
-resource "cloudflare_access_policy" "new_relic" {
+resource "cloudflare_zero_trust_access_policy" "new_relic" {
   account_id = var.cloudflare_account_id
   name       = "Bypass New Relic"
   decision   = "bypass"
