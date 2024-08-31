@@ -1,7 +1,7 @@
 resource "newrelic_synthetics_monitor" "epgstation" {
   status           = "ENABLED"
   name             = "EPGStation"
-  period           = "EVERY_5_MINUTES"
+  period           = "EVERY_12_HOURS"
   uri              = var.epgstation_uri
   type             = "SIMPLE"
   locations_public = ["AWS_AP_NORTHEAST_1"]
