@@ -9,7 +9,7 @@ resource "cloudflare_zero_trust_access_application" "epgstation" {
   ]
   policies = [
     cloudflare_zero_trust_access_policy.admin.id,
-    # cloudflare_zero_trust_access_policy.new_relic.id
+    cloudflare_zero_trust_access_policy.new_relic.id
   ]
   auto_redirect_to_identity  = false
   session_duration           = "168h" # 1 weeks
