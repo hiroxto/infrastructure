@@ -95,7 +95,7 @@ resource "newrelic_nrql_alert_condition" "epgstation_health_check" {
   policy_id          = newrelic_alert_policy.dtv_alerts.id
   enabled            = false
   type               = "static"
-  aggregation_window = 300
+  aggregation_window = 10800
   aggregation_method = "event_flow"
   aggregation_delay  = 0
 
@@ -106,7 +106,7 @@ resource "newrelic_nrql_alert_condition" "epgstation_health_check" {
   critical {
     operator              = "above_or_equals"
     threshold             = 1.0
-    threshold_duration    = 300
+    threshold_duration    = 10800
     threshold_occurrences = "all"
   }
 }
