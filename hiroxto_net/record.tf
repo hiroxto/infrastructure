@@ -41,14 +41,6 @@ resource "cloudflare_record" "cname_utils" {
   proxied = true
 }
 
-resource "cloudflare_record" "cname_epgstation" {
-  zone_id = data.cloudflare_zone.main.id
-  name    = "epgstation"
-  type    = "CNAME"
-  content = var.cname_epgstation
-  proxied = true
-}
-
 resource "cloudflare_record" "cname_eq12_01_ssh" {
   zone_id = data.cloudflare_zone.main.id
   name    = "eq12-01-ssh"
@@ -62,6 +54,14 @@ resource "cloudflare_record" "cname_raspi_4b_01_ssh" {
   name    = "raspi-4b-01-ssh"
   type    = "CNAME"
   content = var.cname_raspi_4b_01_ssh
+  proxied = true
+}
+
+resource "cloudflare_record" "cname_epgstation" {
+  zone_id = data.cloudflare_zone.main.id
+  name    = "epgstation"
+  type    = "CNAME"
+  content = var.cname_epgstation
   proxied = true
 }
 
