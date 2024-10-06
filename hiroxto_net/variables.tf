@@ -1,3 +1,6 @@
+#
+# General
+#
 variable "cloudflare_account_id" {
   type        = string
   description = "Cloudflare の Account ID"
@@ -8,24 +11,58 @@ variable "name" {
   description = "対象のドメイン名"
 }
 
-variable "email_routing_addresses" {
-  type = object({
-    catch_all            = string
-    forward_me_to_gmail  = string
-    forward_bot_to_gmail = string
-  })
-  description = "メール転送先アドレス"
+#
+# Email
+#
+variable "email_catch_all_forward_to" {
+  type        = string
+  description = "Catch all の転送先メールアドレス"
 }
 
-variable "records" {
-  type = object({
-    cname_root             = string
-    cname_www              = string
-    cname_train_photo_blog = string
-    cname_epgstation       = string
-    cname_eq12_01_ssh      = string
-    cname_raspi_4b_01_ssh  = string
-    cname_home_assistant   = string
-  })
-  description = "DNSレコードの設定"
+variable "email_me_forward_to" {
+  type        = string
+  description = "me アドレスの転送先メールアドレス"
+}
+
+variable "email_bot_forward_to" {
+  type        = string
+  description = "me アドレスの転送先メールアドレス"
+}
+
+#
+# Domain
+#
+variable "cname_root" {
+  type        = string
+  description = "ドメインルートの CNAME の値"
+}
+
+variable "cname_www" {
+  type        = string
+  description = "www ドメインの CNAME の値"
+}
+
+variable "cname_train_photo_blog" {
+  type        = string
+  description = "train-photo-blog ドメインの CNAME の値"
+}
+
+variable "cname_eq12_01_ssh" {
+  type        = string
+  description = "eq12-01-ssh ドメインの CNAME の値"
+}
+
+variable "cname_raspi_4b_01_ssh" {
+  type        = string
+  description = "raspi-4b-01-ssh ドメインの CNAME の値"
+}
+
+variable "cname_epgstation" {
+  type        = string
+  description = "epgstation ドメインの CNAME の値"
+}
+
+variable "cname_home_assistant" {
+  type        = string
+  description = "home-assistant ドメインの CNAME の値"
 }

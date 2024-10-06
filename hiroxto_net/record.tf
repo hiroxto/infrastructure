@@ -5,7 +5,7 @@ resource "cloudflare_record" "cname_root" {
   zone_id = data.cloudflare_zone.main.id
   name    = data.cloudflare_zone.main.name
   type    = "CNAME"
-  content = var.records.cname_root
+  content = var.cname_root
   proxied = true
 }
 
@@ -13,7 +13,7 @@ resource "cloudflare_record" "cname_www" {
   zone_id = data.cloudflare_zone.main.id
   name    = "www"
   type    = "CNAME"
-  content = var.records.cname_www
+  content = var.cname_www
   proxied = true
 }
 
@@ -29,7 +29,7 @@ resource "cloudflare_record" "cname_train_photo_blog" {
   zone_id = data.cloudflare_zone.main.id
   type    = "CNAME"
   name    = "train-photo-blog"
-  content = var.records.cname_train_photo_blog
+  content = var.cname_train_photo_blog
   proxied = true
 }
 
@@ -41,19 +41,11 @@ resource "cloudflare_record" "cname_utils" {
   proxied = true
 }
 
-resource "cloudflare_record" "cname_epgstation" {
-  zone_id = data.cloudflare_zone.main.id
-  name    = "epgstation"
-  type    = "CNAME"
-  content = var.records.cname_epgstation
-  proxied = true
-}
-
 resource "cloudflare_record" "cname_eq12_01_ssh" {
   zone_id = data.cloudflare_zone.main.id
   name    = "eq12-01-ssh"
   type    = "CNAME"
-  content = var.records.cname_eq12_01_ssh
+  content = var.cname_eq12_01_ssh
   proxied = true
 }
 
@@ -61,7 +53,15 @@ resource "cloudflare_record" "cname_raspi_4b_01_ssh" {
   zone_id = data.cloudflare_zone.main.id
   name    = "raspi-4b-01-ssh"
   type    = "CNAME"
-  content = var.records.cname_raspi_4b_01_ssh
+  content = var.cname_raspi_4b_01_ssh
+  proxied = true
+}
+
+resource "cloudflare_record" "cname_epgstation" {
+  zone_id = data.cloudflare_zone.main.id
+  name    = "epgstation"
+  type    = "CNAME"
+  content = var.cname_epgstation
   proxied = true
 }
 
@@ -69,7 +69,7 @@ resource "cloudflare_record" "cname_home_assistant" {
   zone_id = data.cloudflare_zone.main.id
   name    = "home-assistant"
   type    = "CNAME"
-  content = var.records.cname_home_assistant
+  content = var.cname_home_assistant
   proxied = true
 }
 

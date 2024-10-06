@@ -18,7 +18,7 @@ resource "cloudflare_email_routing_rule" "forward_me_to_gmail" {
 
   action {
     type  = "forward"
-    value = [var.email_routing_addresses.forward_me_to_gmail]
+    value = [var.email_me_forward_to]
   }
 }
 
@@ -35,6 +35,6 @@ resource "cloudflare_email_routing_rule" "forward_bot_to_gmail" {
 
   action {
     type  = "forward"
-    value = [var.email_routing_addresses.forward_bot_to_gmail]
+    value = [var.email_bot_forward_to]
   }
 }
