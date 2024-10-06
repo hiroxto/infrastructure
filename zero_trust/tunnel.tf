@@ -30,7 +30,7 @@ resource "cloudflare_zero_trust_tunnel_cloudflared_config" "raspi_4b_01" {
   config {
     ingress_rule {
       hostname = cloudflare_zero_trust_access_application.raspi_4b_01_ssh.domain
-      service  = "ssh://127.0.0.1:9922"
+      service  = "ssh://127.0.0.1:9973"
     }
     ingress_rule {
       service = "http_status:404"
