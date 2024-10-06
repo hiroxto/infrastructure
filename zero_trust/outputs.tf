@@ -19,6 +19,27 @@ output "tunnel_eq12_01_cname" {
   value = cloudflare_tunnel.eq12_01.cname
 }
 
+#
+# raspi-4b-01
+#
+output "tunnel_raspi_4b_01_id" {
+  value = cloudflare_zero_trust_tunnel_cloudflared.raspi_4b_01.id
+}
+
+output "tunnel_raspi_4b_01_secret" {
+  value     = cloudflare_zero_trust_tunnel_cloudflared.raspi_4b_01.secret
+  sensitive = true
+}
+
+output "tunnel_raspi_4b_01_token" {
+  value     = cloudflare_zero_trust_tunnel_cloudflared.raspi_4b_01.tunnel_token
+  sensitive = true
+}
+
+output "tunnel_raspi_4b_01_cname" {
+  value = cloudflare_zero_trust_tunnel_cloudflared.raspi_4b_01.cname
+}
+
 
 #
 # CNAME

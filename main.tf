@@ -16,6 +16,7 @@ module "hiroxto_net" {
     cname_train_photo_blog = module.pages.train_photo_blog_subdomain
     cname_epgstation       = module.zero_trust.tunnel_epgstation_cname
     cname_eq12_01_ssh      = module.zero_trust.tunnel_eq12_01_cname
+    cname_raspi_4b_01_ssh  = module.zero_trust.tunnel_raspi_4b_01_cname
     cname_home_assistant   = module.zero_trust.tunnel_eq12_01_cname
   }
 }
@@ -50,6 +51,7 @@ module "zero_trust" {
   idp_google_client_secret     = var.idp_google_client_secret
   app_epgstation_domain        = module.hiroxto_net.records.cname_epgstation_hostname
   app_eq12_01_ssh_domain       = module.hiroxto_net.records.cname_eq12_01_ssh_hostname
+  app_raspi_4b_01_ssh_domain   = module.hiroxto_net.records.cname_raspi_4b_01_ssh_hostname
   tunnel_home_assistant_domain = module.hiroxto_net.records.cname_home_assistant_hostname
 }
 
