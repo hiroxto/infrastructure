@@ -8,7 +8,7 @@ resource "cloudflare_zero_trust_access_application" "eq12_01_ssh" {
   type                 = "ssh"
   app_launcher_visible = false
   allowed_idps = [
-    cloudflare_access_identity_provider.google.id,
+    cloudflare_zero_trust_access_identity_provider.google.id,
   ]
   policies = [
     cloudflare_zero_trust_access_policy.admin.id
@@ -25,7 +25,7 @@ resource "cloudflare_zero_trust_access_application" "raspi_4b_01_ssh" {
   type                 = "ssh"
   app_launcher_visible = false
   allowed_idps = [
-    cloudflare_access_identity_provider.google.id,
+    cloudflare_zero_trust_access_identity_provider.google.id,
   ]
   policies = [
     cloudflare_zero_trust_access_policy.admin.id
@@ -42,7 +42,7 @@ resource "cloudflare_zero_trust_access_application" "epgstation" {
   type                 = "self_hosted"
   app_launcher_visible = true
   allowed_idps = [
-    cloudflare_access_identity_provider.google.id,
+    cloudflare_zero_trust_access_identity_provider.google.id,
   ]
   policies = [
     cloudflare_zero_trust_access_policy.admin.id,
