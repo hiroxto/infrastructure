@@ -57,6 +57,14 @@ resource "cloudflare_record" "cname_eq12_01_ssh" {
   proxied = true
 }
 
+resource "cloudflare_record" "cname_raspi_4b_01_ssh" {
+  zone_id = data.cloudflare_zone.main.id
+  name    = "raspi-4b-01-ssh"
+  type    = "CNAME"
+  content = var.records.cname_raspi_4b_01_ssh
+  proxied = true
+}
+
 resource "cloudflare_record" "cname_home_assistant" {
   zone_id = data.cloudflare_zone.main.id
   name    = "home-assistant"

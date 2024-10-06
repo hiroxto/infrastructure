@@ -33,3 +33,20 @@ resource "cloudflare_zero_trust_access_application" "eq12_01_ssh" {
     cloudflare_zero_trust_access_policy.admin.id
   ]
 }
+
+#
+# raspi-4b-01
+#
+resource "cloudflare_zero_trust_access_application" "raspi_4b_01_ssh" {
+  account_id           = var.cloudflare_account_id
+  name                 = "raspi-4b-01-ssh"
+  domain               = var.app_raspi_4b_01_ssh_domain
+  type                 = "ssh"
+  app_launcher_visible = false
+  allowed_idps = [
+    cloudflare_access_identity_provider.google.id,
+  ]
+  policies = [
+    cloudflare_zero_trust_access_policy.admin.id
+  ]
+}
