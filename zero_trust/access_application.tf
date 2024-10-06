@@ -1,25 +1,6 @@
-resource "cloudflare_zero_trust_access_application" "epgstation" {
-  account_id           = var.cloudflare_account_id
-  name                 = "EPGStation"
-  domain               = var.app_epgstation_domain
-  type                 = "self_hosted"
-  app_launcher_visible = true
-  allowed_idps = [
-    cloudflare_access_identity_provider.google.id,
-  ]
-  policies = [
-    cloudflare_zero_trust_access_policy.admin.id,
-    cloudflare_zero_trust_access_policy.new_relic.id
-  ]
-  auto_redirect_to_identity  = false
-  session_duration           = "168h" # 1 weeks
-  same_site_cookie_attribute = "lax"
-  http_only_cookie_attribute = true
-  enable_binding_cookie      = false
-  service_auth_401_redirect  = true
-  options_preflight_bypass   = true
-}
-
+#
+# eq12-01
+#
 resource "cloudflare_zero_trust_access_application" "eq12_01_ssh" {
   account_id           = var.cloudflare_account_id
   name                 = "eq12-01-ssh"
@@ -49,4 +30,29 @@ resource "cloudflare_zero_trust_access_application" "raspi_4b_01_ssh" {
   policies = [
     cloudflare_zero_trust_access_policy.admin.id
   ]
+}
+
+#
+# Web application
+#
+resource "cloudflare_zero_trust_access_application" "epgstation" {
+  account_id           = var.cloudflare_account_id
+  name                 = "EPGStation"
+  domain               = var.app_epgstation_domain
+  type                 = "self_hosted"
+  app_launcher_visible = true
+  allowed_idps = [
+    cloudflare_access_identity_provider.google.id,
+  ]
+  policies = [
+    cloudflare_zero_trust_access_policy.admin.id,
+    cloudflare_zero_trust_access_policy.new_relic.id
+  ]
+  auto_redirect_to_identity  = false
+  session_duration           = "168h" # 1 weeks
+  same_site_cookie_attribute = "lax"
+  http_only_cookie_attribute = true
+  enable_binding_cookie      = false
+  service_auth_401_redirect  = true
+  options_preflight_bypass   = true
 }
