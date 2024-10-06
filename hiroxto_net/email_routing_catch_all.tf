@@ -9,6 +9,6 @@ resource "cloudflare_email_routing_catch_all" "main" {
 
   action {
     type  = "forward"
-    value = [var.email_routing_addresses.catch_all]
+    value = [var.email_catch_all_forward_to]
   }
 }

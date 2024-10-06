@@ -2,23 +2,25 @@
 # Domain modules
 #
 module "hiroxto_net" {
-  source                = "./hiroxto_net"
+  source = "./hiroxto_net"
+
+  # General
   cloudflare_account_id = cloudflare_account.main.id
   name                  = "hiroxto.net"
-  email_routing_addresses = {
-    catch_all            = cloudflare_email_routing_address.main_gmail.email
-    forward_me_to_gmail  = cloudflare_email_routing_address.main_gmail.email
-    forward_bot_to_gmail = cloudflare_email_routing_address.main_gmail.email
-  }
-  records = {
-    cname_root             = module.pages.hiroxto_net_subdomain
-    cname_www              = module.pages.hiroxto_net_subdomain
-    cname_train_photo_blog = module.pages.train_photo_blog_subdomain
-    cname_epgstation       = module.zero_trust.tunnel_epgstation_cname
-    cname_eq12_01_ssh      = module.zero_trust.tunnel_eq12_01_cname
-    cname_raspi_4b_01_ssh  = module.zero_trust.tunnel_raspi_4b_01_cname
-    cname_home_assistant   = module.zero_trust.tunnel_eq12_01_cname
-  }
+
+  # Email
+  email_catch_all_forward_to = cloudflare_email_routing_address.main_gmail.email
+  email_me_forward_to        = cloudflare_email_routing_address.main_gmail.email
+  email_bot_forward_to       = cloudflare_email_routing_address.main_gmail.email
+
+  # Domain
+  cname_root             = module.pages.hiroxto_net_subdomain
+  cname_www              = module.pages.hiroxto_net_subdomain
+  cname_train_photo_blog = module.pages.train_photo_blog_subdomain
+  cname_epgstation       = module.zero_trust.tunnel_epgstation_cname
+  cname_eq12_01_ssh      = module.zero_trust.tunnel_eq12_01_cname
+  cname_raspi_4b_01_ssh  = module.zero_trust.tunnel_raspi_4b_01_cname
+  cname_home_assistant   = module.zero_trust.tunnel_eq12_01_cname
 }
 
 #
@@ -49,10 +51,10 @@ module "zero_trust" {
   admin_gmail_address          = var.admin_gmail_address
   idp_google_client_id         = var.idp_google_client_id
   idp_google_client_secret     = var.idp_google_client_secret
-  app_epgstation_domain        = module.hiroxto_net.records.cname_epgstation_hostname
-  app_eq12_01_ssh_domain       = module.hiroxto_net.records.cname_eq12_01_ssh_hostname
-  app_raspi_4b_01_ssh_domain   = module.hiroxto_net.records.cname_raspi_4b_01_ssh_hostname
-  tunnel_home_assistant_domain = module.hiroxto_net.records.cname_home_assistant_hostname
+  app_epgstation_domain        = module.hiroxto_net.cname_epgstation_hostname
+  app_eq12_01_ssh_domain       = module.hiroxto_net.cname_eq12_01_ssh_hostname
+  app_raspi_4b_01_ssh_domain   = module.hiroxto_net.cname_raspi_4b_01_ssh_hostname
+  tunnel_home_assistant_domain = module.hiroxto_net.cname_home_assistant_hostname
 }
 
 #
@@ -69,7 +71,7 @@ module "tf_cloud" {
 #
 module "observe" {
   source            = "./observe"
-  epgstation_uri    = "https://${module.hiroxto_net.records.cname_epgstation_hostname}/api/version"
+  epgstation_uri    = "https://${module.hiroxto_net.cname_epgstation_hostname}/api/version"
   cfa_client_id     = module.zero_trust.cfa_token_new_relic_client_id
   cfa_client_secret = module.zero_trust.cfa_token_new_relic_client_secret
 }
