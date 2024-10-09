@@ -78,12 +78,22 @@ variable "cf_slack_status_webhook_secret" {
   description = "Cloudflare のステータス関連の Slack 通知の Webhook Secret"
 }
 
-variable "cf_slack_pages_webhook_url" {
+variable "cf_slack_pages_prod_webhook_url" {
   type        = string
-  description = "Cloudflare Pages 関連の Slack 通知の Webhook URL"
+  description = "本番環境の Cloudflare Pages 関連の Slack 通知の Webhook URL"
 }
 
-variable "cf_slack_pages_webhook_secret" {
+variable "cf_slack_pages_prod_webhook_secret" {
   type        = string
-  description = "Cloudflare Pages 関連の Slack 通知の Webhook Secret"
+  description = "本番環境の Cloudflare Pages 関連の Slack 通知の Webhook Secret"
+}
+
+variable "cf_slack_pages_preview_webhook_url" {
+  type        = string
+  description = "プレビュー環境の Cloudflare Pages 関連の Slack 通知の Webhook URL"
+}
+
+variable "cf_slack_pages_preview_webhook_secret" {
+  type        = string
+  description = "プレビュー環境の Cloudflare Pages 関連の Slack 通知の Webhook Secret"
 }

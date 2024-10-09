@@ -19,9 +19,16 @@ resource "cloudflare_notification_policy_webhooks" "slack_status" {
   secret     = var.slack_status_webhook_secret
 }
 
-resource "cloudflare_notification_policy_webhooks" "slack_pages" {
+resource "cloudflare_notification_policy_webhooks" "slack_pages_prod" {
   account_id = var.cloudflare_account_id
-  name       = "Cloudflare Pages Notification"
-  url        = var.slack_pages_webhook_url
-  secret     = var.slack_pages_webhook_secret
+  name       = "Cloudflare Pages Prod Notification"
+  url        = var.slack_pages_prod_webhook_url
+  secret     = var.slack_pages_prod_webhook_secret
+}
+
+resource "cloudflare_notification_policy_webhooks" "slack_pages_preview" {
+  account_id = var.cloudflare_account_id
+  name       = "Cloudflare Pages Preview Notification"
+  url        = var.slack_pages_preview_webhook_url
+  secret     = var.slack_pages_preview_webhook_secret
 }
