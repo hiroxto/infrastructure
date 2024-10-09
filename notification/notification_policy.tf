@@ -50,22 +50,48 @@ resource "cloudflare_notification_policy" "incident_alert" {
 #
 # Pages
 #
-resource "cloudflare_notification_policy" "pages_event_alert" {
+resource "cloudflare_notification_policy" "pages_event_alert_prod" {
   account_id = var.cloudflare_account_id
 
   enabled    = true
   alert_type = "pages_event_alert"
-  name       = "Pages event alert"
+  name       = "Pages Prod event alert"
 
   webhooks_integration {
-    id   = cloudflare_notification_policy_webhooks.slack_status.id
-    name = cloudflare_notification_policy_webhooks.slack_status.name
+    id   = cloudflare_notification_policy_webhooks.slack_pages_prod.id
+    name = cloudflare_notification_policy_webhooks.slack_pages_prod.name
   }
 
   filters {
-    # 本番環境へのデプロイ失敗のみ受け取る
+    # 本番環境のデプロイのみ受け取る
     environment = ["ENVIRONMENT_PRODUCTION"]
-    event       = ["EVENT_DEPLOYMENT_FAILED"]
+    event       = ["EVENT_DEPLOYMENT_STARTED", "EVENT_DEPLOYMENT_FAILED", "EVENT_DEPLOYMENT_SUCCESS"]
+    # NOTE: cloudflare_pages_project のリソースに ID 属性はあるが name 属性と同じ値が取得できるだけなのでハードコーディング
+    project_id = [
+      "33a852bd-16a6-4d03-9251-2e90223ef8dc", # swarm-checkin-regulation-checker
+      "55e413ae-b964-4671-bb0f-6a88fe146619", # hiroxto-utils-hiroxto-net
+      "c4aafd7f-f4ce-442d-a597-ddea67b8fa46", # hiroxto-net
+      "800314de-8cc8-4092-98c4-96f6928e2547", # hiroxto-train-photo-blog
+    ]
+  }
+}
+
+resource "cloudflare_notification_policy" "pages_event_alert_preview" {
+  account_id = var.cloudflare_account_id
+
+  enabled    = true
+  alert_type = "pages_event_alert"
+  name       = "Pages Preview event alert"
+
+  webhooks_integration {
+    id   = cloudflare_notification_policy_webhooks.slack_pages_prod.id
+    name = cloudflare_notification_policy_webhooks.slack_pages_prod.name
+  }
+
+  filters {
+    # プレビュー環境のデプロイのみ受け取る
+    environment = ["ENVIRONMENT_PREVIEW"]
+    event       = ["EVENT_DEPLOYMENT_STARTED", "EVENT_DEPLOYMENT_FAILED", "EVENT_DEPLOYMENT_SUCCESS"]
     # NOTE: cloudflare_pages_project のリソースに ID 属性はあるが name 属性と同じ値が取得できるだけなのでハードコーディング
     project_id = [
       "33a852bd-16a6-4d03-9251-2e90223ef8dc", # swarm-checkin-regulation-checker
