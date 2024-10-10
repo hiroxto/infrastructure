@@ -21,7 +21,7 @@ terraform {
 
     newrelic = {
       source  = "newrelic/newrelic"
-      version = "3.45.0"
+      version = "3.50.0"
     }
   }
 }
