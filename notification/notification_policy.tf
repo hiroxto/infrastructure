@@ -84,8 +84,8 @@ resource "cloudflare_notification_policy" "pages_event_alert_preview" {
   name       = "Pages Preview event alert"
 
   webhooks_integration {
-    id   = cloudflare_notification_policy_webhooks.slack_pages_prod.id
-    name = cloudflare_notification_policy_webhooks.slack_pages_prod.name
+    id   = cloudflare_notification_policy_webhooks.slack_pages_preview.id
+    name = cloudflare_notification_policy_webhooks.slack_pages_preview.name
   }
 
   filters {
