@@ -31,10 +31,6 @@ resource "cloudflare_zero_trust_tunnel_cloudflared_config" "eq12_01" {
       service  = "ssh://127.0.0.1:9922"
     }
     ingress_rule {
-      hostname = var.tunnel_home_assistant_domain
-      service  = "http://127.0.0.1:8080"
-    }
-    ingress_rule {
       service = "http_status:404"
       origin_request {}
     }
