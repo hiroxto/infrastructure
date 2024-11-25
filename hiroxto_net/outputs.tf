@@ -14,6 +14,3 @@ output "cname_epgstation_hostname" {
   value = cloudflare_record.cname_epgstation.hostname
 }
 
-output "cname_home_assistant_hostname" {
-  value = cloudflare_record.cname_home_assistant.hostname
-}

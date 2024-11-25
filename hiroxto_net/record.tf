@@ -65,14 +65,6 @@ resource "cloudflare_record" "cname_epgstation" {
   proxied = true
 }
 
-resource "cloudflare_record" "cname_home_assistant" {
-  zone_id = data.cloudflare_zone.main.id
-  name    = "home-assistant"
-  type    = "CNAME"
-  content = var.cname_home_assistant
-  proxied = true
-}
-
 #
 # MX
 #

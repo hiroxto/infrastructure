@@ -34,8 +34,3 @@ variable "app_raspi_4b_01_ssh_domain" {
   type        = string
   description = "Access Application の raspi-4b-01 の SSH 接続のドメイン"
 }
-
-variable "tunnel_home_assistant_domain" {
-  type        = string
-  description = "Home Assistant のドメイン"
-}
