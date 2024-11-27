@@ -13,4 +13,10 @@ resource "cloudflare_zero_trust_access_identity_provider" "google" {
     client_id     = var.idp_google_client_id
     client_secret = var.idp_google_client_secret
   }
+
+  lifecycle {
+    ignore_changes = [
+      config["client_secret"]
+    ]
+  }
 }
