@@ -25,6 +25,11 @@ variable "app_epgstation_domain" {
   description = "Access Application の EPGStation のドメイン"
 }
 
+variable "app_mirakurun_domain" {
+  type        = string
+  description = "Access Application の Mirakurun のドメイン"
+}
+
 variable "app_eq12_01_ssh_domain" {
   type        = string
   description = "Access Application の EQ12 の SSH 接続のドメイン"
