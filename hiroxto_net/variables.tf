@@ -61,8 +61,3 @@ variable "cname_epgstation" {
   type        = string
   description = "epgstation ドメインの CNAME の値"
 }
-
-variable "cname_mirakurun" {
-  type        = string
-  description = "mirakurun ドメインの CNAME の値"
-}

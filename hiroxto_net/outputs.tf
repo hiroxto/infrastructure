@@ -13,7 +13,3 @@ output "cname_raspi_4b_01_ssh_hostname" {
 output "cname_epgstation_hostname" {
   value = cloudflare_record.cname_epgstation.hostname
 }
-
-output "cname_mirakurun_hostname" {
-  value = cloudflare_record.cname_mirakurun.hostname
-}
