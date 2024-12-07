@@ -56,3 +56,24 @@ resource "cloudflare_zero_trust_access_application" "epgstation" {
   service_auth_401_redirect  = true
   options_preflight_bypass   = true
 }
+
+resource "cloudflare_zero_trust_access_application" "mirakurun" {
+  account_id           = var.cloudflare_account_id
+  name                 = "Mirakurun"
+  domain               = var.app_mirakurun_domain
+  type                 = "self_hosted"
+  app_launcher_visible = true
+  allowed_idps = [
+    cloudflare_zero_trust_access_identity_provider.google.id,
+  ]
+  policies = [
+    cloudflare_zero_trust_access_policy.admin.id,
+  ]
+  auto_redirect_to_identity  = false
+  session_duration           = "168h" # 1 weeks
+  same_site_cookie_attribute = "lax"
+  http_only_cookie_attribute = true
+  enable_binding_cookie      = false
+  service_auth_401_redirect  = true
+  options_preflight_bypass   = true
+}

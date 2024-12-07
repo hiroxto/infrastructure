@@ -48,6 +48,10 @@ output "tunnel_epgstation_cname" {
   value = cloudflare_zero_trust_tunnel_cloudflared.eq12_01.cname
 }
 
+output "tunnel_mirakurun_cname" {
+  value = cloudflare_zero_trust_tunnel_cloudflared.raspi_4b_01.cname
+}
+
 #
 # Access Service Tokens
 #

@@ -61,6 +61,16 @@ resource "cloudflare_zero_trust_tunnel_cloudflared_config" "raspi_4b_01" {
       service  = "ssh://127.0.0.1:9973"
     }
     ingress_rule {
+      hostname = cloudflare_zero_trust_access_application.mirakurun.domain
+      service  = "http://127.0.0.1:40772"
+      origin_request {
+        connect_timeout = "1m0s"
+        tls_timeout     = "1m0s"
+        tcp_keep_alive  = "1m0s"
+      }
+    }
+
+    ingress_rule {
       service = "http_status:404"
     }
   }
