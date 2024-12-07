@@ -67,7 +67,7 @@ resource "cloudflare_record" "cname_epgstation" {
 
 resource "cloudflare_record" "cname_mirakurun" {
   zone_id = data.cloudflare_zone.main.id
-  name    = "epgstation"
+  name    = "mirakurun"
   type    = "CNAME"
   content = var.cname_mirakurun
   proxied = true
