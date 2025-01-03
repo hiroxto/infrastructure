@@ -72,6 +72,7 @@ resource "cloudflare_notification_policy" "pages_event_alert_prod" {
       "55e413ae-b964-4671-bb0f-6a88fe146619", # hiroxto-utils-hiroxto-net
       "c4aafd7f-f4ce-442d-a597-ddea67b8fa46", # hiroxto-net
       "800314de-8cc8-4092-98c4-96f6928e2547", # hiroxto-train-photo-blog
+      "486a0eda-1ff5-4f70-835e-c14d62735ee1", # fare-ticket-route-planning
     ]
   }
 }
@@ -98,6 +99,7 @@ resource "cloudflare_notification_policy" "pages_event_alert_preview" {
       "55e413ae-b964-4671-bb0f-6a88fe146619", # hiroxto-utils-hiroxto-net
       "c4aafd7f-f4ce-442d-a597-ddea67b8fa46", # hiroxto-net
       "800314de-8cc8-4092-98c4-96f6928e2547", # hiroxto-train-photo-blog
+      "486a0eda-1ff5-4f70-835e-c14d62735ee1", # fare-ticket-route-planning
     ]
   }
 }
