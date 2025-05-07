@@ -4,6 +4,11 @@ variable "cloudflare_api_token" {
   sensitive   = true
 }
 
+variable "cloudflare_account_id" {
+  type        = string
+  description = "Cloudflare の Account ID"
+}
+
 variable "tfe_token" {
   type        = string
   description = "HCP Terraform の Token"

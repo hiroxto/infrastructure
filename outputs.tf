@@ -1,5 +1,5 @@
 output "account_id" {
-  value = cloudflare_account.main.id
+  value = var.cloudflare_account_id
 }
 
 output "hiroxto_net" {
