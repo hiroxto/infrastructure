@@ -15,6 +15,7 @@ resource "random_password" "eq12_01_tunnel_secret" {
 resource "cloudflare_zero_trust_tunnel_cloudflared_config" "eq12_01" {
   account_id = var.cloudflare_account_id
   tunnel_id  = cloudflare_zero_trust_tunnel_cloudflared.eq12_01.id
+  source     = "cloudflare"
 
   config = {
     ingress = [
@@ -55,6 +56,7 @@ resource "random_password" "raspi_4b_01_tunnel_secret" {
 resource "cloudflare_zero_trust_tunnel_cloudflared_config" "raspi_4b_01" {
   account_id = var.cloudflare_account_id
   tunnel_id  = cloudflare_zero_trust_tunnel_cloudflared.raspi_4b_01.id
+  source     = "cloudflare"
 
   config = {
     ingress = [
@@ -68,4 +70,3 @@ resource "cloudflare_zero_trust_tunnel_cloudflared_config" "raspi_4b_01" {
     ]
   }
 }
-#
