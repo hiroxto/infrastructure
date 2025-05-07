@@ -13,8 +13,12 @@ resource "cloudflare_notification_policy" "real_origin_monitoring_to_email" {
   name        = "Passive Origin Monitoring"
   description = "Recieve an email when your origin becomes unreachable"
 
-  email_integration {
-    id = var.target_email
+  mechanisms = {
+    email = [
+      {
+        id = var.target_email
+      }
+    ]
   }
 }
 
@@ -28,9 +32,12 @@ resource "cloudflare_notification_policy" "maintenance_event_notification" {
   alert_type = "maintenance_event_notification"
   name       = "Maintenance event notification"
 
-  webhooks_integration {
-    id   = cloudflare_notification_policy_webhooks.slack_status.id
-    name = cloudflare_notification_policy_webhooks.slack_status.name
+  mechanisms = {
+    webhooks = [
+      {
+        id = cloudflare_notification_policy_webhooks.slack_status.id
+      }
+    ]
   }
 }
 
@@ -41,9 +48,12 @@ resource "cloudflare_notification_policy" "incident_alert" {
   alert_type = "incident_alert"
   name       = "Incident alert"
 
-  webhooks_integration {
-    id   = cloudflare_notification_policy_webhooks.slack_status.id
-    name = cloudflare_notification_policy_webhooks.slack_status.name
+  mechanisms = {
+    webhooks = [
+      {
+        id = cloudflare_notification_policy_webhooks.slack_status.id
+      }
+    ]
   }
 }
 
@@ -57,12 +67,15 @@ resource "cloudflare_notification_policy" "pages_event_alert_prod" {
   alert_type = "pages_event_alert"
   name       = "Pages Prod event alert"
 
-  webhooks_integration {
-    id   = cloudflare_notification_policy_webhooks.slack_pages_prod.id
-    name = cloudflare_notification_policy_webhooks.slack_pages_prod.name
+  mechanisms = {
+    webhooks = [
+      {
+        id = cloudflare_notification_policy_webhooks.slack_pages_prod.id
+      }
+    ]
   }
 
-  filters {
+  filters = {
     # 本番環境のデプロイのみ受け取る
     environment = ["ENVIRONMENT_PRODUCTION"]
     event       = ["EVENT_DEPLOYMENT_STARTED", "EVENT_DEPLOYMENT_FAILED", "EVENT_DEPLOYMENT_SUCCESS"]
@@ -84,12 +97,15 @@ resource "cloudflare_notification_policy" "pages_event_alert_preview" {
   alert_type = "pages_event_alert"
   name       = "Pages Preview event alert"
 
-  webhooks_integration {
-    id   = cloudflare_notification_policy_webhooks.slack_pages_preview.id
-    name = cloudflare_notification_policy_webhooks.slack_pages_preview.name
+  mechanisms = {
+    webhooks = [
+      {
+        id = cloudflare_notification_policy_webhooks.slack_pages_preview.id
+      }
+    ]
   }
 
-  filters {
+  filters = {
     # プレビュー環境のデプロイのみ受け取る
     environment = ["ENVIRONMENT_PREVIEW"]
     event       = ["EVENT_DEPLOYMENT_STARTED", "EVENT_DEPLOYMENT_FAILED", "EVENT_DEPLOYMENT_SUCCESS"]
@@ -114,9 +130,12 @@ resource "cloudflare_notification_policy" "universal_ssl_event_type" {
   alert_type = "universal_ssl_event_type"
   name       = "Universal ssl event type"
 
-  webhooks_integration {
-    id   = cloudflare_notification_policy_webhooks.slack.id
-    name = cloudflare_notification_policy_webhooks.slack.name
+  mechanisms = {
+    webhooks = [
+      {
+        id = cloudflare_notification_policy_webhooks.slack.id
+      }
+    ]
   }
 }
 
@@ -130,9 +149,12 @@ resource "cloudflare_notification_policy" "tunnel_health_event" {
   alert_type = "tunnel_health_event"
   name       = "Tunnel health event"
 
-  webhooks_integration {
-    id   = cloudflare_notification_policy_webhooks.slack_tunnel.id
-    name = cloudflare_notification_policy_webhooks.slack_tunnel.name
+  mechanisms = {
+    webhooks = [
+      {
+        id = cloudflare_notification_policy_webhooks.slack_tunnel.id
+      }
+    ]
   }
 }
 
@@ -143,9 +165,12 @@ resource "cloudflare_notification_policy" "tunnel_update_event" {
   alert_type = "tunnel_update_event"
   name       = "Tunnel update event"
 
-  webhooks_integration {
-    id   = cloudflare_notification_policy_webhooks.slack_tunnel.id
-    name = cloudflare_notification_policy_webhooks.slack_tunnel.name
+  mechanisms = {
+    webhooks = [
+      {
+        id = cloudflare_notification_policy_webhooks.slack_tunnel.id
+      }
+    ]
   }
 }
 
@@ -159,8 +184,11 @@ resource "cloudflare_notification_policy" "web_analytics_metrics_update" {
   alert_type = "web_analytics_metrics_update"
   name       = "Web analytics metrics update"
 
-  webhooks_integration {
-    id   = cloudflare_notification_policy_webhooks.slack.id
-    name = cloudflare_notification_policy_webhooks.slack.name
+  mechanisms = {
+    webhooks = [
+      {
+        id = cloudflare_notification_policy_webhooks.slack.id
+      }
+    ]
   }
 }

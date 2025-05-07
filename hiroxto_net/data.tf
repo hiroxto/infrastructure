@@ -1,4 +1,3 @@
 data "cloudflare_zone" "main" {
-  account_id = var.cloudflare_account_id
-  name       = var.name
+  zone_id = var.zone_id
 }

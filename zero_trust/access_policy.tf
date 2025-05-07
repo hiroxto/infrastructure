@@ -3,11 +3,11 @@ resource "cloudflare_zero_trust_access_policy" "admin" {
   name       = "Allow infra admin"
   decision   = "allow"
 
-  include {
-    group = [
-      cloudflare_zero_trust_access_group.admin.id
-    ]
-  }
+  include = [{
+    group = {
+      id = cloudflare_zero_trust_access_group.admin.id
+    }
+  }]
 }
 
 resource "cloudflare_zero_trust_access_policy" "new_relic" {
@@ -15,9 +15,9 @@ resource "cloudflare_zero_trust_access_policy" "new_relic" {
   name       = "Bypass New Relic"
   decision   = "bypass"
 
-  include {
-    service_token = [
-      cloudflare_zero_trust_access_service_token.new_relic.id
-    ]
-  }
+  include = [{
+    service_token = {
+      token_id = cloudflare_zero_trust_access_service_token.new_relic.id
+    }
+  }]
 }
