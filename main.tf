@@ -38,11 +38,6 @@ module "notification" {
   slack_pages_preview_webhook_secret = var.cf_slack_pages_preview_webhook_secret
 }
 
-module "pages" {
-  source                = "./pages"
-  cloudflare_account_id = cloudflare_account.main.id
-}
-
 module "zero_trust" {
   source                     = "./zero_trust"
   cloudflare_account_id      = cloudflare_account.main.id
