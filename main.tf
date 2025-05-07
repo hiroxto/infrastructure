@@ -24,7 +24,7 @@ module "hiroxto_net" {
 #
 module "notification" {
   source                             = "./notification"
-  cloudflare_account_id              = cloudflare_account.main.id
+  cloudflare_account_id              = var.cloudflare_account_id
   target_email                       = var.admin_gmail_address
   slack_general_webhook_url          = var.cf_slack_general_webhook_url
   slack_general_webhook_secret       = var.cf_slack_general_webhook_secret
@@ -40,7 +40,7 @@ module "notification" {
 
 module "zero_trust" {
   source                     = "./zero_trust"
-  cloudflare_account_id      = cloudflare_account.main.id
+  cloudflare_account_id      = var.cloudflare_account_id
   admin_gmail_address        = var.admin_gmail_address
   idp_google_client_id       = var.idp_google_client_id
   idp_google_client_secret   = var.idp_google_client_secret
