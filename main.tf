@@ -5,8 +5,8 @@ module "hiroxto_net" {
   source = "./hiroxto_net"
 
   # General
-  cloudflare_account_id = cloudflare_account.main.id
-  name                  = "hiroxto.net"
+  zone_id = "1c68e572f5d9da0eeb2147cedd370816"
+  name    = "hiroxto.net"
 
   # Email
   email_catch_all_forward_to = cloudflare_email_routing_address.main_gmail.email

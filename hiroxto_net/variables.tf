@@ -1,9 +1,9 @@
 #
 # General
 #
-variable "cloudflare_account_id" {
+variable "zone_id" {
   type        = string
-  description = "Cloudflare の Account ID"
+  description = "Zone ID"
 }
 
 variable "name" {
