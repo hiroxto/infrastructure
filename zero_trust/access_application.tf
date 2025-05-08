@@ -7,13 +7,19 @@ resource "cloudflare_zero_trust_access_application" "eq12_01_ssh" {
   domain               = var.app_eq12_01_ssh_domain
   type                 = "ssh"
   app_launcher_visible = false
+  destinations = [
+    {
+      type = "public"
+      uri  = var.app_eq12_01_ssh_domain
+    }
+  ]
   allowed_idps = [
     cloudflare_zero_trust_access_identity_provider.google.id,
   ]
   policies = [
     {
       id         = cloudflare_zero_trust_access_policy.admin.id
-      precedence = 0
+      precedence = 1
     }
   ]
 }
@@ -47,17 +53,23 @@ resource "cloudflare_zero_trust_access_application" "epgstation" {
   domain               = var.app_epgstation_domain
   type                 = "self_hosted"
   app_launcher_visible = true
+  destinations = [
+    {
+      type = "public"
+      uri  = var.app_epgstation_domain
+    }
+  ]
   allowed_idps = [
     cloudflare_zero_trust_access_identity_provider.google.id,
   ]
   policies = [
     {
       id         = cloudflare_zero_trust_access_policy.admin.id
-      precedence = 0
+      precedence = 1
     },
     {
       id         = cloudflare_zero_trust_access_policy.new_relic.id
-      precedence = 1
+      precedence = 2
     },
   ]
   auto_redirect_to_identity  = false
