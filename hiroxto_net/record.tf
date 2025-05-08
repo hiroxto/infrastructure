@@ -12,7 +12,7 @@ resource "cloudflare_dns_record" "cname_root" {
 
 resource "cloudflare_dns_record" "cname_www" {
   zone_id = var.zone_id
-  name    = "www"
+  name    = "www.${data.cloudflare_zone.main.name}"
   type    = "CNAME"
   content = "hiroxto-net.pages.dev"
   proxied = true
@@ -21,7 +21,7 @@ resource "cloudflare_dns_record" "cname_www" {
 
 resource "cloudflare_dns_record" "cname_swarm_checkin_regulation_checker" {
   zone_id = var.zone_id
-  name    = "swarm-checkin-regulation-checker"
+  name    = "swarm-checkin-regulation-checker.${data.cloudflare_zone.main.name}"
   type    = "CNAME"
   content = "swarm-checkin-regulation-checker.pages.dev"
   proxied = true
@@ -31,7 +31,7 @@ resource "cloudflare_dns_record" "cname_swarm_checkin_regulation_checker" {
 resource "cloudflare_dns_record" "cname_train_photo_blog" {
   zone_id = var.zone_id
   type    = "CNAME"
-  name    = "train-photo-blog"
+  name    = "train-photo-blog.${data.cloudflare_zone.main.name}"
   content = "hiroxto-train-photo-blog.pages.dev"
   proxied = true
   ttl     = 1
@@ -39,7 +39,7 @@ resource "cloudflare_dns_record" "cname_train_photo_blog" {
 
 resource "cloudflare_dns_record" "cname_utils" {
   zone_id = var.zone_id
-  name    = "utils"
+  name    = "utils.${data.cloudflare_zone.main.name}"
   type    = "CNAME"
   content = "hiroxto-utils-hiroxto-net.pages.dev"
   proxied = true
@@ -48,7 +48,7 @@ resource "cloudflare_dns_record" "cname_utils" {
 
 resource "cloudflare_dns_record" "cname_eq12_01_ssh" {
   zone_id = var.zone_id
-  name    = "eq12-01-ssh"
+  name    = "eq12-01-ssh.${data.cloudflare_zone.main.name}"
   type    = "CNAME"
   content = var.cname_eq12_01_ssh
   proxied = true
@@ -57,7 +57,7 @@ resource "cloudflare_dns_record" "cname_eq12_01_ssh" {
 
 resource "cloudflare_dns_record" "cname_raspi_4b_01_ssh" {
   zone_id = var.zone_id
-  name    = "raspi-4b-01-ssh"
+  name    = "raspi-4b-01-ssh.${data.cloudflare_zone.main.name}"
   type    = "CNAME"
   content = var.cname_raspi_4b_01_ssh
   proxied = true
@@ -66,7 +66,7 @@ resource "cloudflare_dns_record" "cname_raspi_4b_01_ssh" {
 
 resource "cloudflare_dns_record" "cname_epgstation" {
   zone_id = var.zone_id
-  name    = "epgstation"
+  name    = "epgstation.${data.cloudflare_zone.main.name}"
   type    = "CNAME"
   content = var.cname_epgstation
   proxied = true
@@ -116,7 +116,7 @@ resource "cloudflare_dns_record" "txt_spf" {
 
 resource "cloudflare_dns_record" "txt_dmarc" {
   zone_id = var.zone_id
-  name    = "_dmarc"
+  name    = "_dmarc.${data.cloudflare_zone.main.name}"
   type    = "TXT"
   content = "v=DMARC1;  p=none; rua=mailto:97f14f78b6474427b3c6f73b9464f836@dmarc-reports.cloudflare.net"
   ttl     = 1
@@ -124,7 +124,7 @@ resource "cloudflare_dns_record" "txt_dmarc" {
 
 resource "cloudflare_dns_record" "txt_atproto" {
   zone_id = var.zone_id
-  name    = "_atproto"
+  name    = "_atproto.${data.cloudflare_zone.main.name}"
   type    = "TXT"
   content = "did=did:plc:ky336ximtcas2d34kfg3sosh"
   comment = "For Bluesky handle"
@@ -133,7 +133,7 @@ resource "cloudflare_dns_record" "txt_atproto" {
 
 resource "cloudflare_dns_record" "txt_discord_verify" {
   zone_id = var.zone_id
-  name    = "_discord.www.hiroxto.net"
+  name    = "_discord.www.${data.cloudflare_zone.main.name}"
   type    = "TXT"
   content = "dh=f2f8abd2008da9da8d2532f632b4af7f2843f428"
   comment = "For Discord verify"
