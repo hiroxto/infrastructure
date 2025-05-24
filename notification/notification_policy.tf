@@ -12,6 +12,7 @@ resource "cloudflare_notification_policy" "real_origin_monitoring_to_email" {
   alert_type  = "real_origin_monitoring"
   name        = "Passive Origin Monitoring"
   description = "Recieve an email when your origin becomes unreachable"
+  filters     = {}
 
   mechanisms = {
     email = [
@@ -28,9 +29,11 @@ resource "cloudflare_notification_policy" "real_origin_monitoring_to_email" {
 resource "cloudflare_notification_policy" "maintenance_event_notification" {
   account_id = var.cloudflare_account_id
 
-  enabled    = false
-  alert_type = "maintenance_event_notification"
-  name       = "Maintenance event notification"
+  enabled     = false
+  alert_type  = "maintenance_event_notification"
+  name        = "Maintenance event notification"
+  description = "Maintenance event"
+  filters     = {}
 
   mechanisms = {
     webhooks = [
@@ -44,9 +47,11 @@ resource "cloudflare_notification_policy" "maintenance_event_notification" {
 resource "cloudflare_notification_policy" "incident_alert" {
   account_id = var.cloudflare_account_id
 
-  enabled    = false
-  alert_type = "incident_alert"
-  name       = "Incident alert"
+  enabled     = false
+  alert_type  = "incident_alert"
+  name        = "Incident alert"
+  description = "Incident alert"
+  filters     = {}
 
   mechanisms = {
     webhooks = [
@@ -63,9 +68,10 @@ resource "cloudflare_notification_policy" "incident_alert" {
 resource "cloudflare_notification_policy" "pages_event_alert_prod" {
   account_id = var.cloudflare_account_id
 
-  enabled    = true
-  alert_type = "pages_event_alert"
-  name       = "Pages Prod event alert"
+  enabled     = true
+  alert_type  = "pages_event_alert"
+  name        = "Pages Prod event alert"
+  description = "Cloudflare Pages Production event alert"
 
   mechanisms = {
     webhooks = [
@@ -93,9 +99,10 @@ resource "cloudflare_notification_policy" "pages_event_alert_prod" {
 resource "cloudflare_notification_policy" "pages_event_alert_preview" {
   account_id = var.cloudflare_account_id
 
-  enabled    = true
-  alert_type = "pages_event_alert"
-  name       = "Pages Preview event alert"
+  enabled     = true
+  alert_type  = "pages_event_alert"
+  name        = "Pages Preview event alert"
+  description = "Cloudflare Pages Preview event alert"
 
   mechanisms = {
     webhooks = [
@@ -126,9 +133,11 @@ resource "cloudflare_notification_policy" "pages_event_alert_preview" {
 resource "cloudflare_notification_policy" "universal_ssl_event_type" {
   account_id = var.cloudflare_account_id
 
-  enabled    = true
-  alert_type = "universal_ssl_event_type"
-  name       = "Universal ssl event type"
+  enabled     = true
+  alert_type  = "universal_ssl_event_type"
+  name        = "Universal ssl event type"
+  description = "Universal ssl event"
+  filters     = {}
 
   mechanisms = {
     webhooks = [
@@ -145,9 +154,11 @@ resource "cloudflare_notification_policy" "universal_ssl_event_type" {
 resource "cloudflare_notification_policy" "tunnel_health_event" {
   account_id = var.cloudflare_account_id
 
-  enabled    = true
-  alert_type = "tunnel_health_event"
-  name       = "Tunnel health event"
+  enabled     = true
+  alert_type  = "tunnel_health_event"
+  name        = "Tunnel health event"
+  description = "Cloudflare Tunnel health event"
+  filters     = {}
 
   mechanisms = {
     webhooks = [
@@ -161,9 +172,11 @@ resource "cloudflare_notification_policy" "tunnel_health_event" {
 resource "cloudflare_notification_policy" "tunnel_update_event" {
   account_id = var.cloudflare_account_id
 
-  enabled    = true
-  alert_type = "tunnel_update_event"
-  name       = "Tunnel update event"
+  enabled     = true
+  alert_type  = "tunnel_update_event"
+  name        = "Tunnel update event"
+  description = "Cloudflare Tunnel update event"
+  filters     = {}
 
   mechanisms = {
     webhooks = [
@@ -180,9 +193,11 @@ resource "cloudflare_notification_policy" "tunnel_update_event" {
 resource "cloudflare_notification_policy" "web_analytics_metrics_update" {
   account_id = var.cloudflare_account_id
 
-  enabled    = true
-  alert_type = "web_analytics_metrics_update"
-  name       = "Web analytics metrics update"
+  enabled     = true
+  alert_type  = "web_analytics_metrics_update"
+  name        = "Web analytics metrics update"
+  description = "Web analytics metrics update"
+  filters     = {}
 
   mechanisms = {
     webhooks = [
