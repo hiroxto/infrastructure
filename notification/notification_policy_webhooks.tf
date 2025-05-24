@@ -3,6 +3,14 @@ resource "cloudflare_notification_policy_webhooks" "slack" {
   name       = "Cloudflare Notification"
   url        = var.slack_general_webhook_url
   secret     = var.slack_general_webhook_secret
+
+  lifecycle {
+    ignore_changes = [
+      last_failure,
+      last_success,
+      secret
+    ]
+  }
 }
 
 resource "cloudflare_notification_policy_webhooks" "slack_tunnel" {
@@ -10,6 +18,14 @@ resource "cloudflare_notification_policy_webhooks" "slack_tunnel" {
   name       = "Cloudflare Tunnel event"
   url        = var.slack_tunnel_webhook_url
   secret     = var.slack_tunnel_webhook_secret
+
+  lifecycle {
+    ignore_changes = [
+      last_failure,
+      last_success,
+      secret
+    ]
+  }
 }
 
 resource "cloudflare_notification_policy_webhooks" "slack_status" {
@@ -17,6 +33,14 @@ resource "cloudflare_notification_policy_webhooks" "slack_status" {
   name       = "Cloudflare Status"
   url        = var.slack_status_webhook_url
   secret     = var.slack_status_webhook_secret
+
+  lifecycle {
+    ignore_changes = [
+      last_failure,
+      last_success,
+      secret
+    ]
+  }
 }
 
 resource "cloudflare_notification_policy_webhooks" "slack_pages_prod" {
@@ -24,6 +48,14 @@ resource "cloudflare_notification_policy_webhooks" "slack_pages_prod" {
   name       = "Cloudflare Pages Production deployment"
   url        = var.slack_pages_prod_webhook_url
   secret     = var.slack_pages_prod_webhook_secret
+
+  lifecycle {
+    ignore_changes = [
+      last_failure,
+      last_success,
+      secret
+    ]
+  }
 }
 
 resource "cloudflare_notification_policy_webhooks" "slack_pages_preview" {
@@ -31,4 +63,12 @@ resource "cloudflare_notification_policy_webhooks" "slack_pages_preview" {
   name       = "Cloudflare Pages Preview deployment"
   url        = var.slack_pages_preview_webhook_url
   secret     = var.slack_pages_preview_webhook_secret
+
+  lifecycle {
+    ignore_changes = [
+      last_failure,
+      last_success,
+      secret
+    ]
+  }
 }
