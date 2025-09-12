@@ -39,7 +39,7 @@ resource "cloudflare_zero_trust_access_application" "raspi_4b_01_ssh" {
   policies = [
     {
       id         = cloudflare_zero_trust_access_policy.admin.id
-      precedence = 0
+      precedence = 1
     }
   ]
 }
