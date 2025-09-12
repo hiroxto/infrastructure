@@ -34,3 +34,13 @@ variable "app_raspi_4b_01_ssh_domain" {
   type        = string
   description = "Access Application の raspi-4b-01 の SSH 接続のドメイン"
 }
+
+variable "app_fr24_feeder_status_domain" {
+  type        = string
+  description = "Access Application の FR24 Feeder Status のドメイン"
+}
+
+variable "app_piaware_domain" {
+  type        = string
+  description = "Access Application の PiAware のドメイン"
+}

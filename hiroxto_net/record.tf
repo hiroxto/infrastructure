@@ -73,6 +73,25 @@ resource "cloudflare_dns_record" "cname_epgstation" {
   ttl     = 1
 }
 
+resource "cloudflare_dns_record" "cname_fr24_feeder_status_domain" {
+  zone_id = var.zone_id
+  name    = "fr24-feeder-status.${data.cloudflare_zone.main.name}"
+  type    = "CNAME"
+  content = var.cname_fr24_feeder_status_domain
+  proxied = true
+  ttl     = 1
+}
+
+resource "cloudflare_dns_record" "cname_piaware" {
+  zone_id = var.zone_id
+  name    = "piaware.${data.cloudflare_zone.main.name}"
+  type    = "CNAME"
+  content = var.cname_piaware_domain
+  proxied = true
+  ttl     = 1
+}
+
+
 #
 # MX
 #

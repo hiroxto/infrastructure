@@ -14,9 +14,11 @@ module "hiroxto_net" {
   email_bot_forward_to       = cloudflare_email_routing_address.main_gmail.email
 
   # Domain
-  cname_epgstation      = module.zero_trust.tunnel_epgstation_cname
-  cname_eq12_01_ssh     = module.zero_trust.tunnel_eq12_01_cname
-  cname_raspi_4b_01_ssh = module.zero_trust.tunnel_raspi_4b_01_cname
+  cname_epgstation                = module.zero_trust.tunnel_epgstation_cname
+  cname_eq12_01_ssh               = module.zero_trust.tunnel_eq12_01_cname
+  cname_raspi_4b_01_ssh           = module.zero_trust.tunnel_raspi_4b_01_cname
+  cname_fr24_feeder_status_domain = module.zero_trust.tunnel_epgstation_cname
+  cname_piaware_domain            = module.zero_trust.tunnel_epgstation_cname
 }
 
 #
@@ -39,14 +41,16 @@ module "notification" {
 }
 
 module "zero_trust" {
-  source                     = "./zero_trust"
-  cloudflare_account_id      = var.cloudflare_account_id
-  admin_gmail_address        = var.admin_gmail_address
-  idp_google_client_id       = var.idp_google_client_id
-  idp_google_client_secret   = var.idp_google_client_secret
-  app_epgstation_domain      = module.hiroxto_net.cname_epgstation_hostname
-  app_eq12_01_ssh_domain     = module.hiroxto_net.cname_eq12_01_ssh_hostname
-  app_raspi_4b_01_ssh_domain = module.hiroxto_net.cname_raspi_4b_01_ssh_hostname
+  source                        = "./zero_trust"
+  cloudflare_account_id         = var.cloudflare_account_id
+  admin_gmail_address           = var.admin_gmail_address
+  idp_google_client_id          = var.idp_google_client_id
+  idp_google_client_secret      = var.idp_google_client_secret
+  app_epgstation_domain         = module.hiroxto_net.cname_epgstation_hostname
+  app_eq12_01_ssh_domain        = module.hiroxto_net.cname_eq12_01_ssh_hostname
+  app_raspi_4b_01_ssh_domain    = module.hiroxto_net.cname_raspi_4b_01_ssh_hostname
+  app_fr24_feeder_status_domain = module.hiroxto_net.cname_fr24_feeder_status_hostname
+  app_piaware_domain            = module.hiroxto_net.cname_piaware_hostname
 }
 
 #

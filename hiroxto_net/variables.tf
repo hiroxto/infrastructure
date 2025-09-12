@@ -46,3 +46,13 @@ variable "cname_epgstation" {
   type        = string
   description = "epgstation ドメインの CNAME の値"
 }
+
+variable "cname_fr24_feeder_status_domain" {
+  type        = string
+  description = "fr24-feeder-status ドメインの CNAME の値"
+}
+
+variable "cname_piaware_domain" {
+  type        = string
+  description = "PiAware ドメインの CNAME の値"
+}
