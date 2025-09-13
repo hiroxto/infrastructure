@@ -85,14 +85,7 @@ resource "cloudflare_notification_policy" "pages_event_alert_prod" {
     # 本番環境のデプロイのみ受け取る
     environment = ["ENVIRONMENT_PRODUCTION"]
     event       = ["EVENT_DEPLOYMENT_STARTED", "EVENT_DEPLOYMENT_FAILED", "EVENT_DEPLOYMENT_SUCCESS"]
-    # NOTE: cloudflare_pages_project のリソースに ID 属性はあるが name 属性と同じ値が取得できるだけなのでハードコーディング
-    project_id = [
-      "33a852bd-16a6-4d03-9251-2e90223ef8dc", # swarm-checkin-regulation-checker
-      "55e413ae-b964-4671-bb0f-6a88fe146619", # hiroxto-utils-hiroxto-net
-      "c4aafd7f-f4ce-442d-a597-ddea67b8fa46", # hiroxto-net
-      "800314de-8cc8-4092-98c4-96f6928e2547", # hiroxto-train-photo-blog
-      "486a0eda-1ff5-4f70-835e-c14d62735ee1", # fare-ticket-route-planning
-    ]
+    project_id  = var.pages_project_ids
   }
 }
 
@@ -116,14 +109,7 @@ resource "cloudflare_notification_policy" "pages_event_alert_preview" {
     # プレビュー環境のデプロイのみ受け取る
     environment = ["ENVIRONMENT_PREVIEW"]
     event       = ["EVENT_DEPLOYMENT_STARTED", "EVENT_DEPLOYMENT_FAILED", "EVENT_DEPLOYMENT_SUCCESS"]
-    # NOTE: cloudflare_pages_project のリソースに ID 属性はあるが name 属性と同じ値が取得できるだけなのでハードコーディング
-    project_id = [
-      "33a852bd-16a6-4d03-9251-2e90223ef8dc", # swarm-checkin-regulation-checker
-      "55e413ae-b964-4671-bb0f-6a88fe146619", # hiroxto-utils-hiroxto-net
-      "c4aafd7f-f4ce-442d-a597-ddea67b8fa46", # hiroxto-net
-      "800314de-8cc8-4092-98c4-96f6928e2547", # hiroxto-train-photo-blog
-      "486a0eda-1ff5-4f70-835e-c14d62735ee1", # fare-ticket-route-planning
-    ]
+    project_id  = var.pages_project_ids
   }
 }
 

@@ -57,3 +57,8 @@ variable "slack_pages_preview_webhook_secret" {
   type        = string
   description = "プレビュー環境の Cloudflare Pages 関連の Slack 通知の Webhook Secret"
 }
+
+variable "pages_project_ids" {
+  type        = list(string)
+  description = "通知対象のCloudflare PagesのプロジェクトID"
+}

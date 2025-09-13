@@ -14,11 +14,15 @@ module "hiroxto_net" {
   email_bot_forward_to       = cloudflare_email_routing_address.main_gmail.email
 
   # Domain
-  cname_epgstation                = module.zero_trust.tunnel_epgstation_cname
-  cname_eq12_01_ssh               = module.zero_trust.tunnel_eq12_01_cname
-  cname_raspi_4b_01_ssh           = module.zero_trust.tunnel_raspi_4b_01_cname
-  cname_fr24_feeder_status_domain = module.zero_trust.tunnel_epgstation_cname
-  cname_piaware_domain            = module.zero_trust.tunnel_epgstation_cname
+  cname_www                              = data.cloudflare_pages_project.hiroxto_net.subdomain
+  cname_swarm_checkin_regulation_checker = data.cloudflare_pages_project.swarm_checkin_regulation_checker.subdomain
+  cname_train_photo_blog                 = data.cloudflare_pages_project.train_photo_blog.subdomain
+  cname_utils                            = data.cloudflare_pages_project.utils.subdomain
+  cname_epgstation                       = module.zero_trust.tunnel_epgstation_cname
+  cname_eq12_01_ssh                      = module.zero_trust.tunnel_eq12_01_cname
+  cname_raspi_4b_01_ssh                  = module.zero_trust.tunnel_raspi_4b_01_cname
+  cname_fr24_feeder_status_domain        = module.zero_trust.tunnel_epgstation_cname
+  cname_piaware_domain                   = module.zero_trust.tunnel_epgstation_cname
 }
 
 #
@@ -38,6 +42,13 @@ module "notification" {
   slack_pages_prod_webhook_secret    = var.cf_slack_pages_prod_webhook_secret
   slack_pages_preview_webhook_url    = var.cf_slack_pages_preview_webhook_url
   slack_pages_preview_webhook_secret = var.cf_slack_pages_preview_webhook_secret
+  pages_project_ids = [
+    data.cloudflare_pages_project.swarm_checkin_regulation_checker.id,
+    data.cloudflare_pages_project.utils.id,
+    data.cloudflare_pages_project.hiroxto_net.id,
+    data.cloudflare_pages_project.train_photo_blog.id,
+    data.cloudflare_pages_project.fare_ticket_route_planning.id,
+  ]
 }
 
 module "zero_trust" {

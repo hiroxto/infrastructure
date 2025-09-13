@@ -5,7 +5,7 @@ resource "cloudflare_dns_record" "cname_root" {
   zone_id = var.zone_id
   name    = data.cloudflare_zone.main.name
   type    = "CNAME"
-  content = "hiroxto-net.pages.dev"
+  content = var.cname_www
   proxied = true
   ttl     = 1
 }
@@ -14,7 +14,7 @@ resource "cloudflare_dns_record" "cname_www" {
   zone_id = var.zone_id
   name    = "www.${data.cloudflare_zone.main.name}"
   type    = "CNAME"
-  content = "hiroxto-net.pages.dev"
+  content = var.cname_www
   proxied = true
   ttl     = 1
 }
@@ -23,7 +23,7 @@ resource "cloudflare_dns_record" "cname_swarm_checkin_regulation_checker" {
   zone_id = var.zone_id
   name    = "swarm-checkin-regulation-checker.${data.cloudflare_zone.main.name}"
   type    = "CNAME"
-  content = "swarm-checkin-regulation-checker.pages.dev"
+  content = var.cname_swarm_checkin_regulation_checker
   proxied = true
   ttl     = 1
 }
@@ -32,7 +32,7 @@ resource "cloudflare_dns_record" "cname_train_photo_blog" {
   zone_id = var.zone_id
   type    = "CNAME"
   name    = "train-photo-blog.${data.cloudflare_zone.main.name}"
-  content = "hiroxto-train-photo-blog.pages.dev"
+  content = var.cname_train_photo_blog
   proxied = true
   ttl     = 1
 }
@@ -41,7 +41,7 @@ resource "cloudflare_dns_record" "cname_utils" {
   zone_id = var.zone_id
   name    = "utils.${data.cloudflare_zone.main.name}"
   type    = "CNAME"
-  content = "hiroxto-utils-hiroxto-net.pages.dev"
+  content = var.cname_utils
   proxied = true
   ttl     = 1
 }
@@ -90,7 +90,6 @@ resource "cloudflare_dns_record" "cname_piaware" {
   proxied = true
   ttl     = 1
 }
-
 
 #
 # MX
