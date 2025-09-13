@@ -91,7 +91,6 @@ resource "cloudflare_dns_record" "cname_piaware" {
   ttl     = 1
 }
 
-
 #
 # MX
 #
