@@ -21,6 +21,11 @@ data "cloudflare_pages_project" "utils" {
   project_name = "hiroxto-utils-hiroxto-net"
 }
 
+data "cloudflare_pages_project" "fare_ticket_route_planning" {
+  account_id   = var.cloudflare_account_id
+  project_name = "hiroxto-utils-hiroxto-net"
+}
+
 #
 # HCP Terraform
 #

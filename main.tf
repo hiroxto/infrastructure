@@ -42,6 +42,13 @@ module "notification" {
   slack_pages_prod_webhook_secret    = var.cf_slack_pages_prod_webhook_secret
   slack_pages_preview_webhook_url    = var.cf_slack_pages_preview_webhook_url
   slack_pages_preview_webhook_secret = var.cf_slack_pages_preview_webhook_secret
+  pages_project_ids = [
+    data.cloudflare_pages_project.swarm_checkin_regulation_checker.id,
+    data.cloudflare_pages_project.utils.id,
+    data.cloudflare_pages_project.hiroxto_net.id,
+    data.cloudflare_pages_project.train_photo_blog.id,
+    data.cloudflare_pages_project.fare_ticket_route_planning.id,
+  ]
 }
 
 module "zero_trust" {
