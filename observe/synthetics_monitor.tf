@@ -4,7 +4,7 @@ resource "newrelic_synthetics_monitor" "epgstation" {
   period           = "EVERY_12_HOURS"
   uri              = var.epgstation_uri
   type             = "SIMPLE"
-  locations_public = ["AWS_AP_NORTHEAST_1"]
+  locations_public = ["AP_NORTHEAST_1"]
 
   verify_ssl                = true
   treat_redirect_as_failure = true
