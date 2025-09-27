@@ -22,6 +22,7 @@ resource "cloudflare_zero_trust_access_application" "eq12_01_ssh" {
       precedence = 1
     }
   ]
+  session_duration = "8h"
 }
 
 #
@@ -42,6 +43,7 @@ resource "cloudflare_zero_trust_access_application" "raspi_4b_01_ssh" {
       precedence = 1
     }
   ]
+  session_duration = "8h"
 }
 
 #
@@ -73,7 +75,7 @@ resource "cloudflare_zero_trust_access_application" "epgstation" {
     },
   ]
   auto_redirect_to_identity  = false
-  session_duration           = "168h" # 1 weeks
+  session_duration           = "720h" # 30 days
   same_site_cookie_attribute = "lax"
   http_only_cookie_attribute = true
   enable_binding_cookie      = false
@@ -103,7 +105,7 @@ resource "cloudflare_zero_trust_access_application" "fr24_feeder_status" {
     },
   ]
   auto_redirect_to_identity  = false
-  session_duration           = "168h" # 1 weeks
+  session_duration           = "720h" # 30 days
   same_site_cookie_attribute = "lax"
   http_only_cookie_attribute = true
   enable_binding_cookie      = false
@@ -133,7 +135,7 @@ resource "cloudflare_zero_trust_access_application" "piaware" {
     },
   ]
   auto_redirect_to_identity  = false
-  session_duration           = "168h" # 1 weeks
+  session_duration           = "720h" # 30 days
   same_site_cookie_attribute = "lax"
   http_only_cookie_attribute = true
   enable_binding_cookie      = false
