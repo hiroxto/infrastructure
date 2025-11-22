@@ -16,7 +16,7 @@ terraform {
 
     tfe = {
       source  = "hashicorp/tfe"
-      version = "0.68.2"
+      version = "0.71.0"
     }
 
     newrelic = {
