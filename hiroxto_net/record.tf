@@ -94,30 +94,12 @@ resource "cloudflare_dns_record" "cname_piaware" {
 #
 # MX
 #
-resource "cloudflare_dns_record" "mx_1" {
+resource "cloudflare_dns_record" "mx" {
   zone_id  = var.zone_id
   name     = data.cloudflare_zone.main.name
   type     = "MX"
-  content  = "route1.mx.cloudflare.net"
-  priority = 57
-  ttl      = 1
-}
-
-resource "cloudflare_dns_record" "mx_2" {
-  zone_id  = var.zone_id
-  name     = data.cloudflare_zone.main.name
-  type     = "MX"
-  content  = "route2.mx.cloudflare.net"
-  priority = 73
-  ttl      = 1
-}
-
-resource "cloudflare_dns_record" "mx_3" {
-  zone_id  = var.zone_id
-  name     = data.cloudflare_zone.main.name
-  type     = "MX"
-  content  = "route3.mx.cloudflare.net"
-  priority = 29
+  content  = "smtp.google.com"
+  priority = 1
   ttl      = 1
 }
 
