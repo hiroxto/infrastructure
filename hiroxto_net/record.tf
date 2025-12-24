@@ -175,3 +175,12 @@ resource "cloudflare_dns_record" "txt_keybase_verify" {
   comment = "For Keybase verify"
   ttl     = 1
 }
+
+resource "cloudflare_dns_record" "txt_google_workspace" {
+  zone_id = var.zone_id
+  name    = data.cloudflare_zone.main.name
+  type    = "TXT"
+  content = "google-site-verification=uNQKhs5C7kXDOWKOl0qIRRCTmaTpiOwChk4P3_SxSRU"
+  comment = "For Google Workspace"
+  ttl     = 1
+}
