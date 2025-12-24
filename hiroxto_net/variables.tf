@@ -12,24 +12,6 @@ variable "name" {
 }
 
 #
-# Email
-#
-variable "email_catch_all_forward_to" {
-  type        = string
-  description = "Catch all の転送先メールアドレス"
-}
-
-variable "email_me_forward_to" {
-  type        = string
-  description = "me アドレスの転送先メールアドレス"
-}
-
-variable "email_bot_forward_to" {
-  type        = string
-  description = "me アドレスの転送先メールアドレス"
-}
-
-#
 # Domain
 #
 variable "cname_www" {
