@@ -8,11 +8,6 @@ module "hiroxto_net" {
   zone_id = "1c68e572f5d9da0eeb2147cedd370816"
   name    = "hiroxto.net"
 
-  # Email
-  email_catch_all_forward_to = cloudflare_email_routing_address.main_gmail.email
-  email_me_forward_to        = cloudflare_email_routing_address.main_gmail.email
-  email_bot_forward_to       = cloudflare_email_routing_address.main_gmail.email
-
   # Domain
   cname_www                              = data.cloudflare_pages_project.hiroxto_net.subdomain
   cname_swarm_checkin_regulation_checker = data.cloudflare_pages_project.swarm_checkin_regulation_checker.subdomain
