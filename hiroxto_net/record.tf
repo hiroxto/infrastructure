@@ -106,22 +106,6 @@ resource "cloudflare_dns_record" "mx" {
 #
 # TXT
 #
-resource "cloudflare_dns_record" "txt_spf" {
-  zone_id = var.zone_id
-  name    = data.cloudflare_zone.main.name
-  type    = "TXT"
-  content = "v=spf1 include:_spf.mx.cloudflare.net include:_spf.google.com ~all"
-  ttl     = 1
-}
-
-resource "cloudflare_dns_record" "txt_dmarc" {
-  zone_id = var.zone_id
-  name    = "_dmarc.${data.cloudflare_zone.main.name}"
-  type    = "TXT"
-  content = "v=DMARC1;  p=none; rua=mailto:97f14f78b6474427b3c6f73b9464f836@dmarc-reports.cloudflare.net"
-  ttl     = 1
-}
-
 resource "cloudflare_dns_record" "txt_atproto" {
   zone_id = var.zone_id
   name    = "_atproto.${data.cloudflare_zone.main.name}"
