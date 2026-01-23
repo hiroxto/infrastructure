@@ -16,3 +16,11 @@ run = "terraform fmt"
 [tasks.plan]
 description = "Run terraform plan"
 run = "terraform plan"
+
+[tasks.ci]
+description = "Run check and plan"
+run = [
+  { task = "fmt" },
+  { task = "validate" },
+  { task = "plan" },
+]
