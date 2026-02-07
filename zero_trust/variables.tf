@@ -44,3 +44,8 @@ variable "app_piaware_domain" {
   type        = string
   description = "Access Application の PiAware のドメイン"
 }
+
+variable "app_navidrome_domain" {
+  type        = string
+  description = "Access Application の Navidrome のドメイン"
+}

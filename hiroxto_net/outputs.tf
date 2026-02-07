@@ -21,3 +21,7 @@ output "cname_fr24_feeder_status_hostname" {
 output "cname_piaware_hostname" {
   value = cloudflare_dns_record.cname_piaware.name
 }
+
+output "cname_navidrome_hostname" {
+  value = cloudflare_dns_record.cname_navidrome.name
+}

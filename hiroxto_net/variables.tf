@@ -58,3 +58,8 @@ variable "cname_piaware_domain" {
   type        = string
   description = "PiAware ドメインの CNAME の値"
 }
+
+variable "cname_navidrome_domain" {
+  type        = string
+  description = "navidrome ドメインの CNAME の値"
+}
