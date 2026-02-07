@@ -47,6 +47,15 @@ resource "cloudflare_zero_trust_tunnel_cloudflared_config" "eq12_01" {
         }
       },
       {
+        hostname = cloudflare_zero_trust_access_application.navidrome.domain
+        service  = "http://127.0.0.1:8080"
+        origin_request = {
+          connect_timeout = 60
+          tls_timeout     = 60
+          tcp_keep_alive  = 60
+        }
+      },
+      {
         hostname = cloudflare_zero_trust_access_application.eq12_01_ssh.domain
         service  = "ssh://127.0.0.1:9922"
       },
