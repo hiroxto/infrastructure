@@ -91,6 +91,15 @@ resource "cloudflare_dns_record" "cname_piaware" {
   ttl     = 1
 }
 
+resource "cloudflare_dns_record" "cname_navidrome" {
+  zone_id = var.zone_id
+  name    = "piaware.${data.cloudflare_zone.main.name}"
+  type    = "CNAME"
+  content = var.cname_navidrome_domain
+  proxied = true
+  ttl     = 1
+}
+
 #
 # MX
 #

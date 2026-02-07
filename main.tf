@@ -18,6 +18,7 @@ module "hiroxto_net" {
   cname_raspi_4b_01_ssh                  = module.zero_trust.tunnel_raspi_4b_01_cname
   cname_fr24_feeder_status_domain        = module.zero_trust.tunnel_epgstation_cname
   cname_piaware_domain                   = module.zero_trust.tunnel_epgstation_cname
+  cname_navidrome_domain                 = module.zero_trust.tunnel_eq12_01_cname
 }
 
 #
@@ -57,6 +58,7 @@ module "zero_trust" {
   app_raspi_4b_01_ssh_domain    = module.hiroxto_net.cname_raspi_4b_01_ssh_hostname
   app_fr24_feeder_status_domain = module.hiroxto_net.cname_fr24_feeder_status_hostname
   app_piaware_domain            = module.hiroxto_net.cname_piaware_hostname
+  app_navidrome_domain          = module.hiroxto_net.cname_navidrome_hostname
 }
 
 #
