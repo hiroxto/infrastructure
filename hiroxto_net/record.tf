@@ -93,7 +93,7 @@ resource "cloudflare_dns_record" "cname_piaware" {
 
 resource "cloudflare_dns_record" "cname_navidrome" {
   zone_id = var.zone_id
-  name    = "piaware.${data.cloudflare_zone.main.name}"
+  name    = "navidrome.${data.cloudflare_zone.main.name}"
   type    = "CNAME"
   content = var.cname_navidrome_domain
   proxied = true
