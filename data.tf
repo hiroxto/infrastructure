@@ -39,15 +39,3 @@ data "cloudflare_zero_trust_tunnel_cloudflared_token" "raspi_4b_01" {
   account_id = var.cloudflare_account_id
   tunnel_id  = cloudflare_zero_trust_tunnel_cloudflared.raspi_4b_01.id
 }
-
-#
-# HCP Terraform
-#
-data "tfe_organization" "main" {
-  name = "hiroxto"
-}
-
-data "tfe_workspace" "main" {
-  name         = "infrastructure"
-  organization = data.tfe_organization.main.name
-}

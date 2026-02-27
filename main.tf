@@ -1,13 +1,4 @@
 #
-# HCP Terraform (Terraform Cloud)
-#
-module "tf_cloud" {
-  source            = "./tf_cloud"
-  tfe_workspace_id  = data.tfe_workspace.main.id
-  slack_webhook_url = var.tf_cloud_slack_webhook_url
-}
-
-#
 # New Relic
 #
 module "observe" {
