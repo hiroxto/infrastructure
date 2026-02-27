@@ -4,7 +4,7 @@ output "account_id" {
 
 output "hiroxto_net" {
   value = {
-    zone_id = module.hiroxto_net.zone_id
+    zone_id = data.cloudflare_zone.hiroxto_net.zone_id
   }
 }
 

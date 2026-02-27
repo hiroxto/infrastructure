@@ -4,13 +4,13 @@
 resource "cloudflare_zero_trust_access_application" "eq12_01_ssh" {
   account_id           = var.cloudflare_account_id
   name                 = "eq12-01-ssh"
-  domain               = module.hiroxto_net.cname_eq12_01_ssh_hostname
+  domain               = cloudflare_dns_record.cname_eq12_01_ssh.name
   type                 = "ssh"
   app_launcher_visible = false
   destinations = [
     {
       type = "public"
-      uri  = module.hiroxto_net.cname_eq12_01_ssh_hostname
+      uri  = cloudflare_dns_record.cname_eq12_01_ssh.name
     }
   ]
   allowed_idps = [
@@ -31,7 +31,7 @@ resource "cloudflare_zero_trust_access_application" "eq12_01_ssh" {
 resource "cloudflare_zero_trust_access_application" "raspi_4b_01_ssh" {
   account_id           = var.cloudflare_account_id
   name                 = "raspi-4b-01-ssh"
-  domain               = module.hiroxto_net.cname_raspi_4b_01_ssh_hostname
+  domain               = cloudflare_dns_record.cname_raspi_4b_01_ssh.name
   type                 = "ssh"
   app_launcher_visible = false
   allowed_idps = [
@@ -52,13 +52,13 @@ resource "cloudflare_zero_trust_access_application" "raspi_4b_01_ssh" {
 resource "cloudflare_zero_trust_access_application" "epgstation" {
   account_id           = var.cloudflare_account_id
   name                 = "EPGStation"
-  domain               = module.hiroxto_net.cname_epgstation_hostname
+  domain               = cloudflare_dns_record.cname_epgstation.name
   type                 = "self_hosted"
   app_launcher_visible = true
   destinations = [
     {
       type = "public"
-      uri  = module.hiroxto_net.cname_epgstation_hostname
+      uri  = cloudflare_dns_record.cname_epgstation.name
     }
   ]
   allowed_idps = [
@@ -86,13 +86,13 @@ resource "cloudflare_zero_trust_access_application" "epgstation" {
 resource "cloudflare_zero_trust_access_application" "fr24_feeder_status" {
   account_id           = var.cloudflare_account_id
   name                 = "FR24 Feeder Status"
-  domain               = module.hiroxto_net.cname_fr24_feeder_status_hostname
+  domain               = cloudflare_dns_record.cname_fr24_feeder_status_domain.name
   type                 = "self_hosted"
   app_launcher_visible = true
   destinations = [
     {
       type = "public"
-      uri  = module.hiroxto_net.cname_fr24_feeder_status_hostname
+      uri  = cloudflare_dns_record.cname_fr24_feeder_status_domain.name
     }
   ]
   allowed_idps = [
@@ -116,13 +116,13 @@ resource "cloudflare_zero_trust_access_application" "fr24_feeder_status" {
 resource "cloudflare_zero_trust_access_application" "piaware" {
   account_id           = var.cloudflare_account_id
   name                 = "PiAware"
-  domain               = module.hiroxto_net.cname_piaware_hostname
+  domain               = cloudflare_dns_record.cname_piaware.name
   type                 = "self_hosted"
   app_launcher_visible = true
   destinations = [
     {
       type = "public"
-      uri  = module.hiroxto_net.cname_piaware_hostname
+      uri  = cloudflare_dns_record.cname_piaware.name
     }
   ]
   allowed_idps = [
@@ -146,13 +146,13 @@ resource "cloudflare_zero_trust_access_application" "piaware" {
 resource "cloudflare_zero_trust_access_application" "navidrome" {
   account_id           = var.cloudflare_account_id
   name                 = "Navidrome"
-  domain               = module.hiroxto_net.cname_navidrome_hostname
+  domain               = cloudflare_dns_record.cname_navidrome.name
   type                 = "self_hosted"
   app_launcher_visible = true
   destinations = [
     {
       type = "public"
-      uri  = module.hiroxto_net.cname_navidrome_hostname
+      uri  = cloudflare_dns_record.cname_navidrome.name
     }
   ]
   allowed_idps = [
