@@ -1,3 +1,8 @@
+locals {
+  tunnel_eq12_01_cname     = "${cloudflare_zero_trust_tunnel_cloudflared.eq12_01.id}.cfargotunnel.com"
+  tunnel_raspi_4b_01_cname = "${cloudflare_zero_trust_tunnel_cloudflared.raspi_4b_01.id}.cfargotunnel.com"
+}
+
 #
 # eq12-01
 #
