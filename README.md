@@ -15,8 +15,6 @@
   - その他 Terraform で扱えるリソース
 - New Relic
   - 自宅サーバーと Cloudflare 関連のみ
-- Terraform Cloud
-  - このリポジトリ関連のみ
 
 プルリクエスト作成後の plan や，マージ後の apply は自動的に Terraform Cloud で実行される。
 
