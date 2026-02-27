@@ -24,29 +24,6 @@ module "hiroxto_net" {
 #
 # Submodules
 #
-module "notification" {
-  source                             = "./notification"
-  cloudflare_account_id              = var.cloudflare_account_id
-  target_email                       = var.admin_gmail_address
-  slack_general_webhook_url          = var.cf_slack_general_webhook_url
-  slack_general_webhook_secret       = var.cf_slack_general_webhook_secret
-  slack_tunnel_webhook_url           = var.cf_slack_tunnel_webhook_url
-  slack_tunnel_webhook_secret        = var.cf_slack_tunnel_webhook_secret
-  slack_status_webhook_url           = var.cf_slack_status_webhook_url
-  slack_status_webhook_secret        = var.cf_slack_status_webhook_secret
-  slack_pages_prod_webhook_url       = var.cf_slack_pages_prod_webhook_url
-  slack_pages_prod_webhook_secret    = var.cf_slack_pages_prod_webhook_secret
-  slack_pages_preview_webhook_url    = var.cf_slack_pages_preview_webhook_url
-  slack_pages_preview_webhook_secret = var.cf_slack_pages_preview_webhook_secret
-  pages_project_ids = [
-    data.cloudflare_pages_project.swarm_checkin_regulation_checker.canonical_deployment.project_id,
-    data.cloudflare_pages_project.utils.canonical_deployment.project_id,
-    data.cloudflare_pages_project.hiroxto_net.canonical_deployment.project_id,
-    data.cloudflare_pages_project.train_photo_blog.canonical_deployment.project_id,
-    data.cloudflare_pages_project.fare_ticket_route_planning.canonical_deployment.project_id,
-  ]
-}
-
 module "zero_trust" {
   source                        = "./zero_trust"
   cloudflare_account_id         = var.cloudflare_account_id

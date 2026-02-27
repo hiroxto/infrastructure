@@ -164,7 +164,7 @@ resource "cloudflare_dns_record" "txt_google_dkim" {
   zone_id = var.zone_id
   name    = "google._domainkey.${data.cloudflare_zone.main.name}"
   type    = "TXT"
-  content = "\"v=DKIM1; k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAoNWulISIey+8XQCPmT6S/vbOZkrNYITcyqwPhiDC2KSQmW9NZS9FE4BlKelGP7bL5NHbQXJZyNlxdNgjQR2VfrDREj55sg102seAMQ2FZMxD6LejgOWkxtb+TgLo3TBM4hQ4lf6u6pie8pMigZ2vG37tS3awabVOe4IxbUpqPEIKi/bdYlfBesjjcQRhioU/P\" \"P5ZnS3uin3Eq0xVzPPMjTm9PRldYaWVH4e15g/SGbOm8Wvq5p9Gnrd1f31hytNyWSCxljViWEjs4PDHgcgZmoGU4Tuvf2HSey08u8LbnQ+q5AanYt51e9+xXr+W5UCcu3jVqRPGMogAvjl7FnUHuQIDAQAB\""
+  content = "\"v=DKIM1; k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuswZaiK4XRXRFjQtdTJEYQJI9n5kG3/BchMSttfXRDz2uel617MJo2miAvHDOME9l9ewoVa38j7wVkzF7PwsGQVClfgqjFSrtJQF1eU9ZsNBnMU2X43FOTtBzcb0qmpnGCzperUUVPjs5Pnf3/zkdD3patob11SH2m2jJHgtApzLrXTOh0Ftm3Zs3BNb/+M4F\" \"BsTkZQeJtiUmQbFIhbLtXB3pnYWlvuAzdi7LNVaThBhJhH8qi/hDEVxsvrsJ7ymYVRGzL6KuHFDGGlzZ806/NCBy4mmhjTZKt0CCiK3O2XyjtBy+fLF9PtlX10Ml53BI9qg6qQBBBpzHP1tAUdC8wIDAQAB\""
   comment = "For Google Workspace DKIM"
   ttl     = 1
 }
