@@ -9,12 +9,6 @@ variable "cloudflare_account_id" {
   description = "Cloudflare の Account ID"
 }
 
-variable "tfe_token" {
-  type        = string
-  description = "HCP Terraform の Token"
-  sensitive   = true
-}
-
 variable "newrelic_account_id" {
   type        = number
   description = "New Relic の Account ID"
@@ -46,11 +40,6 @@ variable "idp_google_client_secret" {
   type        = string
   description = "IdP で使う Google の Client ID"
   sensitive   = true
-}
-
-variable "tf_cloud_slack_webhook_url" {
-  type        = string
-  description = "Slack の Webhook URL"
 }
 
 variable "cf_slack_general_webhook_url" {
