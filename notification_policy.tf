@@ -2,6 +2,16 @@
 # 利用可能な通知は公式ドキュメントを確認
 # https://developers.cloudflare.com/notifications/notification-available/
 
+locals {
+  pages_project_ids = [
+    data.cloudflare_pages_project.swarm_checkin_regulation_checker.canonical_deployment.project_id,
+    data.cloudflare_pages_project.utils.canonical_deployment.project_id,
+    data.cloudflare_pages_project.hiroxto_net.canonical_deployment.project_id,
+    data.cloudflare_pages_project.train_photo_blog.canonical_deployment.project_id,
+    data.cloudflare_pages_project.fare_ticket_route_planning.canonical_deployment.project_id,
+  ]
+}
+
 #
 # Default
 #
@@ -85,13 +95,7 @@ resource "cloudflare_notification_policy" "pages_event_alert_prod" {
     # 本番環境のデプロイのみ受け取る
     environment = ["ENVIRONMENT_PRODUCTION"]
     event       = ["EVENT_DEPLOYMENT_STARTED", "EVENT_DEPLOYMENT_FAILED", "EVENT_DEPLOYMENT_SUCCESS"]
-    project_id = [
-      data.cloudflare_pages_project.swarm_checkin_regulation_checker.canonical_deployment.project_id,
-      data.cloudflare_pages_project.utils.canonical_deployment.project_id,
-      data.cloudflare_pages_project.hiroxto_net.canonical_deployment.project_id,
-      data.cloudflare_pages_project.train_photo_blog.canonical_deployment.project_id,
-      data.cloudflare_pages_project.fare_ticket_route_planning.canonical_deployment.project_id,
-    ]
+    project_id  = local.pages_project_ids
   }
 }
 
@@ -115,13 +119,7 @@ resource "cloudflare_notification_policy" "pages_event_alert_preview" {
     # プレビュー環境のデプロイのみ受け取る
     environment = ["ENVIRONMENT_PREVIEW"]
     event       = ["EVENT_DEPLOYMENT_STARTED", "EVENT_DEPLOYMENT_FAILED", "EVENT_DEPLOYMENT_SUCCESS"]
-    project_id = [
-      data.cloudflare_pages_project.swarm_checkin_regulation_checker.canonical_deployment.project_id,
-      data.cloudflare_pages_project.utils.canonical_deployment.project_id,
-      data.cloudflare_pages_project.hiroxto_net.canonical_deployment.project_id,
-      data.cloudflare_pages_project.train_photo_blog.canonical_deployment.project_id,
-      data.cloudflare_pages_project.fare_ticket_route_planning.canonical_deployment.project_id,
-    ]
+    project_id  = local.pages_project_ids
   }
 }
 
