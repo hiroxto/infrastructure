@@ -6,8 +6,6 @@ resource "cloudflare_notification_policy_webhooks" "slack" {
 
   lifecycle {
     ignore_changes = [
-      last_failure,
-      last_success,
       secret
     ]
   }
@@ -21,8 +19,6 @@ resource "cloudflare_notification_policy_webhooks" "slack_tunnel" {
 
   lifecycle {
     ignore_changes = [
-      last_failure,
-      last_success,
       secret
     ]
   }
@@ -36,8 +32,6 @@ resource "cloudflare_notification_policy_webhooks" "slack_status" {
 
   lifecycle {
     ignore_changes = [
-      last_failure,
-      last_success,
       secret
     ]
   }
@@ -51,8 +45,6 @@ resource "cloudflare_notification_policy_webhooks" "slack_pages_prod" {
 
   lifecycle {
     ignore_changes = [
-      last_failure,
-      last_success,
       secret
     ]
   }
@@ -66,8 +58,6 @@ resource "cloudflare_notification_policy_webhooks" "slack_pages_preview" {
 
   lifecycle {
     ignore_changes = [
-      last_failure,
-      last_success,
       secret
     ]
   }
