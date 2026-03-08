@@ -11,7 +11,7 @@ run = "terraform validate"
 
 [tasks.fmt]
 description = "Run terraform fmt"
-run = "terraform fmt"
+run = "terraform fmt -recursive"
 
 [tasks.plan]
 description = "Run terraform plan"
