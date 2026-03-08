@@ -1,24 +1,6 @@
 #
 # CNAME
 #
-resource "cloudflare_dns_record" "cname_root" {
-  zone_id = data.cloudflare_zone.hiroxto_net.id
-  name    = data.cloudflare_zone.hiroxto_net.name
-  type    = "CNAME"
-  content = data.cloudflare_pages_project.hiroxto_net.subdomain
-  proxied = true
-  ttl     = 1
-}
-
-resource "cloudflare_dns_record" "cname_www" {
-  zone_id = data.cloudflare_zone.hiroxto_net.id
-  name    = "www.${data.cloudflare_zone.hiroxto_net.name}"
-  type    = "CNAME"
-  content = data.cloudflare_pages_project.hiroxto_net.subdomain
-  proxied = true
-  ttl     = 1
-}
-
 resource "cloudflare_dns_record" "cname_swarm_checkin_regulation_checker" {
   zone_id = data.cloudflare_zone.hiroxto_net.id
   name    = "swarm-checkin-regulation-checker.${data.cloudflare_zone.hiroxto_net.name}"
