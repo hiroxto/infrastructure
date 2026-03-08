@@ -202,3 +202,24 @@ resource "cloudflare_notification_policy" "web_analytics_metrics_update" {
     ]
   }
 }
+
+#
+# DDoS Protection
+#
+resource "cloudflare_notification_policy" "ddos_protection" {
+  account_id = var.cloudflare_account_id
+
+  enabled     = true
+  alert_type  = "dos_attack_l7"
+  name        = "HTTP DDoS Attack Alert"
+  description = "HTTP DDoS Attack Alert"
+  filters     = {}
+
+  mechanisms = {
+    webhooks = [
+      {
+        id = cloudflare_notification_policy_webhooks.slack.id
+      }
+    ]
+  }
+}
