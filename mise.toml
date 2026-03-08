@@ -19,8 +19,4 @@ run = "terraform plan"
 
 [tasks.ci]
 description = "Run check and plan"
-run = [
-  { task = "fmt" },
-  { task = "validate" },
-  { task = "plan" },
-]
+run = [{ task = "fmt" }, { task = "validate" }, { task = "plan" }]
