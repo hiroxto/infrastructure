@@ -11,7 +11,7 @@ run = "terraform validate"
 
 [tasks.fmt]
 description = "Run terraform fmt"
-run = "terraform fmt"
+run = "terraform fmt -recursive"
 
 [tasks.plan]
 description = "Run terraform plan"
@@ -19,8 +19,4 @@ run = "terraform plan"
 
 [tasks.ci]
 description = "Run check and plan"
-run = [
-  { task = "fmt" },
-  { task = "validate" },
-  { task = "plan" },
-]
+run = [{ task = "fmt" }, { task = "validate" }, { task = "plan" }]

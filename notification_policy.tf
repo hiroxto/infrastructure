@@ -202,3 +202,76 @@ resource "cloudflare_notification_policy" "web_analytics_metrics_update" {
     ]
   }
 }
+
+#
+# DDoS Protection
+#
+resource "cloudflare_notification_policy" "dos_attack_l7" {
+  account_id = var.cloudflare_account_id
+
+  enabled     = true
+  alert_type  = "dos_attack_l7"
+  name        = "HTTP DDoS Attack Alert"
+  description = "HTTP DDoS Attack Alert"
+  filters     = {}
+
+  mechanisms = {
+    webhooks = [
+      {
+        id = cloudflare_notification_policy_webhooks.slack.id
+      }
+    ]
+  }
+}
+
+#
+# Security Center
+#
+resource "cloudflare_notification_policy" "security_insights_alert" {
+  account_id = var.cloudflare_account_id
+
+  enabled     = true
+  alert_type  = "security_insights_alert"
+  name        = "Security Insights"
+  description = "Security Insights"
+  filters = {
+    insight_class = [
+      "always_https_not_enabled",
+      "no_challenge_ai_bots",
+      "no_block_ai_bots",
+      "response_size_anomaly_on_endpoint",
+      "increased_error_rate_on_endpoint",
+      "increased_latency_on_endpoint",
+      "sensitive_data_on_endpoint",
+      "update_bots_model",
+      "manage_bot_fight_mode",
+      "casb_unhealthy_integrations",
+    ]
+  }
+
+  mechanisms = {
+    webhooks = [
+      {
+        id = cloudflare_notification_policy_webhooks.slack.id
+      }
+    ]
+  }
+}
+
+resource "cloudflare_notification_policy" "abuse_report_alert" {
+  account_id = var.cloudflare_account_id
+
+  enabled     = true
+  alert_type  = "abuse_report_alert"
+  name        = "Abuse report"
+  description = "Abuse report"
+  filters     = {}
+
+  mechanisms = {
+    webhooks = [
+      {
+        id = cloudflare_notification_policy_webhooks.slack.id
+      }
+    ]
+  }
+}
