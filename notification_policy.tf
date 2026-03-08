@@ -265,7 +265,7 @@ resource "cloudflare_notification_policy" "abuse_report_alert" {
   alert_type  = "abuse_report_alert"
   name        = "Abuse report"
   description = "Abuse report"
-  filters = {}
+  filters     = {}
 
   mechanisms = {
     webhooks = [
