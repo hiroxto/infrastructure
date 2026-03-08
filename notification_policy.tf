@@ -6,7 +6,6 @@ locals {
   pages_project_ids = [
     data.cloudflare_pages_project.swarm_checkin_regulation_checker.canonical_deployment.project_id,
     data.cloudflare_pages_project.utils.canonical_deployment.project_id,
-    data.cloudflare_pages_project.hiroxto_net.canonical_deployment.project_id,
     data.cloudflare_pages_project.train_photo_blog.canonical_deployment.project_id,
     data.cloudflare_pages_project.fare_ticket_route_planning.canonical_deployment.project_id,
   ]
