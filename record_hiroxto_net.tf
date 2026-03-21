@@ -1,29 +1,11 @@
 #
 # CNAME
 #
-resource "cloudflare_dns_record" "cname_swarm_checkin_regulation_checker" {
-  zone_id = data.cloudflare_zone.hiroxto_net.id
-  name    = "swarm-checkin-regulation-checker.${data.cloudflare_zone.hiroxto_net.name}"
-  type    = "CNAME"
-  content = data.cloudflare_pages_project.swarm_checkin_regulation_checker.subdomain
-  proxied = true
-  ttl     = 1
-}
-
 resource "cloudflare_dns_record" "cname_train_photo_blog" {
   zone_id = data.cloudflare_zone.hiroxto_net.id
   type    = "CNAME"
   name    = "train-photo-blog.${data.cloudflare_zone.hiroxto_net.name}"
   content = data.cloudflare_pages_project.train_photo_blog.subdomain
-  proxied = true
-  ttl     = 1
-}
-
-resource "cloudflare_dns_record" "cname_utils" {
-  zone_id = data.cloudflare_zone.hiroxto_net.id
-  name    = "utils.${data.cloudflare_zone.hiroxto_net.name}"
-  type    = "CNAME"
-  content = data.cloudflare_pages_project.utils.subdomain
   proxied = true
   ttl     = 1
 }
