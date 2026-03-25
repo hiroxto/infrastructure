@@ -10,16 +10,19 @@ jobs:
     steps:
       - uses: actions/checkout@v6
 
-      - uses: hashicorp/setup-terraform@v4
-        with:
-          terraform_version: 1.7.x
-          cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+      - uses: jdx/mise-action@v4
 
       - name: Check terraform format
+        env:
+          TF_TOKEN_app_terraform_io: ${{ secrets.TF_API_TOKEN }}
         run: terraform fmt -recursive -check -no-color
 
       - name: Run terraform init
+        env:
+          TF_TOKEN_app_terraform_io: ${{ secrets.TF_API_TOKEN }}
         run: terraform init -upgrade -no-color
 
       - name: Check terraform validate
+        env:
+          TF_TOKEN_app_terraform_io: ${{ secrets.TF_API_TOKEN }}
         run: terraform validate -no-color
