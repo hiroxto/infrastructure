@@ -26,6 +26,14 @@
 
 ## セットアップ
 
+### Terraform をインストール
+
+mise を使用して Terraform をインストールする。
+
+```bash
+mise install
+```
+
 ### Terraform Cloud にログイン
 
 Backend に Terraform Cloud を使っているため，Terraform Cloud へのログインを行う。
