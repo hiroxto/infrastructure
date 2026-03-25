@@ -12,15 +12,15 @@ jobs:
 
       - uses: jdx/mise-action@v4
 
-      - name: Check terraform format
-        env:
-          TF_TOKEN_app_terraform_io: ${{ secrets.TF_API_TOKEN }}
-        run: terraform fmt -recursive -check -no-color
-
       - name: Run terraform init
         env:
           TF_TOKEN_app_terraform_io: ${{ secrets.TF_API_TOKEN }}
         run: terraform init -upgrade -no-color
+
+      - name: Check terraform format
+        env:
+          TF_TOKEN_app_terraform_io: ${{ secrets.TF_API_TOKEN }}
+        run: terraform fmt -recursive -check -no-color
 
       - name: Check terraform validate
         env:
