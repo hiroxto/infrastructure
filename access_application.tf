@@ -69,10 +69,6 @@ resource "cloudflare_zero_trust_access_application" "epgstation" {
       id         = cloudflare_zero_trust_access_policy.admin.id
       precedence = 1
     },
-    {
-      id         = cloudflare_zero_trust_access_policy.new_relic.id
-      precedence = 2
-    },
   ]
   auto_redirect_to_identity  = false
   session_duration           = "720h" # 30 days
