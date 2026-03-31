@@ -137,6 +137,26 @@ resource "newrelic_nrql_alert_condition" "error_logs" {
   }
 }
 
+resource "newrelic_nrql_alert_condition" "slightly_high_cpu" {
+  name      = "Slightly High CPU"
+  policy_id = newrelic_alert_policy.system_alerts.id
+  enabled   = true
+  type      = "static"
+
+  violation_time_limit_seconds = 2592000
+
+  nrql {
+    query = "SELECT average(`host.cpuPercent`) FROM Metric FACET entity.guid, host.hostname"
+  }
+
+  critical {
+    operator              = "above"
+    threshold             = 20
+    threshold_duration    = 300
+    threshold_occurrences = "all"
+  }
+}
+
 resource "newrelic_nrql_alert_condition" "storage_usage" {
   name               = "Disk Usage"
   policy_id          = newrelic_alert_policy.system_alerts.id
