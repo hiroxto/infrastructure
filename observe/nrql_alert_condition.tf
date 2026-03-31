@@ -241,3 +241,59 @@ resource "newrelic_nrql_alert_condition" "storage_usage" {
     threshold_occurrences = "all"
   }
 }
+
+resource "newrelic_nrql_alert_condition" "low_disk_free_space" {
+  name               = "Low Disk Free Space"
+  policy_id          = newrelic_alert_policy.system_alerts.id
+  enabled            = true
+  type               = "static"
+  aggregation_window = 300 # 5min
+  aggregation_method = "event_flow"
+  aggregation_delay  = 0
+
+  nrql {
+    query = "SELECT latest(diskFreePercent) FROM StorageSample WHERE filesystemType NOT IN ('tmpfs', 'devtmpfs', 'squashfs', 'overlay') FACET mountPoint"
+  }
+
+  warning {
+    operator              = "below"
+    threshold             = 20
+    threshold_duration    = 300
+    threshold_occurrences = "all"
+  }
+
+  critical {
+    operator              = "below"
+    threshold             = 10
+    threshold_duration    = 300
+    threshold_occurrences = "all"
+  }
+}
+
+resource "newrelic_nrql_alert_condition" "high_disk_inode_usage" {
+  name               = "High Disk Inode Usage"
+  policy_id          = newrelic_alert_policy.system_alerts.id
+  enabled            = true
+  type               = "static"
+  aggregation_window = 300 # 5min
+  aggregation_method = "event_flow"
+  aggregation_delay  = 0
+
+  nrql {
+    query = "SELECT latest(inodesUsedPercent) FROM StorageSample WHERE hostname = '${data.newrelic_entity.eq12_01.name}' AND filesystemType NOT IN ('tmpfs', 'devtmpfs', 'squashfs', 'overlay') FACET mountPoint"
+  }
+
+  warning {
+    operator              = "above"
+    threshold             = 70
+    threshold_duration    = 300
+    threshold_occurrences = "all"
+  }
+
+  critical {
+    operator              = "above"
+    threshold             = 85
+    threshold_duration    = 300
+    threshold_occurrences = "all"
+  }
+}
