@@ -114,6 +114,33 @@ resource "newrelic_nrql_alert_condition" "epgstation_health_check" {
 #
 # System Alerts
 #
+resource "newrelic_nrql_alert_condition" "host_not_reporting" {
+  name      = "Host not reporting"
+  policy_id = newrelic_alert_policy.system_alerts.id
+  enabled   = true
+  type      = "static"
+
+  aggregation_window           = 60
+  aggregation_method           = "event_flow"
+  aggregation_delay            = 0
+  expiration_duration          = 600
+  violation_time_limit_seconds = 2592000
+
+  close_violations_on_expiration = true
+  open_violation_on_expiration   = true
+
+  nrql {
+    query = "SELECT latest(`host.uptime`) FROM Metric FACET entity.guid, host.hostname"
+  }
+
+  critical {
+    operator              = "below"
+    threshold             = 0
+    threshold_duration    = 300
+    threshold_occurrences = "all"
+  }
+}
+
 resource "newrelic_nrql_alert_condition" "error_logs" {
   name                         = "Error logs"
   description                  = "WARN/ERROR/FATALのログが検出された"
@@ -157,6 +184,36 @@ resource "newrelic_nrql_alert_condition" "slightly_high_cpu" {
   }
 }
 
+resource "newrelic_nrql_alert_condition" "high_memory_usage" {
+  name      = "High Memory Usage"
+  policy_id = newrelic_alert_policy.system_alerts.id
+  enabled   = true
+  type      = "static"
+
+  aggregation_window           = 300
+  aggregation_method           = "event_flow"
+  aggregation_delay            = 0
+  violation_time_limit_seconds = 2592000
+
+  nrql {
+    query = "SELECT latest(`host.memoryUsedPercent`) FROM Metric FACET entity.guid, host.hostname"
+  }
+
+  warning {
+    operator              = "above"
+    threshold             = 80
+    threshold_duration    = 300
+    threshold_occurrences = "all"
+  }
+
+  critical {
+    operator              = "above"
+    threshold             = 90
+    threshold_duration    = 300
+    threshold_occurrences = "all"
+  }
+}
+
 resource "newrelic_nrql_alert_condition" "storage_usage" {
   name               = "Disk Usage"
   policy_id          = newrelic_alert_policy.system_alerts.id
@@ -180,6 +237,62 @@ resource "newrelic_nrql_alert_condition" "storage_usage" {
   critical {
     operator              = "above"
     threshold             = 75
+    threshold_duration    = 300
+    threshold_occurrences = "all"
+  }
+}
+
+resource "newrelic_nrql_alert_condition" "low_disk_free_space" {
+  name               = "Low Disk Free Space"
+  policy_id          = newrelic_alert_policy.system_alerts.id
+  enabled            = true
+  type               = "static"
+  aggregation_window = 300 # 5min
+  aggregation_method = "event_flow"
+  aggregation_delay  = 0
+
+  nrql {
+    query = "SELECT latest(diskFreePercent) FROM StorageSample WHERE filesystemType NOT IN ('tmpfs', 'devtmpfs', 'squashfs', 'overlay') FACET mountPoint"
+  }
+
+  warning {
+    operator              = "below"
+    threshold             = 20
+    threshold_duration    = 300
+    threshold_occurrences = "all"
+  }
+
+  critical {
+    operator              = "below"
+    threshold             = 10
+    threshold_duration    = 300
+    threshold_occurrences = "all"
+  }
+}
+
+resource "newrelic_nrql_alert_condition" "high_disk_inode_usage" {
+  name               = "High Disk Inode Usage"
+  policy_id          = newrelic_alert_policy.system_alerts.id
+  enabled            = true
+  type               = "static"
+  aggregation_window = 300 # 5min
+  aggregation_method = "event_flow"
+  aggregation_delay  = 0
+
+  nrql {
+    query = "SELECT latest(inodesUsedPercent) FROM StorageSample WHERE hostname = '${data.newrelic_entity.eq12_01.name}' AND filesystemType NOT IN ('tmpfs', 'devtmpfs', 'squashfs', 'overlay') FACET mountPoint"
+  }
+
+  warning {
+    operator              = "above"
+    threshold             = 70
+    threshold_duration    = 300
+    threshold_occurrences = "all"
+  }
+
+  critical {
+    operator              = "above"
+    threshold             = 85
     threshold_duration    = 300
     threshold_occurrences = "all"
   }
