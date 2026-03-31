@@ -14,7 +14,7 @@ resource "cloudflare_zero_trust_access_application" "eq12_01_ssh" {
     }
   ]
   allowed_idps = [
-    cloudflare_zero_trust_access_identity_provider.google.id,
+    data.cloudflare_zero_trust_access_identity_provider.google.id,
   ]
   policies = [
     {
@@ -35,7 +35,7 @@ resource "cloudflare_zero_trust_access_application" "raspi_4b_01_ssh" {
   type                 = "ssh"
   app_launcher_visible = false
   allowed_idps = [
-    cloudflare_zero_trust_access_identity_provider.google.id,
+    data.cloudflare_zero_trust_access_identity_provider.google.id,
   ]
   policies = [
     {
@@ -62,7 +62,7 @@ resource "cloudflare_zero_trust_access_application" "epgstation" {
     }
   ]
   allowed_idps = [
-    cloudflare_zero_trust_access_identity_provider.google.id,
+    data.cloudflare_zero_trust_access_identity_provider.google.id,
   ]
   policies = [
     {
@@ -96,7 +96,7 @@ resource "cloudflare_zero_trust_access_application" "fr24_feeder_status" {
     }
   ]
   allowed_idps = [
-    cloudflare_zero_trust_access_identity_provider.google.id,
+    data.cloudflare_zero_trust_access_identity_provider.google.id,
   ]
   policies = [
     {
@@ -126,7 +126,7 @@ resource "cloudflare_zero_trust_access_application" "piaware" {
     }
   ]
   allowed_idps = [
-    cloudflare_zero_trust_access_identity_provider.google.id,
+    data.cloudflare_zero_trust_access_identity_provider.google.id,
   ]
   policies = [
     {
@@ -156,7 +156,7 @@ resource "cloudflare_zero_trust_access_application" "navidrome" {
     }
   ]
   allowed_idps = [
-    cloudflare_zero_trust_access_identity_provider.google.id,
+    data.cloudflare_zero_trust_access_identity_provider.google.id,
   ]
   policies = [
     {
