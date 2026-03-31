@@ -30,6 +30,11 @@ variable "admin_gmail_address" {
   description = "管理者の Gmail アドレス"
 }
 
+variable "admin_gws_address" {
+  type        = string
+  description = "管理者の GWS のアドレス"
+}
+
 variable "idp_google_client_id" {
   type        = string
   description = "IdP で使う Google の Client ID"

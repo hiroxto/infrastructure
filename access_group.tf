@@ -7,6 +7,11 @@ resource "cloudflare_zero_trust_access_group" "admin" {
       email = {
         email = var.admin_gmail_address
       }
+    },
+    {
+      email = {
+        email = var.admin_gws_address
+      }
     }
   ]
 }
