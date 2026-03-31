@@ -114,6 +114,33 @@ resource "newrelic_nrql_alert_condition" "epgstation_health_check" {
 #
 # System Alerts
 #
+resource "newrelic_nrql_alert_condition" "host_not_reporting" {
+  name      = "Host not reporting"
+  policy_id = newrelic_alert_policy.system_alerts.id
+  enabled   = true
+  type      = "static"
+
+  aggregation_window           = 60
+  aggregation_method           = "event_flow"
+  aggregation_delay            = 0
+  expiration_duration          = 600
+  violation_time_limit_seconds = 2592000
+
+  close_violations_on_expiration = true
+  open_violation_on_expiration   = true
+
+  nrql {
+    query = "SELECT latest(`host.uptime`) FROM Metric FACET entity.guid, host.hostname"
+  }
+
+  critical {
+    operator              = "below"
+    threshold             = 0
+    threshold_duration    = 300
+    threshold_occurrences = "all"
+  }
+}
+
 resource "newrelic_nrql_alert_condition" "error_logs" {
   name                         = "Error logs"
   description                  = "WARN/ERROR/FATALのログが検出された"
