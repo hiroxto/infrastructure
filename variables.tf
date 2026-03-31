@@ -35,18 +35,6 @@ variable "admin_gws_address" {
   description = "管理者の GWS のアドレス"
 }
 
-variable "idp_google_client_id" {
-  type        = string
-  description = "IdP で使う Google の Client ID"
-  sensitive   = true
-}
-
-variable "idp_google_client_secret" {
-  type        = string
-  description = "IdP で使う Google の Client ID"
-  sensitive   = true
-}
-
 variable "cf_slack_general_webhook_url" {
   type        = string
   description = "Cloudflare の全般的な Slack 通知の Webhook URL"
