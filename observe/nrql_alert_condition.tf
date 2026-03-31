@@ -184,6 +184,36 @@ resource "newrelic_nrql_alert_condition" "slightly_high_cpu" {
   }
 }
 
+resource "newrelic_nrql_alert_condition" "high_memory_usage" {
+  name      = "High Memory Usage"
+  policy_id = newrelic_alert_policy.system_alerts.id
+  enabled   = true
+  type      = "static"
+
+  aggregation_window           = 300
+  aggregation_method           = "event_flow"
+  aggregation_delay            = 0
+  violation_time_limit_seconds = 2592000
+
+  nrql {
+    query = "SELECT latest(`host.memoryUsedPercent`) FROM Metric FACET entity.guid, host.hostname"
+  }
+
+  warning {
+    operator              = "above"
+    threshold             = 80
+    threshold_duration    = 300
+    threshold_occurrences = "all"
+  }
+
+  critical {
+    operator              = "above"
+    threshold             = 90
+    threshold_duration    = 300
+    threshold_occurrences = "all"
+  }
+}
+
 resource "newrelic_nrql_alert_condition" "storage_usage" {
   name               = "Disk Usage"
   policy_id          = newrelic_alert_policy.system_alerts.id
