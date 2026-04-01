@@ -9,3 +9,15 @@ resource "cloudflare_zero_trust_access_policy" "admin" {
     }
   }]
 }
+
+resource "cloudflare_zero_trust_access_policy" "new_relic" {
+  account_id = var.cloudflare_account_id
+  name       = "Bypass New Relic"
+  decision   = "bypass"
+
+  include = [{
+    service_token = {
+      token_id = cloudflare_zero_trust_access_service_token.new_relic.id
+    }
+  }]
+}
