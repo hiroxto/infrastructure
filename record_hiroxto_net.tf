@@ -88,6 +88,14 @@ resource "cloudflare_dns_record" "txt_atproto" {
   ttl     = 1
 }
 
+resource "cloudflare_dns_record" "txt_discord_verify" {
+  zone_id = data.cloudflare_zone.hiroxto_net.id
+  name    = "_discord.${data.cloudflare_zone.hiroxto_net.name}"
+  type    = "TXT"
+  content = "dh=9b1c2f16cbf35075da4701eeb1d5559925845383"
+  ttl     = 1
+}
+
 resource "cloudflare_dns_record" "txt_google_site_verify" {
   zone_id = data.cloudflare_zone.hiroxto_net.id
   name    = data.cloudflare_zone.hiroxto_net.name
