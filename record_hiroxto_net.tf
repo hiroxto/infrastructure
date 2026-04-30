@@ -96,6 +96,24 @@ resource "cloudflare_dns_record" "txt_discord_verify" {
   ttl     = 1
 }
 
+resource "cloudflare_dns_record" "txt_spf" {
+  zone_id = data.cloudflare_zone.hiroxto_net.id
+  name    = data.cloudflare_zone.hiroxto_net.name
+  type    = "TXT"
+  content = "v=spf1 include:_spf.google.com ~all"
+  comment = "For Google Workspace SPF"
+  ttl     = 1
+}
+
+resource "cloudflare_dns_record" "txt_dmarc" {
+  zone_id = data.cloudflare_zone.hiroxto_net.id
+  name    = "_dmarc.${data.cloudflare_zone.hiroxto_net.name}"
+  type    = "TXT"
+  content = "v=DMARC1; p=none; rua=mailto:dmarc@hiroxto.net"
+  comment = "For DMARC reports"
+  ttl     = 1
+}
+
 resource "cloudflare_dns_record" "txt_google_site_verify" {
   zone_id = data.cloudflare_zone.hiroxto_net.id
   name    = data.cloudflare_zone.hiroxto_net.name
