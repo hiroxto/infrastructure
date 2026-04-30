@@ -109,6 +109,7 @@ resource "cloudflare_dns_record" "txt_dmarc" {
   zone_id = data.cloudflare_zone.hiroxto_net.id
   name    = "_dmarc.${data.cloudflare_zone.hiroxto_net.name}"
   type    = "TXT"
+  # TODO: DMARC レポートを確認しながら、段階的に p=none から p=quarantine、p=reject へ変更する
   content = "v=DMARC1; p=none; rua=mailto:dmarc@hiroxto.net"
   comment = "For DMARC reports"
   ttl     = 1
