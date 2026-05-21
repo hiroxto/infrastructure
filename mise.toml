@@ -1,5 +1,5 @@
 [tools]
-terraform = "1.15.3"
+terraform = "1.15.4"
 
 [tasks.init]
 description = "Run terraform init"
