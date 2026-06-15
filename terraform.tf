@@ -11,7 +11,7 @@ terraform {
   required_providers {
     cloudflare = {
       source  = "cloudflare/cloudflare"
-      version = "5.19.1"
+      version = "5.20.0"
     }
 
     newrelic = {
