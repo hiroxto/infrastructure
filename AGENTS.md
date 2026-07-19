@@ -14,6 +14,11 @@
 `observe/` 配下には New Relic のリソースを配置しています。
 terraform plan と apply は Terraform Cloud で実行されます。
 
+## 関連リポジトリ
+
+- [hiroxto/home-server-infrastructure](https://github.com/hiroxto/home-server-infrastructure): 自宅サーバーで稼働するサービスの Docker Compose 設定と，各サービスで使用する設定ファイルを管理します。
+- [hiroxto/home-server-infrastructure-docker](https://github.com/hiroxto/home-server-infrastructure-docker): `home-server-infrastructure` で使用する Docker イメージの Dockerfile と，GitHub Container Registry へデプロイするための設定を管理します。
+
 ## 開発で使用する主要コマンド
 
 - `mise run init`: 初期化する
