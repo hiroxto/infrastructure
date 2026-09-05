@@ -2,12 +2,6 @@
 # 利用可能な通知は公式ドキュメントを確認
 # https://developers.cloudflare.com/notifications/notification-available/
 
-locals {
-  pages_project_ids = [
-    data.cloudflare_pages_project.train_photo_blog.canonical_deployment.project_id,
-  ]
-}
-
 #
 # Default
 #
@@ -65,57 +59,6 @@ resource "cloudflare_notification_policy" "incident_alert" {
         id = cloudflare_notification_policy_webhooks.slack_status.id
       }
     ]
-  }
-}
-
-#
-# Pages
-#
-resource "cloudflare_notification_policy" "pages_event_alert_prod" {
-  account_id = var.cloudflare_account_id
-
-  enabled     = true
-  alert_type  = "pages_event_alert"
-  name        = "Pages Prod event alert"
-  description = "Cloudflare Pages Production event alert"
-
-  mechanisms = {
-    webhooks = [
-      {
-        id = cloudflare_notification_policy_webhooks.slack_pages_prod.id
-      }
-    ]
-  }
-
-  filters = {
-    # 本番環境のデプロイのみ受け取る
-    environment = ["ENVIRONMENT_PRODUCTION"]
-    event       = ["EVENT_DEPLOYMENT_STARTED", "EVENT_DEPLOYMENT_FAILED", "EVENT_DEPLOYMENT_SUCCESS"]
-    project_id  = local.pages_project_ids
-  }
-}
-
-resource "cloudflare_notification_policy" "pages_event_alert_preview" {
-  account_id = var.cloudflare_account_id
-
-  enabled     = true
-  alert_type  = "pages_event_alert"
-  name        = "Pages Preview event alert"
-  description = "Cloudflare Pages Preview event alert"
-
-  mechanisms = {
-    webhooks = [
-      {
-        id = cloudflare_notification_policy_webhooks.slack_pages_preview.id
-      }
-    ]
-  }
-
-  filters = {
-    # プレビュー環境のデプロイのみ受け取る
-    environment = ["ENVIRONMENT_PREVIEW"]
-    event       = ["EVENT_DEPLOYMENT_STARTED", "EVENT_DEPLOYMENT_FAILED", "EVENT_DEPLOYMENT_SUCCESS"]
-    project_id  = local.pages_project_ids
   }
 }
 

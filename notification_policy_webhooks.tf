@@ -36,29 +36,3 @@ resource "cloudflare_notification_policy_webhooks" "slack_status" {
     ]
   }
 }
-
-resource "cloudflare_notification_policy_webhooks" "slack_pages_prod" {
-  account_id = var.cloudflare_account_id
-  name       = "Cloudflare Pages Production deployment"
-  url        = var.cf_slack_pages_prod_webhook_url
-  secret     = var.cf_slack_pages_prod_webhook_secret
-
-  lifecycle {
-    ignore_changes = [
-      secret
-    ]
-  }
-}
-
-resource "cloudflare_notification_policy_webhooks" "slack_pages_preview" {
-  account_id = var.cloudflare_account_id
-  name       = "Cloudflare Pages Preview deployment"
-  url        = var.cf_slack_pages_preview_webhook_url
-  secret     = var.cf_slack_pages_preview_webhook_secret
-
-  lifecycle {
-    ignore_changes = [
-      secret
-    ]
-  }
-}
