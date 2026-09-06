@@ -1,15 +1,6 @@
 #
 # CNAME
 #
-resource "cloudflare_dns_record" "cname_train_photo_blog" {
-  zone_id = data.cloudflare_zone.hiroxto_net.id
-  type    = "CNAME"
-  name    = "train-photo-blog.${data.cloudflare_zone.hiroxto_net.name}"
-  content = data.cloudflare_pages_project.train_photo_blog.subdomain
-  proxied = true
-  ttl     = 1
-}
-
 resource "cloudflare_dns_record" "cname_eq12_01_ssh" {
   zone_id = data.cloudflare_zone.hiroxto_net.id
   name    = "eq12-01-ssh.${data.cloudflare_zone.hiroxto_net.name}"

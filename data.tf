@@ -5,11 +5,6 @@ data "cloudflare_zone" "hiroxto_net" {
   zone_id = "1c68e572f5d9da0eeb2147cedd370816"
 }
 
-data "cloudflare_pages_project" "train_photo_blog" {
-  account_id   = var.cloudflare_account_id
-  project_name = "hiroxto-train-photo-blog"
-}
-
 data "cloudflare_zero_trust_tunnel_cloudflared_token" "eq12_01" {
   account_id = var.cloudflare_account_id
   tunnel_id  = cloudflare_zero_trust_tunnel_cloudflared.eq12_01.id
