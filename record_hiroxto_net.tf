@@ -10,15 +10,6 @@ resource "cloudflare_dns_record" "cname_eq12_01_ssh" {
   ttl     = 1
 }
 
-resource "cloudflare_dns_record" "cname_raspi_4b_01_ssh" {
-  zone_id = data.cloudflare_zone.hiroxto_net.id
-  name    = "raspi-4b-01-ssh.${data.cloudflare_zone.hiroxto_net.name}"
-  type    = "CNAME"
-  content = local.tunnel_raspi_4b_01_cname
-  proxied = true
-  ttl     = 1
-}
-
 resource "cloudflare_dns_record" "cname_epgstation" {
   zone_id = data.cloudflare_zone.hiroxto_net.id
   name    = "epgstation.${data.cloudflare_zone.hiroxto_net.name}"

@@ -26,27 +26,6 @@ resource "cloudflare_zero_trust_access_application" "eq12_01_ssh" {
 }
 
 #
-# raspi-4b-01
-#
-resource "cloudflare_zero_trust_access_application" "raspi_4b_01_ssh" {
-  account_id           = var.cloudflare_account_id
-  name                 = "raspi-4b-01-ssh"
-  domain               = cloudflare_dns_record.cname_raspi_4b_01_ssh.name
-  type                 = "ssh"
-  app_launcher_visible = false
-  allowed_idps = [
-    data.cloudflare_zero_trust_access_identity_provider.google.id,
-  ]
-  policies = [
-    {
-      id         = cloudflare_zero_trust_access_policy.admin.id
-      precedence = 1
-    }
-  ]
-  session_duration = "8h"
-}
-
-#
 # Web application
 #
 resource "cloudflare_zero_trust_access_application" "epgstation" {
