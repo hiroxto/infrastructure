@@ -118,16 +118,46 @@ resource "cloudflare_zero_trust_access_application" "piaware" {
   options_preflight_bypass   = false
 }
 
-resource "cloudflare_zero_trust_access_application" "navidrome" {
+resource "cloudflare_zero_trust_access_application" "navidrome_media1" {
   account_id           = var.cloudflare_account_id
-  name                 = "Navidrome"
-  domain               = cloudflare_dns_record.cname_navidrome.name
+  name                 = "Navidrome Media1"
+  domain               = cloudflare_dns_record.cname_navidrome_media1.name
   type                 = "self_hosted"
   app_launcher_visible = true
   destinations = [
     {
       type = "public"
-      uri  = cloudflare_dns_record.cname_navidrome.name
+      uri  = cloudflare_dns_record.cname_navidrome_media1.name
+    }
+  ]
+  allowed_idps = [
+    data.cloudflare_zero_trust_access_identity_provider.google.id,
+  ]
+  policies = [
+    {
+      id         = cloudflare_zero_trust_access_policy.admin.id
+      precedence = 1
+    },
+  ]
+  auto_redirect_to_identity  = false
+  session_duration           = "720h" # 30 days
+  same_site_cookie_attribute = "lax"
+  http_only_cookie_attribute = true
+  enable_binding_cookie      = false
+  service_auth_401_redirect  = true
+  options_preflight_bypass   = false
+}
+
+resource "cloudflare_zero_trust_access_application" "navidrome_music" {
+  account_id           = var.cloudflare_account_id
+  name                 = "Navidrome Music"
+  domain               = cloudflare_dns_record.cname_navidrome_music.name
+  type                 = "self_hosted"
+  app_launcher_visible = true
+  destinations = [
+    {
+      type = "public"
+      uri  = cloudflare_dns_record.cname_navidrome_music.name
     }
   ]
   allowed_idps = [

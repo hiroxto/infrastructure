@@ -37,9 +37,18 @@ resource "cloudflare_dns_record" "cname_piaware" {
   ttl     = 1
 }
 
-resource "cloudflare_dns_record" "cname_navidrome" {
+resource "cloudflare_dns_record" "cname_navidrome_media1" {
   zone_id = data.cloudflare_zone.hiroxto_net.id
-  name    = "navidrome.${data.cloudflare_zone.hiroxto_net.name}"
+  name    = "navidrome-media1.${data.cloudflare_zone.hiroxto_net.name}"
+  type    = "CNAME"
+  content = local.tunnel_eq12_01_cname
+  proxied = true
+  ttl     = 1
+}
+
+resource "cloudflare_dns_record" "cname_navidrome_music" {
+  zone_id = data.cloudflare_zone.hiroxto_net.id
+  name    = "navidrome-music.${data.cloudflare_zone.hiroxto_net.name}"
   type    = "CNAME"
   content = local.tunnel_eq12_01_cname
   proxied = true
