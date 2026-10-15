@@ -155,7 +155,7 @@ resource "newrelic_nrql_alert_condition" "slightly_high_cpu" {
   critical {
     operator              = "above"
     threshold             = 20
-    threshold_duration    = 300
+    threshold_duration    = 1200
     threshold_occurrences = "all"
   }
 }
