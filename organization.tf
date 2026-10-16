@@ -8,8 +8,9 @@ resource "cloudflare_zero_trust_organization" "main" {
   deny_unmatched_requests                     = false
   deny_unmatched_requests_exempted_zone_names = []
 
-  lifecycle {
-    # インポートされた無効設定には必須のactionとinactivity_threshold_daysがないため，既存値を保持する。
-    ignore_changes = [service_token_inactivity]
+  service_token_inactivity = {
+    enabled                   = false
+    action                    = "disable"
+    inactivity_threshold_days = 90
   }
 }
