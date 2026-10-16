@@ -3,14 +3,16 @@ set -eu
 
 # hook の入力を読み切り、Stop による継続の繰り返しを防ぐ。
 hook_input=$(cat)
-if [ "${1-}" != "PostToolUse" ] && printf '%s\n' "$hook_input" | jq -e '.stop_hook_active == true' > /dev/null; then
-    printf '%s\n' '{}'
-    exit 0
+cd "$(dirname "$0")/../.."
+if [ "${1-}" != "PostToolUse" ]; then
+    stop_hook_active=$(printf '%s\n' "$hook_input" | mise exec -- jq -r '.stop_hook_active == true')
+    if [ "$stop_hook_active" = "true" ]; then
+        printf '%s\n' '{}'
+        exit 0
+    fi
 fi
 
 # 検査結果は stderr、成功通知は stdout に出力する。
-cd "$(dirname "$0")/../.."
-
 for task in fmt validate; do
     if mise run "$task" -- -no-color < /dev/null >&2; then
         :
