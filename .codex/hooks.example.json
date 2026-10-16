@@ -1,0 +1,29 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "apply_patch",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "sh \"$(git rev-parse --show-toplevel)/.codex/hooks/run-checks.sh\"",
+            "timeout": 120,
+            "statusMessage": "fmt・validateを実行"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "sh \"$(git rev-parse --show-toplevel)/.codex/hooks/run-checks.sh\"",
+            "timeout": 120,
+            "statusMessage": "fmt・validateを実行"
+          }
+        ]
+      }
+    ]
+  }
+}
