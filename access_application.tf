@@ -169,11 +169,12 @@ resource "cloudflare_zero_trust_access_application" "navidrome_music" {
       precedence = 1
     },
   ]
-  auto_redirect_to_identity  = false
-  session_duration           = "720h" # 30 days
-  same_site_cookie_attribute = "lax"
-  http_only_cookie_attribute = true
-  enable_binding_cookie      = false
-  service_auth_401_redirect  = true
-  options_preflight_bypass   = false
+  auto_redirect_to_identity   = false
+  allow_authenticate_via_warp = true
+  session_duration            = "720h" # 30 days
+  same_site_cookie_attribute  = "lax"
+  http_only_cookie_attribute  = true
+  enable_binding_cookie       = false
+  service_auth_401_redirect   = true
+  options_preflight_bypass    = false
 }
