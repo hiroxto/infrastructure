@@ -149,6 +149,9 @@ resource "cloudflare_zero_trust_access_application" "navidrome_media1" {
 }
 
 resource "cloudflare_zero_trust_access_application" "navidrome_music" {
+  # WARPの認証を許可する前に，組織の認証セッションの有効期間を設定する。
+  depends_on = [cloudflare_zero_trust_organization.main]
+
   account_id           = var.cloudflare_account_id
   name                 = "Navidrome Music"
   domain               = cloudflare_dns_record.cname_navidrome_music.name
