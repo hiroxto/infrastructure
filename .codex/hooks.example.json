@@ -6,7 +6,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "sh \"$(git rev-parse --show-toplevel)/.codex/hooks/run-checks.sh\"",
+            "command": "sh \"$(git rev-parse --show-toplevel)/.codex/hooks/run-checks.sh\" PostToolUse",
             "timeout": 120,
             "statusMessage": "fmt・validateを実行"
           }
