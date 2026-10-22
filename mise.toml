@@ -1,6 +1,6 @@
 [tools]
 jq = "1.8.2"
-terraform = "1.16.6"
+terraform = "1.17.0"
 
 [tasks.init]
 description = "Run terraform init"
