@@ -24,3 +24,12 @@ output "tunnel_eq12_01_token" {
   value     = data.cloudflare_zero_trust_tunnel_cloudflared_token.eq12_01
   sensitive = true
 }
+
+output "navidrome_music_headers" {
+  description = "Navidrome Music の Access 認証に使用するカスタムヘッダー"
+  value = {
+    "CF-Access-Client-Id"     = cloudflare_zero_trust_access_service_token.navidrome_music.client_id
+    "CF-Access-Client-Secret" = cloudflare_zero_trust_access_service_token.navidrome_music.client_secret
+  }
+  sensitive = true
+}
