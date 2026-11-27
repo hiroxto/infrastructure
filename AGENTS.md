@@ -9,35 +9,35 @@
 
 ## プロジェクト構成
 
-このプロジェクトでは Terraform で Cloudflare と New Relic の設定を管理します。
-ルート直下にはプロバイダ，変数，出力，Cloudflare 関連のリソースを配置しています。
-`observe/` 配下には New Relic のリソースを配置しています。
-terraform plan と apply は Terraform Cloud で実行されます。
+このプロジェクトでは Terraform で Cloudflare と New Relic の設定を管理する。
+ルート直下にはプロバイダ，変数，出力，Cloudflare 関連のリソースを配置している。
+`observe/` 配下には New Relic のリソースを配置している。
+terraform plan と apply は Terraform Cloud で実行される。
 
 ## 関連リポジトリ
 
-- [hiroxto/home-server-infrastructure](https://github.com/hiroxto/home-server-infrastructure): 自宅サーバーで稼働するサービスの Docker Compose 設定と，各サービスで使用する設定ファイルを管理します。
-- [hiroxto/home-server-infrastructure-docker](https://github.com/hiroxto/home-server-infrastructure-docker): `home-server-infrastructure` で使用する Docker イメージの Dockerfile と，GitHub Container Registry へデプロイするための設定を管理します。
+- [hiroxto/home-server-infrastructure](https://github.com/hiroxto/home-server-infrastructure): 自宅サーバーで稼働するサービスの Docker Compose 設定と，各サービスで使用する設定ファイルを管理する。
+- [hiroxto/home-server-infrastructure-docker](https://github.com/hiroxto/home-server-infrastructure-docker): `home-server-infrastructure` で使用する Docker イメージの Dockerfile と，GitHub Container Registry へデプロイするための設定を管理する。
 
 ## 開発で使用する主要コマンド
 
 - `mise run init`: 初期化する
 - `mise run fmt`: コードを整形する
 - `mise run validate`: 構文と設定を検証する
-- `mise run plan`: plan を実行する。
-- `mise run ci`: fmt, validate, planをまとめて実行する
+- `mise run plan`: plan を実行する
+- `mise run ci`: fmt, validate, plan をまとめて実行する
 
 ## コード変更後の確認内容
 
 Terraform のコード変更後は少なくとも `mise run fmt` と `mise run validate` を実行する。
 リソース差分が発生する変更では `mise run plan` を実行し，想定通りの差分になっていることを確認する。
-`mise run plan` の結果は Terraform Cloud で実行される前提で扱い，ローカル apply は行わない。
+`mise run plan` の結果は Terraform Cloud で apply が実行される前提で扱い，ローカルでの apply は行わない。
 
 ## コミットとプルリクエスト
 
-- 1 つのコミットでは 1 つの意図に絞る
+- 1 つのコミットでは 1 つの意図に絞る。
 - コミットメッセージのプレフィックスには `feat:`，`fix:`，`delete:`，`docs:`，`ci:` のような短い Conventional Commits 形式を使用する。
-- コミットメッセージは何を変更するかを日本語で簡潔に書く
+- コミットメッセージは何を変更するかを日本語で簡潔に書く。
 - コミット前に差分を確認し，実際の変更内容に沿ったメッセージにする。
 - PR 作成時は `.github/pull_request_template.md` の構成に従い，テンプレートの見出しを維持して本文を埋める。
 - Terraform に影響しない変更ではその旨を記載し，Terraform 用の確認コマンドを実行済みとして書かない。
