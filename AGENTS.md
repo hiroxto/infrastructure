@@ -32,14 +32,3 @@ terraform plan と apply は Terraform Cloud で実行される。
 Terraform のコード変更後は少なくとも `mise run fmt` と `mise run validate` を実行する。
 リソース差分が発生する変更では `mise run plan` を実行し，想定通りの差分になっていることを確認する。
 `mise run plan` の結果は Terraform Cloud で apply が実行される前提で扱い，ローカルでの apply は行わない。
-
-## コミットとプルリクエスト
-
-- 1 つのコミットでは 1 つの意図に絞る。
-- コミットメッセージのプレフィックスには `feat:`，`fix:`，`delete:`，`docs:`，`ci:` のような短い Conventional Commits 形式を使用する。
-- コミットメッセージは何を変更するかを日本語で簡潔に書く。
-- コミット前に差分を確認し，実際の変更内容に沿ったメッセージにする。
-- PR 作成時は `.github/pull_request_template.md` の構成に従い，テンプレートの見出しを維持して本文を埋める。
-- Terraform に影響しない変更ではその旨を記載し，Terraform 用の確認コマンドを実行済みとして書かない。
-- 削除・再作成やシークレット更新の有無を差分や plan から確認できない場合は，なしと断定せず未確認または不明として記載する。
-- 削除・再作成が起きるリソースやシークレット更新が必要な場合は明記する。
